@@ -1,0 +1,472 @@
+---
+title: "Relational Data in R"
+output: 
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+    df_print: default
+runtime: shiny_prerendered
+description: >
+  Learn about the basics of summarising your data and merging different data sets together
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+```{r, echo = FALSE}
+library(tidyverse)
+library(randomNames)
+```
+
+```{r, echo = FALSE}
+set.seed(1)
+
+Village_data <-
+  data.frame(
+    village_id = 1:5,
+    village_name = c("Springfield","Langley Falls", "New New York", "Pawnee", "Balamory"),
+    region_name = c("A","A","A","B", "B"),
+    population = sample(10000:500000,5)
+  )
+
+Farmer_data <- 
+  data.frame(
+    farmer_id = 1:20,
+
+village_id = sample(1:5,20, replace = TRUE),
+    name = randomNames(20, which.names = "first")
+  )
+
+Plot_data <- 
+  data.frame(
+    plot_id = 1:50,
+    farmer_id = sample(c(1:12,14:20),50, replace = TRUE),
+    size = sample(seq(from = 0.5, to = 5,by=0.2), 50, replace = TRUE),
+    fertiliser_1 = sample(1:4, 50, replace = TRUE)
+  )
+
+for(i in 1:50){
+Plot_data$fertiliser_2[i] <- case_when(
+  Plot_data$fertiliser_1[i] == 1 ~ 1,
+  Plot_data$fertiliser_1[i] == 2 ~ sample(c(1,3,4),1),
+  Plot_data$fertiliser_1[i] == 3 ~ sample(c(1,2,4),1),
+  Plot_data$fertiliser_1[i] == 4 ~ sample(c(1,3,2),1)
+)
+}
+
+Plot_data2 <- 
+  data.frame(
+    plot_id = 1:50,
+    yield_kg_ha = sample(seq(from = 0, to = 500, by = 20), 50, replace = TRUE)
+  )
+
+Fertiliser_data <- 
+  data.frame(
+    fertiliser_id = 1:4,
+    name = c("None", "Compost", "Manure", "Chemical"),
+    price_per_ha = c(0,12,8,25)
+  )
+```
+
+## Overview
+
+## Data
+
+For this workbook we will be using four relational data tables, each storing data regarding different units of analysis. However each and everyone can be linked across this hierarchy.
+
+At the top level we have some data about the Villages in our study
+
+```{r, echo = FALSE}
+Village_data%>%knitr::kable()
+```
+
+Below this we have information on a number of farmers in who took part in our study
+
+```{r, echo = FALSE}
+Farmer_data%>%knitr::kable()
+```
+
+Further down still, we have our plot level data
+
+```{r, echo = FALSE}
+Plot_data%>%knitr::kable()
+```
+
+Lastly, we have some further information on fertilizers. 
+
+```{r, echo = FALSE}
+Fertiliser_data%>%knitr::kable()
+```
+
+
+## Aggregating data
+
+With any data analysis, at some point you are going to have to summarise your data in some way. Sometimes you may need to even do this prior to analysis as part of your data cleaning process. such as for the generation of new variables.This is certainly to be true if you are handling relational data.
+
+More often than not, you will need to do this summary by some sort of dis/aggregation variable.
+
+In order to do that in R, you first need to know how to group your data.
+
+### Group_by
+
+Grouping data in R with dplyr is very simple.
+
+You use the `group_by` function to create implicit groupings within your data.
+
+Lets first look at grouping our Plot data by the famrmers who tend them.
+
+We simply provide the name of the variable we want to use to define our groups.
+
+```{r}
+Plot_data <- Plot_data%>%
+  group_by(farmer_id)
+
+Plot_data
+```
+
+Looking at the data, it will look like nothing has changed. This is because the groups are implicit, it is in essence now part of the metadata of the data. But R will recognise that this grouping exists within the dataset and perform operations accordingly.
+
+Indeed if we take a look at the structure of our data using `str`, we will see that rather than our data being a data.frame (the standard data format in R), it is now a grouped_df. From this we can see that we have created 19 groupings in our data and we can see for each group which rows belong to it.
+
+So our first group (farmer 1) has 3 rows in the data, and they are rows 6,10 and 38.
+
+```{r}
+str(Plot_data)
+```
+
+If for any reason you want to then get rid of this grouping, perhaps at a later point you want to summarise across your whole data and not groups, or by a differnt grouping variable entirely.
+
+Then we can just add in `ungroup` and our data will be ungrouped.
+
+```{r, echo = FALSE}
+Plot_data <- Plot_data%>%
+  ungroup()
+```
+
+Later in this workbook we will also see how we can group by more than one variable.
+
+### Summarise / grouped mutates
+
+Now that we know how to group our variables, let's look at how we can start aggregating our data.
+
+The simplest way to start creating data summaries is to use the `summarise` function from the dplyr package.
+
+This will generate summary statistics that you define for each of the groups in your data, or for your whole dataset if your data is not grouped.
+
+Grammatically, it works in a similar way to the `mutate` function, we first provide a new name for our summary statistic. In this case we have decided to calculate the total area of all of the farmers plots.
+
+On the other side of the equals sign, we right the calculation/function that we want to make.
+
+As we want a total, we use the funciton `sum` to sum up all the area sizes. Note that we have added the argument `na.rm = TRUE` this makes sure that any missing values are removed from the calculation. If this is not included and there is missing data, then our result would just read `NA` and not give an actual number.
+
+```{r}
+Sum1 <- Plot_data%>%
+  group_by(farmer_id)%>%
+  summarise(total_area = sum(size, na.rm = TRUE))
+
+Sum1
+```
+
+When using summarise, the number of rows returned will be equal to the number of groups in your data. So we had 19 groups, so 19 rows. If our data was not grouped then we would have had only 1 row returned. Also when summarising data, the resulting data will only contain the variables used to group your data and the summary variables you have created. We drop all other variables.
+
+Our resulting data has moved data from the plot level and summarised it up to the farmer level.
+
+Just like `mutate` we can start creating many different summary variables by serpating the calculations with a comma.
+
+In this example, we have additionally created summaries for the average size of a farmer's plots, the standard deviation of plot size and finally we have used `n()` to generate a variable counting how many rows are in each group. Or in other words, how many plots each farmer has. Note that we have NA values for sd as a this has happened where the farmer has only 1 plot, therefore a standard deviation cannot be calculated.
+
+```{r}
+Sum2 <- Plot_data%>%
+  group_by(farmer_id)%>%
+  summarise(total_area = sum(size, na.rm = TRUE),
+            avg_area = mean(size, na.rm = TRUE),
+            sd = sd(size, na.rm = TRUE),
+            nplots = n())
+```
+
+```{r, echo = FALSE}
+Sum2%>%knitr::kable()
+```
+
+
+You can also use mutate to generate these same variables, while keeping your data set at the plot level.
+
+We keep everything within the function the exact same.
+
+All we do is swap `summarise` for `mutate`
+
+We have added in an `arrange` to sort the data now on the farmer_id rather than plot_id, just to make this demonstration a little clearer.
+
+Note that we have kept all of our plot specific data and we still have 50 rows. But now we also have variables for total_area, avg_area, sd and nplots. The results of which are the same as what was calculated by summarise, but instead we see these results replicated for each row within a group. 
+
+```{r}
+Sum3 <- Plot_data%>%
+  group_by(farmer_id)%>%
+  mutate(total_area = sum(size, na.rm = TRUE),
+            avg_area = mean(size, na.rm = TRUE),
+            sd = sd(size, na.rm = TRUE),
+            nplots = n())%>%
+  arrange(farmer_id)
+```
+
+```{r, echo = FALSE}
+Sum3%>%head(10)%>%knitr::kable()
+```
+
+
+This could be useful for creating a new variable that is at one level, but is also dependent on a variable from a level higher up. For example, by keeping our data at plot level we could generate a new variable that is the proportion of the total area that each plot represents across each farmer.
+
+```{r}
+Sum3 <- Sum3%>%
+  mutate(plot_area_prop = size/total_area)
+```
+
+```{r,echo = FALSE}
+Sum3%>%head(10)%>%knitr::kable()
+```
+
+## Binding data
+
+In the live session we introduced two types of data merging. Binding and joining. First let's look at binding this involves combining data tables which are very similar, they will not contain related information from different levels but generally additional data that is for the same set of observations or additional observations for the same set of variables.
+
+The two data tables would therefore have a very similar structure. We are not trying to match data from two seprate tables but rather add to an exisitng table.
+
+There are two ways that we can do this. By rows or by columns.
+
+### Row binding
+
+Row binding would be used when you have two or more datasets containing the same variables, the difference is that they contain seperate sets of observations. For example, you could have data collected in one location and data collected in another but this data has been stored apart. They contain the same variables as the data collection tool was identical but different observations. You can bind these datasets together by their rows.
+
+Let's pretend that our farmer data was originally stored into different data sets and now we want to combine them together
+
+```{r, echo = FALSE}
+Farmer_dataA <- Farmer_data[1:12,]
+Farmer_dataB <- Farmer_data[13:20,]
+```
+
+```{r}
+Farmer_dataA
+```
+
+First we have farmers 1 through 12
+
+```{r}
+Farmer_dataB
+```
+
+Then farmers 13 through 20.
+
+It is thankfully very simple to bind these two datasets as we have the same number of columns in our data,  and they have the same names.
+
+We can use the base r function `rbind` to simply achieve this binding. All we need to do is add the names of the data sets we want to bind.
+
+```{r}
+rbind(Farmer_dataA, Farmer_dataB)
+```
+
+Now with rbind there is a litlte issue that occurs if there are variables in one dataset that aren't in the other. Let's add an age variable to our first dataset but not the second and see what happens when we try to merge them
+
+```{r,echo = FALSE}
+Farmer_dataA$Age <- sample(18:65, 12)
+```
+
+```{r, echo = FALSE}
+Farmer_dataA
+```
+
+```{r, exercise = TRUE, error = TRUE}
+rbind(Farmer_dataA, Farmer_dataB)
+```
+We get an error instead. This is because `rbind` requires that there are exactly the same number of columns in both data sets.
+
+To get around this issue, there is the `bind_rows` function from dyplr. This matches the columns by their names (so make sure those are the same in both datasets still), and if there are any column not present in both datasets, it will just fill this with NA in the data set where it is not present.
+
+```{r}
+bind_rows(Farmer_dataA, Farmer_dataB)
+```
+
+### Column binding
+
+Column binding on the other hand would be utilised when we have the same set of observations, but the variables are different. Perhaps we have taken additional measurements at a later point and want to bring this together with the original data.
+
+For example, let's look to our plot data and bring in data on the yield of the crops grown on each plot. Data we have collected at a later point. 
+
+```{r}
+Plot_data2
+```
+
+For column binding, as you may expect the base r function is `cbind` and the dplyr alternative is `bind_cols`. Unlike with row binding, there is not really any difference between how the functions operate.
+
+Both require the same number of rows in order to operate. These should also be in the same order, if they are not you could use `arrange` first to make sure that they are.
+
+```{r}
+cbind(Plot_data, Plot_data2)
+```
+
+```{r}
+bind_cols(Plot_data, Plot_data2)
+```
+
+Now you will notice that because both datasets contained `plot_id`, our resulting data table has two id columns unhelpfully names "plot_id...1" and "plot_id...6". This is because column binding will not merge information from columns that have the same name, rather they will just change the names.
+
+Therefore, if we were to use column binding it would be a good idea to drop the plot_id from one dataset and then perform the bind. 
+
+We can use `select` and then put a `-` before the name of the variable to remove it from the data
+
+```{r}
+Plot_data3 <- Plot_data2%>%
+  select(-plot_id)
+```
+
+Now when we bind the data sets. We keep plot_id as normal
+
+```{r}
+Plot_data <- bind_cols(Plot_data, Plot_data3)
+
+Plot_data
+```
+
+This binding may have been more smoothly achieved if we had actually done a join instead as we shall see later in the workbook.
+
+## Full join
+
+Joining entails the more traditional form of data merging, we are bringing together data from multiple related data tables and these data tables do not contain the same levels of information.
+
+Recall from the session that a full join will keep the rows from both data sets, regardless of whether or not there is a match.
+
+Let's again look at merging our two pieces of plot data but rather than having yield data for all of our plots, we have it for 40 out of 50 of them.
+
+```{r, echo = FALSE}
+set.seed(2)
+
+Plot_data2 <- Plot_data2[-sample(1:50,10),]
+```
+
+```{r}
+Plot_data2
+```
+
+From the dyplr package we would want to use the `full_join` function. 
+
+We first specify the two datasets we want to merge. 
+
+Then we use the `by = ` argument to tell R what variables are we using to merge this data. In this case we want to use the primary key of these two data sets, plot_id. Remember that a primary key is the key that uniquely identifies each row in your data. With our plot level data sets, each row is uniquely identified by that plot identification number.
+
+```{r, echo = FALSE}
+Plot_data <- select(Plot_data, - yield_kg_ha)
+```
+
+```{r}
+full_join(Plot_data, Plot_data2, by = "plot_id")
+```
+
+We can see how this was quicker and simpler than trying to achieve the same result with column binding.
+
+Note that as both pieces of data are at the plot level, we had a  1 to 1 relationship between the data sets. For every plot in table 1 there will be no more than 1 plot in table 2.
+
+Now notice that there are some NA values for yield. This is because there was not a match between the two data sets. We did not have yield for plots 6, 8, etc. But because we used a full join, these rows are kept and not excluded. All data remains intact and we still have 50 rows. 
+
+If we had an extra plot in our Plot_data2, that was not in our original plot. Then this plot would have also been kept in the data.
+
+```{r, echo = FALSE}
+Plot_data2[41,] <- list(51, 320)
+```
+
+See we now have added a 51st plot with a yield of 320kg/ha
+
+```{r}
+Plot_data2[41,]
+```
+When joining this data now, plot 51 is kept in the data, but we would have all this misisng data including farmer_id. Not always particularly helpful.
+
+```{r}
+Plot_data4 <- full_join(Plot_data, Plot_data2, by = "plot_id")
+
+Plot_data4[51,]
+```
+I have tended to find full join most useful when using it in a similar fashion to r bind, where i have similar datasets that have many of the same variables but additional observations and perhaps even additional variables for exising observations.
+
+For instance, let's have another look at merging two instances of our farmer data. But make a slight adjustment so some of the rows are shared but there is again another variable, household size.
+
+```{r, echo = FALSE}
+set.seed(3)
+
+Farmer_dataC <- Farmer_data[1:12,]
+Farmer_dataD <- Farmer_data[9:20,]
+
+Farmer_dataD[13,] <- list(21, 2, "Sam")
+Farmer_dataD[14,] <- list(22, 5, "Dave")
+
+Farmer_dataD$hhsize <- sample(1:10,14, replace = T)
+```
+
+```{r}
+Farmer_dataC
+```
+
+```{r}
+Farmer_dataD
+```
+
+So in our second data set we have 2 additional farmers Sam and Dave, and then also additional household suze information for farmers 9 to 12.
+
+So let's join these together and see what happens
+
+```{r}
+full_join(Farmer_dataC, Farmer_dataD, by = "farmer_id")
+```
+
+Now we have 22 rows as we would expect, one for each farmer. But something has gone wrong with our village and name variables. This is because we only told R to match on farmer_id. While this logically makes sense, it means that R will think that other column with the same name are not identical, when in our case they are. As a result we get columns like name.x and name.y.
+
+In order to avoid this we also need to include any common columns between our two data sets by listing them.
+
+```{r}
+full_join(Farmer_dataC, Farmer_dataD, by = c("farmer_id", "village_id", "name"))
+```
+
+This seems to solve the problem and we have kept information from both data tables even where we were missing household size information.
+
+If our variables were called something different then we can control for this as well. For example, say in our previous example, in the second dataset plot_id was instead called plot_name. Then we could have written this instead. with the column name in the first data set on the left, and the other column name on the right.
+
+```{r, eval = FALSE}
+full_join(Plot_data, Plot_data2, by = c("plot_id" = "plot_name"))
+```
+
+## Left/right join
+
+A left or right join will keep all rows from whichever is deemed to be the primary dataset. With regards to the function,for a left join this means it will keep everything from the data set written to the left. A right join will keep all rows from the dataset to the right.
+
+This is regardless of whether or not there is a match.
+
+So if we were to join the two sets of plot data that we had on the previous page. We could use a left join to stop us from adding in that 51st plot for which we have very little data.
+
+```{r}
+left_join(Plot_data, Plot_data2, by = "plot_id")
+```
+
+We have kept all 50 rows from the first set of plot data, including those without any yield data in the second set. All while removing that 51st plot from our data.
+
+If we were to instead keep the arguments the same but change this to a right join we would see 41 rows. The 40 plots for which we have yield information and also the other variables. Plus the other plot for which we only have yield data. Therefore removing the 10 plots where we have that original information but not yield.
+
+```{r}
+right_join(Plot_data, Plot_data2, by = "plot_id")
+```
+
+## Inner join
+
+An inner join trims this down further still and will only keep the rows where there is a corresponding match between each data set.
+
+So in our plot example we would drop both the plots which have no yield data, and the 51st plot for which we have no other information.
+
+```{r}
+inner_join(Plot_data, Plot_data2, by = "plot_id")
+```
+
+As a result we have 40 rows. Because we had 40 plots were information was available from both datasets.
+
+## Brining it all together
+
+Finally, let's end by bring these concepts together. First by merging data down a level, and then an ambitious example of bringing data up right down from the bottom level (fertilisers) right up to the top (villages)
+
+## External links and resouces
