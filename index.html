@@ -118,6 +118,30 @@ $(document).ready(function () {
 
 <div id="section-overview" class="section level2">
 <h2>Overview</h2>
+<p>In the live sessions we discussed relational data, what it is and how can we link together its components.</p>
+<p>Relational data is a collection of data sets that can all be linked together through various relationships. These relationships are defined by keys.</p>
+<ul>
+<li>Primary keys uniquely identify each row of a given data set.</li>
+<li>Foreign keys are variables in a dataset which identify a particular unit, these will not be unique to each row of that table. Instead they can be used to link to other tables. This includes a table where that variable will be its Primary key.</li>
+</ul>
+<p>Because of these relationships we are able to easily merge data from different tables together. These relationships will take one of three forms.</p>
+<ul>
+<li><p>1-1 relationships. Each row in table A can only link to one row in table B. They are using the same primary key</p></li>
+<li><p>1-Many relationships. Each row in table A may link to one or more rows in table B, but each row in table B can only link to one in table A. This is where foreign keys will come into play. Such as linking individual farmers in one table to all of their plots in another. They can have more than one plot in table B but only one entry in table A.</p></li>
+<li><p>Many-Many relationships. A bit more technical, but this is where each row in table A can link to multiple rows in table B, but likewise each row in table B can link to multiple rows in table A. For example, each plot can contain many plants, and many plant species can be grown on many plots.</p></li>
+</ul>
+<p>From these relationships, we also have many different types of merging</p>
+<ul>
+<li>Column binding. This sticks together two data tables that have the same number of rows, basically appending additional variables to the same set of observations.</li>
+<li>Row binding, this is appending additional rows/observations onto an existing data set. These must have at least mutual column names or the same columns exactly.</li>
+</ul>
+<p>Joins are for merging information generally about different units. Such as appending information about farmers onto the data about their plots. Therefore matching between the keys drives this method.</p>
+<ul>
+<li>Full joins will keep all rows from both data sets, even where rows that could not be matched.</li>
+<li>Left/Right joins will keep all rows from one of the two datasets, depending on which direction is specified in the join.Any rows from the secondary dataset that are not matched will be dropped from the output.</li>
+<li>Inner joins will keep only those rows from where a match was found.</li>
+</ul>
+<p>In this workbook, we will look through first how to group and summarise your data before takingan extensive look at how we can start merging some of our data together.</p>
 </div>
 <div id="section-data" class="section level2">
 <h2>Data</h2>
@@ -683,9 +707,9 @@ $(document).ready(function () {
 <h3>Group_by</h3>
 <p>Grouping data in R with dplyr is very simple.</p>
 <p>You use the <code>group_by</code> function to create implicit groupings within your data.</p>
-<p>Lets first look at grouping our Plot data by the famrmers who tend them.</p>
+<p>Lets first look at grouping our Plot data by the farmers who tend them.</p>
 <p>We simply provide the name of the variable we want to use to define our groups.</p>
-<pre class="r"><code>Plot_data &lt;- Plot_data%&gt;%
+<pre class="r"><code>Plot_data &lt;- Plot_data %&gt;%
   group_by(farmer_id)
 
 Plot_data</code></pre>
@@ -738,7 +762,7 @@ Plot_data</code></pre>
 ##   .. ..$ : int [1:5] 7 22 32 34 45
 ##   .. ..@ ptype: int(0) 
 ##   ..- attr(*, &quot;.drop&quot;)= logi TRUE</code></pre>
-<p>If for any reason you want to then get rid of this grouping, perhaps at a later point you want to summarise across your whole data and not groups, or by a differnt grouping variable entirely.</p>
+<p>If for any reason you want to then get rid of this grouping, perhaps at a later point you want to summarise across your whole data and not groups, or by a different grouping variable entirely.</p>
 <p>Then we can just add in <code>ungroup</code> and our data will be ungrouped.</p>
 <p>Later in this workbook we will also see how we can group by more than one variable.</p>
 </div>
@@ -749,9 +773,9 @@ Plot_data</code></pre>
 <p>This will generate summary statistics that you define for each of the groups in your data, or for your whole dataset if your data is not grouped.</p>
 <p>Grammatically, it works in a similar way to the <code>mutate</code> function, we first provide a new name for our summary statistic. In this case we have decided to calculate the total area of all of the farmers plots.</p>
 <p>On the other side of the equals sign, we right the calculation/function that we want to make.</p>
-<p>As we want a total, we use the funciton <code>sum</code> to sum up all the area sizes. Note that we have added the argument <code>na.rm = TRUE</code> this makes sure that any missing values are removed from the calculation. If this is not included and there is missing data, then our result would just read <code>NA</code> and not give an actual number.</p>
-<pre class="r"><code>Sum1 &lt;- Plot_data%&gt;%
-  group_by(farmer_id)%&gt;%
+<p>As we want a total, we use the function <code>sum</code> to sum up all the area sizes. Note that we have added the argument <code>na.rm = TRUE</code> this makes sure that any missing values are removed from the calculation. If this is not included and there is missing data, then our result would just read <code>NA</code> and not give an actual number.</p>
+<pre class="r"><code>Sum1 &lt;- Plot_data %&gt;%
+  group_by(farmer_id) %&gt;%
   summarise(total_area = sum(size, na.rm = TRUE))
 
 Sum1</code></pre>
@@ -779,10 +803,10 @@ Sum1</code></pre>
 ## 19        20       12.9</code></pre>
 <p>When using summarise, the number of rows returned will be equal to the number of groups in your data. So we had 19 groups, so 19 rows. If our data was not grouped then we would have had only 1 row returned. Also when summarising data, the resulting data will only contain the variables used to group your data and the summary variables you have created. We drop all other variables.</p>
 <p>Our resulting data has moved data from the plot level and summarised it up to the farmer level.</p>
-<p>Just like <code>mutate</code> we can start creating many different summary variables by serpating the calculations with a comma.</p>
+<p>Just like <code>mutate</code> we can start creating many different summary variables by sedating the calculations with a comma.</p>
 <p>In this example, we have additionally created summaries for the average size of a farmer’s plots, the standard deviation of plot size and finally we have used <code>n()</code> to generate a variable counting how many rows are in each group. Or in other words, how many plots each farmer has. Note that we have NA values for sd as a this has happened where the farmer has only 1 plot, therefore a standard deviation cannot be calculated.</p>
-<pre class="r"><code>Sum2 &lt;- Plot_data%&gt;%
-  group_by(farmer_id)%&gt;%
+<pre class="r"><code>Sum2 &lt;- Plot_data %&gt;%
+  group_by(farmer_id) %&gt;%
   summarise(total_area = sum(size, na.rm = TRUE),
             avg_area = mean(size, na.rm = TRUE),
             sd = sd(size, na.rm = TRUE),
@@ -933,17 +957,18 @@ Sum1</code></pre>
 </tr>
 </tbody>
 </table>
+<p>There are a number of other summarise functions that can be used to apply the same function to multiple columns rather than go through one by one. For more on this, please follow this <a href="https://dplyr.tidyverse.org/reference/summarise_all.html">link</a></p>
 <p>You can also use mutate to generate these same variables, while keeping your data set at the plot level.</p>
 <p>We keep everything within the function the exact same.</p>
 <p>All we do is swap <code>summarise</code> for <code>mutate</code></p>
 <p>We have added in an <code>arrange</code> to sort the data now on the farmer_id rather than plot_id, just to make this demonstration a little clearer.</p>
 <p>Note that we have kept all of our plot specific data and we still have 50 rows. But now we also have variables for total_area, avg_area, sd and nplots. The results of which are the same as what was calculated by summarise, but instead we see these results replicated for each row within a group.</p>
-<pre class="r"><code>Sum3 &lt;- Plot_data%&gt;%
-  group_by(farmer_id)%&gt;%
+<pre class="r"><code>Sum3 &lt;- Plot_data %&gt;%
+  group_by(farmer_id) %&gt;%
   mutate(total_area = sum(size, na.rm = TRUE),
             avg_area = mean(size, na.rm = TRUE),
             sd = sd(size, na.rm = TRUE),
-            nplots = n())%&gt;%
+            nplots = n()) %&gt;%
   arrange(farmer_id)</code></pre>
 <table>
 <thead>
@@ -1073,7 +1098,7 @@ Sum1</code></pre>
 </tbody>
 </table>
 <p>This could be useful for creating a new variable that is at one level, but is also dependent on a variable from a level higher up. For example, by keeping our data at plot level we could generate a new variable that is the proportion of the total area that each plot represents across each farmer.</p>
-<pre class="r"><code>Sum3 &lt;- Sum3%&gt;%
+<pre class="r"><code>Sum3 &lt;- Sum3 %&gt;%
   mutate(plot_area_prop = size/total_area)</code></pre>
 <table style="width:100%;">
 <colgroup>
@@ -1230,11 +1255,11 @@ Sum1</code></pre>
 <div id="section-binding-data" class="section level2">
 <h2>Binding data</h2>
 <p>In the live session we introduced two types of data merging. Binding and joining. First let’s look at binding this involves combining data tables which are very similar, they will not contain related information from different levels but generally additional data that is for the same set of observations or additional observations for the same set of variables.</p>
-<p>The two data tables would therefore have a very similar structure. We are not trying to match data from two seprate tables but rather add to an exisitng table.</p>
+<p>The two data tables would therefore have a very similar structure. We are not trying to match data from two separate tables but rather add to an existing table.</p>
 <p>There are two ways that we can do this. By rows or by columns.</p>
 <div id="section-row-binding" class="section level3">
 <h3>Row binding</h3>
-<p>Row binding would be used when you have two or more datasets containing the same variables, the difference is that they contain seperate sets of observations. For example, you could have data collected in one location and data collected in another but this data has been stored apart. They contain the same variables as the data collection tool was identical but different observations. You can bind these datasets together by their rows.</p>
+<p>Row binding would be used when you have two or more datasets containing the same variables, the difference is that they contain separate sets of observations. For example, you could have data collected in one location and data collected in another but this data has been stored apart. They contain the same variables as the data collection tool was identical but different observations. You can bind these datasets together by their rows.</p>
 <p>Let’s pretend that our farmer data was originally stored into different data sets and now we want to combine them together</p>
 <pre class="r"><code>Farmer_dataA</code></pre>
 <pre><code>##    farmer_id village_id    name
@@ -1286,7 +1311,7 @@ Sum1</code></pre>
 ## 18        18          4   Suhaib
 ## 19        19          1   Daniel
 ## 20        20          4     Sara</code></pre>
-<p>Now with rbind there is a litlte issue that occurs if there are variables in one dataset that aren’t in the other. Let’s add an age variable to our first dataset but not the second and see what happens when we try to merge them</p>
+<p>Now with rbind there is a little issue that occurs if there are variables in one dataset that aren’t in the other. Let’s add an age variable to our first dataset but not the second and see what happens when we try to merge them</p>
 <pre><code>##    farmer_id village_id    name Age
 ## 1          1          3  Saadiq  45
 ## 2          2          3 Jelicha  63
@@ -1329,20 +1354,832 @@ Sum1</code></pre>
 </div>
 <div id="section-column-binding" class="section level3">
 <h3>Column binding</h3>
+<p>Column binding on the other hand would be utilised when we have the same set of observations, but the variables are different. Perhaps we have taken additional measurements at a later point and want to bring this together with the original data.</p>
+<p>For example, let’s look to our plot data and bring in data on the yield of the crops grown on each plot. Data we have collected at a later point.</p>
+<pre class="r"><code>Plot_data2</code></pre>
+<pre><code>##    plot_id yield_kg_ha
+## 1        1          20
+## 2        2         400
+## 3        3           0
+## 4        4         320
+## 5        5         240
+## 6        6         400
+## 7        7         240
+## 8        8         500
+## 9        9         140
+## 10      10          20
+## 11      11         160
+## 12      12         480
+## 13      13         140
+## 14      14         460
+## 15      15         480
+## 16      16         380
+## 17      17         260
+## 18      18         500
+## 19      19         380
+## 20      20          80
+## 21      21         180
+## 22      22         220
+## 23      23         380
+## 24      24         440
+## 25      25         460
+## 26      26         280
+## 27      27          20
+## 28      28           0
+## 29      29          80
+## 30      30         500
+## 31      31         480
+## 32      32          80
+## 33      33         140
+## 34      34         240
+## 35      35         480
+## 36      36          60
+## 37      37         180
+## 38      38         100
+## 39      39         340
+## 40      40          80
+## 41      41         380
+## 42      42           0
+## 43      43         100
+## 44      44         260
+## 45      45         240
+## 46      46         140
+## 47      47         320
+## 48      48         360
+## 49      49         300
+## 50      50         280</code></pre>
+<p>For column binding, as you may expect the base r function is <code>cbind</code> and the dplyr alternative is <code>bind_cols</code>. Unlike with row binding, there is not really any difference between how the functions operate.</p>
+<p>Both require the same number of rows in order to operate. These should also be in the same order, if they are not you could use <code>arrange</code> first to make sure that they are.</p>
+<pre class="r"><code>cbind(Plot_data, Plot_data2)</code></pre>
+<pre><code>##    plot_id farmer_id size fertiliser_1 fertiliser_2 plot_id yield_kg_ha
+## 1        1        10  3.1            4            2       1          20
+## 2        2        17  4.1            2            1       2         400
+## 3        3        12  2.9            2            3       3           0
+## 4        4         7  2.5            4            3       4         320
+## 5        5         8  3.5            2            1       5         240
+## 6        6         1  1.9            4            1       6         400
+## 7        7        20  2.1            1            1       7         240
+## 8        8         3  3.9            1            1       8         500
+## 9        9        11  2.3            4            2       9         140
+## 10      10         1  3.3            4            3      10          20
+## 11      11        15  4.3            3            1      11         160
+## 12      12         6  1.3            4            2      12         480
+## 13      13         9  1.3            4            3      13         140
+## 14      14         5  1.7            1            1      14         460
+## 15      15        15  1.3            2            1      15         480
+## 16      16        18  2.7            4            1      16         380
+## 17      17         3  3.1            1            1      17         260
+## 18      18         3  1.5            1            1      18         500
+## 19      19         7  4.3            3            1      19         380
+## 20      20        15  3.5            1            1      20          80
+## 21      21         3  3.3            3            1      21         180
+## 22      22        20  0.7            1            1      22         220
+## 23      23        12  0.5            2            3      23         380
+## 24      24        18  0.9            2            1      24         440
+## 25      25         9  2.1            2            3      25         460
+## 26      26        19  1.5            4            2      26         280
+## 27      27        18  3.7            3            1      27          20
+## 28      28        19  4.3            1            1      28           0
+## 29      29        16  1.3            3            1      29          80
+## 30      30         7  2.1            1            1      30         500
+## 31      31        16  2.7            1            1      31         480
+## 32      32        20  4.5            1            1      32          80
+## 33      33        17  1.9            3            4      33         140
+## 34      34        20  1.1            1            1      34         240
+## 35      35         4  3.7            3            2      35         480
+## 36      36         2  2.1            2            1      36          60
+## 37      37        17  4.5            1            1      37         180
+## 38      38         1  0.5            4            2      38         100
+## 39      39        12  4.5            4            1      39         340
+## 40      40         7  4.3            3            4      40          80
+## 41      41         9  2.3            3            4      41         380
+## 42      42        14  3.1            4            2      42           0
+## 43      43         2  2.3            4            1      43         100
+## 44      44         2  4.5            2            4      44         260
+## 45      45        20  4.5            4            1      45         240
+## 46      46        18  4.7            1            1      46         140
+## 47      47         2  1.5            3            2      47         320
+## 48      48        11  3.9            2            4      48         360
+## 49      49         3  3.5            4            3      49         300
+## 50      50         3  0.7            4            3      50         280</code></pre>
+<pre class="r"><code>bind_cols(Plot_data, Plot_data2)</code></pre>
+<pre><code>## # A tibble: 50 x 7
+##    plot_id...1 farmer_id  size fertiliser_1 fertiliser_2 plot_id...6 yield_kg_ha
+##          &lt;int&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;int&gt;       &lt;dbl&gt;
+##  1           1        10   3.1            4            2           1          20
+##  2           2        17   4.1            2            1           2         400
+##  3           3        12   2.9            2            3           3           0
+##  4           4         7   2.5            4            3           4         320
+##  5           5         8   3.5            2            1           5         240
+##  6           6         1   1.9            4            1           6         400
+##  7           7        20   2.1            1            1           7         240
+##  8           8         3   3.9            1            1           8         500
+##  9           9        11   2.3            4            2           9         140
+## 10          10         1   3.3            4            3          10          20
+## # ... with 40 more rows</code></pre>
+<p>Now you will notice that because both datasets contained <code>plot_id</code>, our resulting data table has two id columns unhelpfully names “plot_id…1” and “plot_id…6”. This is because column binding will not merge information from columns that have the same name, rather they will just change the names.</p>
+<p>Therefore, if we were to use column binding it would be a good idea to drop the plot_id from one dataset and then perform the bind.</p>
+<p>We can use <code>select</code> and then put a <code>-</code> before the name of the variable to remove it from the data</p>
+<pre class="r"><code>Plot_data3 &lt;- Plot_data2 %&gt;%
+  select(-plot_id)</code></pre>
+<p>Now when we bind the data sets. We keep plot_id as normal</p>
+<pre class="r"><code>Plot_data &lt;- bind_cols(Plot_data, Plot_data3)
+
+Plot_data</code></pre>
+<pre><code>## # A tibble: 50 x 6
+##    plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
+##      &lt;int&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+##  1       1        10   3.1            4            2          20
+##  2       2        17   4.1            2            1         400
+##  3       3        12   2.9            2            3           0
+##  4       4         7   2.5            4            3         320
+##  5       5         8   3.5            2            1         240
+##  6       6         1   1.9            4            1         400
+##  7       7        20   2.1            1            1         240
+##  8       8         3   3.9            1            1         500
+##  9       9        11   2.3            4            2         140
+## 10      10         1   3.3            4            3          20
+## # ... with 40 more rows</code></pre>
+<p>This binding may have been more smoothly achieved if we had actually done a join instead as we shall see later in the workbook.</p>
 </div>
 </div>
 <div id="section-full-join" class="section level2">
 <h2>Full join</h2>
+<p>Joining entails the more traditional form of data merging, we are bringing together data from multiple related data tables and these data tables do not contain the same levels of information.</p>
+<p>Recall from the session that a full join will keep the rows from both data sets, regardless of whether or not there is a match.</p>
+<p>Let’s again look at merging our two pieces of plot data but rather than having yield data for all of our plots, we have it for 40 out of 50 of them.</p>
+<pre class="r"><code>Plot_data2</code></pre>
+<pre><code>##    plot_id yield_kg_ha
+## 1        1          20
+## 2        2         400
+## 3        3           0
+## 4        4         320
+## 5        5         240
+## 7        7         240
+## 9        9         140
+## 10      10          20
+## 11      11         160
+## 13      13         140
+## 14      14         460
+## 16      16         380
+## 18      18         500
+## 19      19         380
+## 20      20          80
+## 22      22         220
+## 23      23         380
+## 24      24         440
+## 25      25         460
+## 26      26         280
+## 27      27          20
+## 28      28           0
+## 30      30         500
+## 31      31         480
+## 33      33         140
+## 34      34         240
+## 35      35         480
+## 36      36          60
+## 37      37         180
+## 38      38         100
+## 39      39         340
+## 40      40          80
+## 41      41         380
+## 42      42           0
+## 43      43         100
+## 45      45         240
+## 46      46         140
+## 47      47         320
+## 49      49         300
+## 50      50         280</code></pre>
+<p>From the dyplr package we would want to use the <code>full_join</code> function.</p>
+<p>We first specify the two datasets we want to merge.</p>
+<p>Then we use the <code>by =</code> argument to tell R what variables are we using to merge this data. In this case we want to use the primary key of these two data sets, plot_id. Remember that a primary key is the key that uniquely identifies each row in your data. With our plot level data sets, each row is uniquely identified by that plot identification number.</p>
+<pre class="r"><code>full_join(Plot_data, Plot_data2, by = &quot;plot_id&quot;)</code></pre>
+<pre><code>## # A tibble: 50 x 6
+##    plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
+##      &lt;int&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+##  1       1        10   3.1            4            2          20
+##  2       2        17   4.1            2            1         400
+##  3       3        12   2.9            2            3           0
+##  4       4         7   2.5            4            3         320
+##  5       5         8   3.5            2            1         240
+##  6       6         1   1.9            4            1          NA
+##  7       7        20   2.1            1            1         240
+##  8       8         3   3.9            1            1          NA
+##  9       9        11   2.3            4            2         140
+## 10      10         1   3.3            4            3          20
+## # ... with 40 more rows</code></pre>
+<p>We can see how this was quicker and simpler than trying to achieve the same result with column binding.</p>
+<p>Note that as both pieces of data are at the plot level, we had a 1 to 1 relationship between the data sets. For every plot in table 1 there will be no more than 1 plot in table 2.</p>
+<p>Now notice that there are some NA values for yield. This is because there was not a match between the two data sets. We did not have yield for plots 6, 8, etc. But because we used a full join, these rows are kept and not excluded. All data remains intact and we still have 50 rows.</p>
+<p>If we had an extra plot in our Plot_data2, that was not in our original plot. Then this plot would have also been kept in the data.</p>
+<p>See we now have added a 51st plot with a yield of 320kg/ha</p>
+<pre class="r"><code>Plot_data2[41,]</code></pre>
+<pre><code>##      plot_id yield_kg_ha
+## 41.1      51         320</code></pre>
+<p>When joining this data now, plot 51 is kept in the data, but we would have all this missing data including farmer_id. Not always particularly helpful.</p>
+<pre class="r"><code>Plot_data4 &lt;- full_join(Plot_data, Plot_data2, by = &quot;plot_id&quot;)
+
+Plot_data4[51,]</code></pre>
+<pre><code>## # A tibble: 1 x 6
+##   plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
+##     &lt;dbl&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+## 1      51        NA    NA           NA           NA         320</code></pre>
+<p>I have tended to find full join most useful when using it in a similar fashion to r bind, where i have similar datasets that have many of the same variables but additional observations and perhaps even additional variables for existing observations.</p>
+<p>For instance, let’s have another look at merging two instances of our farmer data. But make a slight adjustment so some of the rows are shared but there is again another variable, household size.</p>
+<pre class="r"><code>Farmer_dataC</code></pre>
+<pre><code>##    farmer_id village_id    name
+## 1          1          3  Saadiq
+## 2          2          3 Jelicha
+## 3          3          1  Briana
+## 4          4          5   Daeun
+## 5          5          5 Ruwaida
+## 6          6          2   Fawzi
+## 7          7          2  Yashna
+## 8          8          1    Tara
+## 9          9          5  Melina
+## 10        10          5 Jeelaan
+## 11        11          1 Razeena
+## 12        12          1   Sidqi</code></pre>
+<pre class="r"><code>Farmer_dataD</code></pre>
+<pre><code>##      farmer_id village_id     name hhsize
+## 9            9          5   Melina      5
+## 10          10          5  Jeelaan     10
+## 11          11          1  Razeena      7
+## 12          12          1    Sidqi      4
+## 13          13          5     Eric     10
+## 14          14          5    Ryann      8
+## 15          15          2 Kingsley      8
+## 16          16          2    Rifqa      4
+## 17          17          1   Denise     10
+## 18          18          4   Suhaib      7
+## 19          19          1   Daniel      8
+## 20          20          4     Sara      8
+## 13.1        21          2      Sam      8
+## 14.1        22          5     Dave      5</code></pre>
+<p>So in our second data set we have 2 additional farmers Sam and Dave, and then also additional household size information for farmers 9 to 12.</p>
+<p>So let’s join these together and see what happens</p>
+<pre class="r"><code>full_join(Farmer_dataC, Farmer_dataD, by = &quot;farmer_id&quot;)</code></pre>
+<pre><code>##    farmer_id village_id.x  name.x village_id.y   name.y hhsize
+## 1          1            3  Saadiq           NA     &lt;NA&gt;     NA
+## 2          2            3 Jelicha           NA     &lt;NA&gt;     NA
+## 3          3            1  Briana           NA     &lt;NA&gt;     NA
+## 4          4            5   Daeun           NA     &lt;NA&gt;     NA
+## 5          5            5 Ruwaida           NA     &lt;NA&gt;     NA
+## 6          6            2   Fawzi           NA     &lt;NA&gt;     NA
+## 7          7            2  Yashna           NA     &lt;NA&gt;     NA
+## 8          8            1    Tara           NA     &lt;NA&gt;     NA
+## 9          9            5  Melina            5   Melina      5
+## 10        10            5 Jeelaan            5  Jeelaan     10
+## 11        11            1 Razeena            1  Razeena      7
+## 12        12            1   Sidqi            1    Sidqi      4
+## 13        13           NA    &lt;NA&gt;            5     Eric     10
+## 14        14           NA    &lt;NA&gt;            5    Ryann      8
+## 15        15           NA    &lt;NA&gt;            2 Kingsley      8
+## 16        16           NA    &lt;NA&gt;            2    Rifqa      4
+## 17        17           NA    &lt;NA&gt;            1   Denise     10
+## 18        18           NA    &lt;NA&gt;            4   Suhaib      7
+## 19        19           NA    &lt;NA&gt;            1   Daniel      8
+## 20        20           NA    &lt;NA&gt;            4     Sara      8
+## 21        21           NA    &lt;NA&gt;            2      Sam      8
+## 22        22           NA    &lt;NA&gt;            5     Dave      5</code></pre>
+<p>Now we have 22 rows as we would expect, one for each farmer. But something has gone wrong with our village and name variables. This is because we only told R to match on farmer_id. While this logically makes sense, it means that R will think that other column with the same name are not identical, when in our case they are. As a result we get columns like name.x and name.y.</p>
+<p>In order to avoid this we also need to include any common columns between our two data sets by listing them.</p>
+<pre class="r"><code>full_join(Farmer_dataC, Farmer_dataD, by = c(&quot;farmer_id&quot;, &quot;village_id&quot;, &quot;name&quot;))</code></pre>
+<pre><code>##    farmer_id village_id     name hhsize
+## 1          1          3   Saadiq     NA
+## 2          2          3  Jelicha     NA
+## 3          3          1   Briana     NA
+## 4          4          5    Daeun     NA
+## 5          5          5  Ruwaida     NA
+## 6          6          2    Fawzi     NA
+## 7          7          2   Yashna     NA
+## 8          8          1     Tara     NA
+## 9          9          5   Melina      5
+## 10        10          5  Jeelaan     10
+## 11        11          1  Razeena      7
+## 12        12          1    Sidqi      4
+## 13        13          5     Eric     10
+## 14        14          5    Ryann      8
+## 15        15          2 Kingsley      8
+## 16        16          2    Rifqa      4
+## 17        17          1   Denise     10
+## 18        18          4   Suhaib      7
+## 19        19          1   Daniel      8
+## 20        20          4     Sara      8
+## 21        21          2      Sam      8
+## 22        22          5     Dave      5</code></pre>
+<p>This seems to solve the problem and we have kept information from both data tables even where we were missing household size information.</p>
+<p>If our variables were called something different then we can control for this as well. For example, say in our previous example, in the second dataset plot_id was instead called plot_name. Then we could have written this instead. with the column name in the first data set on the left, and the other column name on the right.</p>
+<pre class="r"><code>full_join(Plot_data, Plot_data2, by = c(&quot;plot_id&quot; = &quot;plot_name&quot;))</code></pre>
 </div>
-<div id="section-left-join" class="section level2">
-<h2>Left join</h2>
+<div id="section-leftright-join" class="section level2">
+<h2>Left/right join</h2>
+<p>A left or right join will keep all rows from whichever is deemed to be the primary dataset. With regards to the function,for a left join this means it will keep everything from the data set written to the left. A right join will keep all rows from the dataset to the right.</p>
+<p>This is regardless of whether or not there is a match.</p>
+<p>So if we were to join the two sets of plot data that we had on the previous page. We could use a left join to stop us from adding in that 51st plot for which we have very little data.</p>
+<pre class="r"><code>left_join(Plot_data, Plot_data2, by = &quot;plot_id&quot;)</code></pre>
+<pre><code>## # A tibble: 50 x 6
+##    plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
+##      &lt;dbl&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+##  1       1        10   3.1            4            2          20
+##  2       2        17   4.1            2            1         400
+##  3       3        12   2.9            2            3           0
+##  4       4         7   2.5            4            3         320
+##  5       5         8   3.5            2            1         240
+##  6       6         1   1.9            4            1          NA
+##  7       7        20   2.1            1            1         240
+##  8       8         3   3.9            1            1          NA
+##  9       9        11   2.3            4            2         140
+## 10      10         1   3.3            4            3          20
+## # ... with 40 more rows</code></pre>
+<p>We have kept all 50 rows from the first set of plot data, including those without any yield data in the second set. All while removing that 51st plot from our data.</p>
+<p>If we were to instead keep the arguments the same but change this to a right join we would see 41 rows. The 40 plots for which we have yield information and also the other variables. Plus the other plot for which we only have yield data. Therefore removing the 10 plots where we have that original information but not yield.</p>
+<pre class="r"><code>right_join(Plot_data, Plot_data2, by = &quot;plot_id&quot;)</code></pre>
+<pre><code>## # A tibble: 41 x 6
+##    plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
+##      &lt;dbl&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+##  1       1        10   3.1            4            2          20
+##  2       2        17   4.1            2            1         400
+##  3       3        12   2.9            2            3           0
+##  4       4         7   2.5            4            3         320
+##  5       5         8   3.5            2            1         240
+##  6       7        20   2.1            1            1         240
+##  7       9        11   2.3            4            2         140
+##  8      10         1   3.3            4            3          20
+##  9      11        15   4.3            3            1         160
+## 10      13         9   1.3            4            3         140
+## # ... with 31 more rows</code></pre>
 </div>
 <div id="section-inner-join" class="section level2">
 <h2>Inner join</h2>
+<p>An inner join trims this down further still and will only keep the rows where there is a corresponding match between each data set.</p>
+<p>So in our plot example we would drop both the plots which have no yield data, and the 51st plot for which we have no other information.</p>
+<pre class="r"><code>inner_join(Plot_data, Plot_data2, by = &quot;plot_id&quot;)</code></pre>
+<pre><code>## # A tibble: 40 x 6
+##    plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
+##      &lt;dbl&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+##  1       1        10   3.1            4            2          20
+##  2       2        17   4.1            2            1         400
+##  3       3        12   2.9            2            3           0
+##  4       4         7   2.5            4            3         320
+##  5       5         8   3.5            2            1         240
+##  6       7        20   2.1            1            1         240
+##  7       9        11   2.3            4            2         140
+##  8      10         1   3.3            4            3          20
+##  9      11        15   4.3            3            1         160
+## 10      13         9   1.3            4            3         140
+## # ... with 30 more rows</code></pre>
+<p>As a result we have 40 rows. Because we had 40 plots were information was available from both datasets.</p>
+</div>
+<div id="section-brining-it-all-together" class="section level2">
+<h2>Brining it all together</h2>
+<p>Finally, let’s end by bring these concepts together. First by merging data down a level, and then an ambitious example of bringing data up right down from the bottom level (fertilisers) right up to the top (villages)</p>
+<div id="section-example-1" class="section level3">
+<h3>Example 1</h3>
+<p>First let’s bring some data down a level. For instance let’s say we want to analyse some data at the plot level but we want to group this data by village to generate a village level average plot size.</p>
+<p>But we do not know which farmers lives in which village just by looking at this plot level data.</p>
+<p>But we do have farmer_id which can link us up with the farmer data. A data set which does include the village id as a variable.</p>
+<p>So we need to merge information from the farmer data and the plot data using this link. Here our foreign key is farmer_id as it does not uniquely identify our rows in the plot data. But it is identifying a particular unit of observation, the farmer. This foreign key (farmer_id) links up to the primary key of the farmer data (farmer_id).</p>
+<p>This is an example of a 1 to Many relationship as for each individual farmer there can be many plots.</p>
+<p>Now you may have noticed that we have 20 farmers in our data, but when we have grouped our plots by farmer, we had only 19 groups. That is because we have one farmer without any plots.</p>
+<p>This helps inform our decision on what type of join we need to use.</p>
+<p>We are primarily concerned with our plot data, so those are the rows we want to keep.We don’t want additional rows with little information of use. So we do not want to use a full join because we would get a row for this additional farmer despite them having no plots in our data. This row would be useless.</p>
+<p>In this example we don’t have any plots belonging to farmers not in our data, but if this were the case, again we would have rows with unhelpful information as we would not be able to identify which village they lived in because they are not in the records.</p>
+<p>So in this case, we need an inner join. Because we only want to keep the rows that have a match, because then we will have both plot size and village information.</p>
+<pre class="r"><code>Plot_data &lt;- Plot_data %&gt;%
+  inner_join(Farmer_data, by = &quot;farmer_id&quot;)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">plot_id</th>
+<th align="right">farmer_id</th>
+<th align="right">size</th>
+<th align="right">fertiliser_1</th>
+<th align="right">fertiliser_2</th>
+<th align="right">village_id</th>
+<th align="left">name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">10</td>
+<td align="right">3.1</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="left">Jeelaan</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">17</td>
+<td align="right">4.1</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="left">Denise</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">12</td>
+<td align="right">2.9</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="left">Sidqi</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">7</td>
+<td align="right">2.5</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="left">Yashna</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">8</td>
+<td align="right">3.5</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="left">Tara</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">1.9</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="left">Saadiq</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">20</td>
+<td align="right">2.1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="left">Sara</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">3</td>
+<td align="right">3.9</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="left">Briana</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">11</td>
+<td align="right">2.3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="left">Razeena</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">1</td>
+<td align="right">3.3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="left">Saadiq</td>
+</tr>
+</tbody>
+</table>
+<p>So we have successfully brought down the farmer data, including both the village_id and the farmers names.</p>
+<p>We could extend this further and bring down the village level information as well.</p>
+<pre class="r"><code>Plot_data &lt;- Plot_data %&gt;%
+  inner_join(Village_data, by = &quot;village_id&quot;)</code></pre>
+<table style="width:100%;">
+<colgroup>
+<col width="7%" />
+<col width="9%" />
+<col width="4%" />
+<col width="12%" />
+<col width="12%" />
+<col width="10%" />
+<col width="7%" />
+<col width="13%" />
+<col width="11%" />
+<col width="10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">plot_id</th>
+<th align="right">farmer_id</th>
+<th align="right">size</th>
+<th align="right">fertiliser_1</th>
+<th align="right">fertiliser_2</th>
+<th align="right">village_id</th>
+<th align="left">name</th>
+<th align="left">village_name</th>
+<th align="left">region_name</th>
+<th align="right">population</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">10</td>
+<td align="right">3.1</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="left">Jeelaan</td>
+<td align="left">Balamory</td>
+<td align="left">B</td>
+<td align="right">341729</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">17</td>
+<td align="right">4.1</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="left">Denise</td>
+<td align="left">Springfield</td>
+<td align="left">A</td>
+<td align="right">34387</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">12</td>
+<td align="right">2.9</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="left">Sidqi</td>
+<td align="left">Springfield</td>
+<td align="left">A</td>
+<td align="right">34387</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">7</td>
+<td align="right">2.5</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="left">Yashna</td>
+<td align="left">Langley Falls</td>
+<td align="left">A</td>
+<td align="right">462736</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">8</td>
+<td align="right">3.5</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="left">Tara</td>
+<td align="left">Springfield</td>
+<td align="left">A</td>
+<td align="right">34387</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">1.9</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="left">Saadiq</td>
+<td align="left">New New York</td>
+<td align="left">A</td>
+<td align="right">134412</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">20</td>
+<td align="right">2.1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="left">Sara</td>
+<td align="left">Pawnee</td>
+<td align="left">B</td>
+<td align="right">446522</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">3</td>
+<td align="right">3.9</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="left">Briana</td>
+<td align="left">Springfield</td>
+<td align="left">A</td>
+<td align="right">34387</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">11</td>
+<td align="right">2.3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="left">Razeena</td>
+<td align="left">Springfield</td>
+<td align="left">A</td>
+<td align="right">34387</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">1</td>
+<td align="right">3.3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="left">Saadiq</td>
+<td align="left">New New York</td>
+<td align="left">A</td>
+<td align="right">134412</td>
+</tr>
+</tbody>
+</table>
+<p>Now we can use <code>group_by</code> and <code>summarise</code> to calculate that village level plot average</p>
+<pre class="r"><code>Plot_data %&gt;%
+  group_by(village_name) %&gt;%
+  summarise(avg_plot_size = mean(size, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   village_name  avg_plot_size
+##   &lt;chr&gt;                 &lt;dbl&gt;
+## 1 Balamory               2.47
+## 2 Langley Falls          2.76
+## 3 New New York           2.3 
+## 4 Pawnee                 2.77
+## 5 Springfield            2.94</code></pre>
+</div>
+<div id="section-example-2" class="section level3">
+<h3>Example 2</h3>
+<p>Now lets start moving data the other way. In the village level data, i want to calculate the average total expenditure on fertilisers. So i have to start with fertiliser data and bring this all the way up to the village level.</p>
+<p>Firstly I of course need to match fertilisers and plots. This is actually an example of a many to many relationship because a plot can have up to two fertilisers and a fertiliser can be used on many different plots.</p>
+<p>Now as our plot data is at that plot level we actually have the names of the two fertilisers in separate columns. Therefore we cannot match them straight away, We could do it in staggered steps, first bring in the costs for fertiliser 1 and then the costs for fertiliser 2. Though we would then have to reshape the data to long so we could join those two costs columns together.</p>
+<p>It would be simpler if we actually reshaped our plot data first and then merged it with the fertiliser data.</p>
+<p>So using what we learned in the previous sessions. Let’s create a long version of our plot data.</p>
+<pre class="r"><code>Long_plots &lt;- Plot_data %&gt;%
+  pivot_longer(
+    cols = fertiliser_1:fertiliser_2,
+    names_to = &quot;Fertiliser_no&quot;,
+    values_to = &quot;fertiliser_id&quot;
+  )
+
+Long_plots</code></pre>
+<pre><code>## # A tibble: 100 x 5
+##    plot_id farmer_id  size Fertiliser_no fertiliser_id
+##      &lt;int&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;
+##  1       1        10   3.1 fertiliser_1              4
+##  2       1        10   3.1 fertiliser_2              2
+##  3       2        17   4.1 fertiliser_1              2
+##  4       2        17   4.1 fertiliser_2              1
+##  5       3        12   2.9 fertiliser_1              2
+##  6       3        12   2.9 fertiliser_2              3
+##  7       4         7   2.5 fertiliser_1              4
+##  8       4         7   2.5 fertiliser_2              3
+##  9       5         8   3.5 fertiliser_1              2
+## 10       5         8   3.5 fertiliser_2              1
+## # ... with 90 more rows</code></pre>
+<p>Now we can bring in the fertiliser data. Again using left join, as we want to prioritise the plot information.</p>
+<pre class="r"><code>Long_plots &lt;- Long_plots %&gt;%
+  left_join(Fertiliser_data, by = &quot;fertiliser_id&quot;)
+
+Long_plots</code></pre>
+<pre><code>## # A tibble: 100 x 7
+##    plot_id farmer_id  size Fertiliser_no fertiliser_id name     price_per_ha
+##      &lt;int&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+##  1       1        10   3.1 fertiliser_1              4 Chemical           25
+##  2       1        10   3.1 fertiliser_2              2 Compost            12
+##  3       2        17   4.1 fertiliser_1              2 Compost            12
+##  4       2        17   4.1 fertiliser_2              1 None                0
+##  5       3        12   2.9 fertiliser_1              2 Compost            12
+##  6       3        12   2.9 fertiliser_2              3 Manure              8
+##  7       4         7   2.5 fertiliser_1              4 Chemical           25
+##  8       4         7   2.5 fertiliser_2              3 Manure              8
+##  9       5         8   3.5 fertiliser_1              2 Compost            12
+## 10       5         8   3.5 fertiliser_2              1 None                0
+## # ... with 90 more rows</code></pre>
+<p>Okay so we now have our price information in the data. However there is one further step we need to make before we can go further up the levels of this data. Price is calculated at per ha, so to get total expenditure we need to multiply this by the size of the plot. we can do this using mutate</p>
+<pre class="r"><code>Long_plots &lt;- Long_plots %&gt;%
+  mutate(price  = price_per_ha * size)</code></pre>
+<p>Now we can start summarising and bring the data up in sequential steps.</p>
+<p>Starting with going from that long plot data, technically at the fertiliser level, back to normal plot level.</p>
+<p>We can do this all in one pipe.</p>
+<p>Starting with long plots we group by plot_id.</p>
+<p>Then we summarise to calculate a plot level total expenditure on fertilisers.</p>
+<p>Finally we right join onto our plot data. We use a right join because we start with long plots and pipe through therefore it will always be the first (left) argument in that join. But we only want the rows from the plot data so we want to join to the right.</p>
+<pre class="r"><code>Plot_data &lt;- Long_plots %&gt;%
+  group_by(plot_id) %&gt;%
+  summarise(price_total = sum(price, na.rm = T)) %&gt;%
+  right_join(Plot_data, by = &quot;plot_id&quot;)
+
+Plot_data</code></pre>
+<pre><code>## # A tibble: 50 x 6
+##    plot_id price_total farmer_id  size fertiliser_1 fertiliser_2
+##      &lt;int&gt;       &lt;dbl&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;
+##  1       1       115.         10   3.1            4            2
+##  2       2        49.2        17   4.1            2            1
+##  3       3        58          12   2.9            2            3
+##  4       4        82.5         7   2.5            4            3
+##  5       5        42           8   3.5            2            1
+##  6       6        47.5         1   1.9            4            1
+##  7       7         0          20   2.1            1            1
+##  8       8         0           3   3.9            1            1
+##  9       9        85.1        11   2.3            4            2
+## 10      10       109.          1   3.3            4            3
+## # ... with 40 more rows</code></pre>
+<p>We now simply repeat the process to bring this up to farmer level. Simply switching out our data arguments and change to use the appropriate keys that link the data sets.</p>
+<pre class="r"><code>Farmer_data &lt;- Plot_data %&gt;%
+  group_by(farmer_id) %&gt;%
+  summarise(price_total = sum(price_total, na.rm = T)) %&gt;%
+  right_join(Farmer_data, by = &quot;farmer_id&quot;)
+
+Farmer_data</code></pre>
+<pre><code>## # A tibble: 20 x 4
+##    farmer_id price_total village_id name    
+##        &lt;int&gt;       &lt;dbl&gt;      &lt;int&gt; &lt;chr&gt;   
+##  1         1       175.           3 Saadiq  
+##  2         2       279.           3 Jelicha 
+##  3         3       165            1 Briana  
+##  4         4        74            5 Daeun   
+##  5         5         0            5 Ruwaida 
+##  6         6        48.1          2 Fawzi   
+##  7         7       259.           2 Yashna  
+##  8         8        42            1 Tara    
+##  9         9       161.           5 Melina  
+## 10        10       115.           5 Jeelaan 
+## 11        11       229.           1 Razeena 
+## 12        12       180.           1 Sidqi   
+## 13        14       115.           5 Ryann   
+## 14        15        50            2 Kingsley
+## 15        16        10.4          2 Rifqa   
+## 16        17       112.           1 Denise  
+## 17        18       108.           4 Suhaib  
+## 18        19        55.5          1 Daniel  
+## 19        20       112.           4 Sara    
+## 20        13        NA            5 Eric</code></pre>
+<p>Finally, we repeat this one more time to bring it all up to the village level.</p>
+<pre class="r"><code>Village_data &lt;- Farmer_data %&gt;%
+  group_by(village_id) %&gt;%
+  summarise(price_average = mean(price_total, na.rm = T)) %&gt;%
+  right_join(Village_data, by = &quot;village_id&quot;)
+
+Village_data</code></pre>
+<pre><code>## # A tibble: 5 x 5
+##   village_id price_average village_name  region_name population
+##        &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;            &lt;int&gt;
+## 1          1         131.  Springfield   A                34387
+## 2          2          91.8 Langley Falls A               462736
+## 3          3         227.  New New York  A               134412
+## 4          4         110.  Pawnee        B               446522
+## 5          5          92.8 Balamory      B               341729</code></pre>
+<p>If we wanted to get fancy this could have all been done in the one pipe.</p>
+<p>Note that as we start with Plot_data we do not need to join on to it like we did before, and because plot data already has the farmer_id we can go straight to summarising the data at that level first before moving it upwards to village.</p>
+<pre class="r"><code>Plot_data %&gt;%
+  pivot_longer(
+    cols = fertiliser_1:fertiliser_2,
+    names_to = &quot;Fertiliser_no&quot;,
+    values_to = &quot;fertiliser_id&quot;
+  ) %&gt;%
+  left_join(Fertiliser_data, by = &quot;fertiliser_id&quot;) %&gt;%
+  mutate(price = price_per_ha*size) %&gt;%
+  group_by(farmer_id) %&gt;%
+  summarise(price_total = sum(price, na.rm = TRUE)) %&gt;%
+  right_join(Farmer_data, by = &quot;farmer_id&quot;) %&gt;%
+  group_by(village_id) %&gt;%
+  summarise(price_average = mean(price_total, na.rm = TRUE)) %&gt;%
+  right_join(Village_data, by = &quot;village_id&quot;)</code></pre>
+<pre><code>## # A tibble: 5 x 5
+##   village_id price_average village_name  region_name population
+##        &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;            &lt;int&gt;
+## 1          1         131.  Springfield   A                34387
+## 2          2          91.8 Langley Falls A               462736
+## 3          3         227.  New New York  A               134412
+## 4          4         110.  Pawnee        B               446522
+## 5          5          92.8 Balamory      B               341729</code></pre>
+</div>
 </div>
 <div id="section-external-links-and-resouces" class="section level2">
 <h2>External links and resouces</h2>
-
+<p><a href="https://r4ds.had.co.nz/relational-data.html">R for data sciene - relational data</a></p>
+<p><a href="https://www.youtube.com/watch?v=C3icLzBtg8I&amp;t=174s">Relational Databases video</a></p>
+<p><a href="https://www.youtube.com/watch?v=NvrpuBAMddw&amp;t=29s">Relational Databases video 2</a></p>
+<p><a href="https://www.thedataschool.co.uk/harry-cooney/what-are-data-joins/">Data school</a></p>
+<p><a href="https://www.displayr.com/what-is-data-merging/">Displayr</a></p>
+<p><a href="https://www.trifacta.com/merge-data-in-excel/">Data merging in Excel</a></p>
+<p><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">Dyplr Joins help page</a></p>
+<p><a href="https://hollyemblem.medium.com/joining-data-with-dplyr-in-r-874698eb8898">Blog post on joins with dyplr</a></p>
+<p><a href="https://dplyr.tidyverse.org/reference/summarise.html">Summarise with dyplr</a></p>
+<a href="https://dplyr.tidyverse.org/reference/summarise_all.html">Summarise with dyplr - Multiple columns at once</a> 
 <script type="application/shiny-prerendered" data-context="server-start">
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 </script>

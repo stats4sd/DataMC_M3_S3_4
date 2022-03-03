@@ -71,6 +71,35 @@ Fertiliser_data <-
 
 ## Overview
 
+In the live sessions we discussed relational data, what it is and how can we link together its components.
+
+Relational data is a collection of data sets that can all be linked together through various relationships.
+These relationships are defined by keys.
+
+*   Primary keys uniquely identify each row of a given data set.
+*   Foreign keys are variables in a dataset which identify a particular unit, these will not be unique to each row of that table. Instead they can be used to link to other tables. This includes a table where that variable will be its Primary key.
+
+Because of these relationships we are able to easily merge data from different tables together. These relationships will take one of three forms.
+
+*   1-1 relationships. Each row in table A can only link to one row in table B. They are using the same primary key
+
+*   1-Many relationships. Each row in table A may link to one or more rows in table B, but each row in table B can only link to one in table A. This is where foreign keys will come into play. Such as linking individual farmers in one table to all of their plots in another. They can have more than one plot in table B but only one entry in table A.
+
+*   Many-Many relationships. A bit more technical, but this is where each row in table A can link to multiple rows in table B, but likewise each row in table B can link to multiple rows in table A. For example, each plot can contain many plants, and many plant species can be grown on many plots.
+
+From these relationships, we also have many different types of merging
+
+*   Column binding. This sticks together two data tables that have the same number of rows, basically appending additional variables to the same set of observations.
+*   Row binding, this is appending additional rows/observations onto an existing data set. These must have at least mutual column names or the same columns exactly.
+
+Joins are for merging information generally about different units. Such as appending information about farmers onto the data about their plots. Therefore matching between the keys drives this method.
+
+*   Full joins will keep all rows from both data sets, even where rows that could not be matched.
+*   Left/Right joins will keep all rows from one of the two datasets, depending on which direction is specified in the join.Any rows from the secondary dataset that are not matched will be dropped from the output.
+*   Inner joins will keep only those rows from where a match was found.
+
+In this workbook, we will look through first how to group and summarise your data before takingan extensive look at how we can start merging some of our data together.
+
 ## Data
 
 For this workbook we will be using four relational data tables, each storing data regarding different units of analysis. However each and everyone can be linked across this hierarchy.
@@ -78,25 +107,25 @@ For this workbook we will be using four relational data tables, each storing dat
 At the top level we have some data about the Villages in our study
 
 ```{r, echo = FALSE}
-Village_data%>%knitr::kable()
+Village_data %>%knitr::kable()
 ```
 
 Below this we have information on a number of farmers in who took part in our study
 
 ```{r, echo = FALSE}
-Farmer_data%>%knitr::kable()
+Farmer_data %>%knitr::kable()
 ```
 
 Further down still, we have our plot level data
 
 ```{r, echo = FALSE}
-Plot_data%>%knitr::kable()
+Plot_data %>%knitr::kable()
 ```
 
 Lastly, we have some further information on fertilizers. 
 
 ```{r, echo = FALSE}
-Fertiliser_data%>%knitr::kable()
+Fertiliser_data %>%knitr::kable()
 ```
 
 
@@ -114,12 +143,12 @@ Grouping data in R with dplyr is very simple.
 
 You use the `group_by` function to create implicit groupings within your data.
 
-Lets first look at grouping our Plot data by the famrmers who tend them.
+Lets first look at grouping our Plot data by the farmers who tend them.
 
 We simply provide the name of the variable we want to use to define our groups.
 
 ```{r}
-Plot_data <- Plot_data%>%
+Plot_data <- Plot_data %>%
   group_by(farmer_id)
 
 Plot_data
@@ -135,12 +164,12 @@ So our first group (farmer 1) has 3 rows in the data, and they are rows 6,10 and
 str(Plot_data)
 ```
 
-If for any reason you want to then get rid of this grouping, perhaps at a later point you want to summarise across your whole data and not groups, or by a differnt grouping variable entirely.
+If for any reason you want to then get rid of this grouping, perhaps at a later point you want to summarise across your whole data and not groups, or by a different grouping variable entirely.
 
 Then we can just add in `ungroup` and our data will be ungrouped.
 
 ```{r, echo = FALSE}
-Plot_data <- Plot_data%>%
+Plot_data <- Plot_data %>%
   ungroup()
 ```
 
@@ -158,11 +187,11 @@ Grammatically, it works in a similar way to the `mutate` function, we first prov
 
 On the other side of the equals sign, we right the calculation/function that we want to make.
 
-As we want a total, we use the funciton `sum` to sum up all the area sizes. Note that we have added the argument `na.rm = TRUE` this makes sure that any missing values are removed from the calculation. If this is not included and there is missing data, then our result would just read `NA` and not give an actual number.
+As we want a total, we use the function `sum` to sum up all the area sizes. Note that we have added the argument `na.rm = TRUE` this makes sure that any missing values are removed from the calculation. If this is not included and there is missing data, then our result would just read `NA` and not give an actual number.
 
 ```{r}
-Sum1 <- Plot_data%>%
-  group_by(farmer_id)%>%
+Sum1 <- Plot_data %>%
+  group_by(farmer_id) %>%
   summarise(total_area = sum(size, na.rm = TRUE))
 
 Sum1
@@ -172,13 +201,13 @@ When using summarise, the number of rows returned will be equal to the number of
 
 Our resulting data has moved data from the plot level and summarised it up to the farmer level.
 
-Just like `mutate` we can start creating many different summary variables by serpating the calculations with a comma.
+Just like `mutate` we can start creating many different summary variables by sedating the calculations with a comma.
 
 In this example, we have additionally created summaries for the average size of a farmer's plots, the standard deviation of plot size and finally we have used `n()` to generate a variable counting how many rows are in each group. Or in other words, how many plots each farmer has. Note that we have NA values for sd as a this has happened where the farmer has only 1 plot, therefore a standard deviation cannot be calculated.
 
 ```{r}
-Sum2 <- Plot_data%>%
-  group_by(farmer_id)%>%
+Sum2 <- Plot_data %>%
+  group_by(farmer_id) %>%
   summarise(total_area = sum(size, na.rm = TRUE),
             avg_area = mean(size, na.rm = TRUE),
             sd = sd(size, na.rm = TRUE),
@@ -186,9 +215,10 @@ Sum2 <- Plot_data%>%
 ```
 
 ```{r, echo = FALSE}
-Sum2%>%knitr::kable()
+Sum2 %>%knitr::kable()
 ```
 
+There are a number of other summarise functions that can be used to apply the same function to multiple columns rather than go through one by one. For more on this, please follow this [link](https://dplyr.tidyverse.org/reference/summarise_all.html)
 
 You can also use mutate to generate these same variables, while keeping your data set at the plot level.
 
@@ -201,42 +231,42 @@ We have added in an `arrange` to sort the data now on the farmer_id rather than 
 Note that we have kept all of our plot specific data and we still have 50 rows. But now we also have variables for total_area, avg_area, sd and nplots. The results of which are the same as what was calculated by summarise, but instead we see these results replicated for each row within a group. 
 
 ```{r}
-Sum3 <- Plot_data%>%
-  group_by(farmer_id)%>%
+Sum3 <- Plot_data %>%
+  group_by(farmer_id) %>%
   mutate(total_area = sum(size, na.rm = TRUE),
             avg_area = mean(size, na.rm = TRUE),
             sd = sd(size, na.rm = TRUE),
-            nplots = n())%>%
+            nplots = n()) %>%
   arrange(farmer_id)
 ```
 
 ```{r, echo = FALSE}
-Sum3%>%head(10)%>%knitr::kable()
+Sum3 %>%head(10) %>%knitr::kable()
 ```
 
 
 This could be useful for creating a new variable that is at one level, but is also dependent on a variable from a level higher up. For example, by keeping our data at plot level we could generate a new variable that is the proportion of the total area that each plot represents across each farmer.
 
 ```{r}
-Sum3 <- Sum3%>%
+Sum3 <- Sum3 %>%
   mutate(plot_area_prop = size/total_area)
 ```
 
 ```{r,echo = FALSE}
-Sum3%>%head(10)%>%knitr::kable()
+Sum3 %>%head(10) %>%knitr::kable()
 ```
 
 ## Binding data
 
 In the live session we introduced two types of data merging. Binding and joining. First let's look at binding this involves combining data tables which are very similar, they will not contain related information from different levels but generally additional data that is for the same set of observations or additional observations for the same set of variables.
 
-The two data tables would therefore have a very similar structure. We are not trying to match data from two seprate tables but rather add to an exisitng table.
+The two data tables would therefore have a very similar structure. We are not trying to match data from two separate tables but rather add to an existing table.
 
 There are two ways that we can do this. By rows or by columns.
 
 ### Row binding
 
-Row binding would be used when you have two or more datasets containing the same variables, the difference is that they contain seperate sets of observations. For example, you could have data collected in one location and data collected in another but this data has been stored apart. They contain the same variables as the data collection tool was identical but different observations. You can bind these datasets together by their rows.
+Row binding would be used when you have two or more datasets containing the same variables, the difference is that they contain separate sets of observations. For example, you could have data collected in one location and data collected in another but this data has been stored apart. They contain the same variables as the data collection tool was identical but different observations. You can bind these datasets together by their rows.
 
 Let's pretend that our farmer data was originally stored into different data sets and now we want to combine them together
 
@@ -265,7 +295,7 @@ We can use the base r function `rbind` to simply achieve this binding. All we ne
 rbind(Farmer_dataA, Farmer_dataB)
 ```
 
-Now with rbind there is a litlte issue that occurs if there are variables in one dataset that aren't in the other. Let's add an age variable to our first dataset but not the second and see what happens when we try to merge them
+Now with rbind there is a little issue that occurs if there are variables in one dataset that aren't in the other. Let's add an age variable to our first dataset but not the second and see what happens when we try to merge them
 
 ```{r,echo = FALSE}
 Farmer_dataA$Age <- sample(18:65, 12)
@@ -315,7 +345,7 @@ Therefore, if we were to use column binding it would be a good idea to drop the 
 We can use `select` and then put a `-` before the name of the variable to remove it from the data
 
 ```{r}
-Plot_data3 <- Plot_data2%>%
+Plot_data3 <- Plot_data2 %>%
   select(-plot_id)
 ```
 
@@ -378,14 +408,14 @@ See we now have added a 51st plot with a yield of 320kg/ha
 ```{r}
 Plot_data2[41,]
 ```
-When joining this data now, plot 51 is kept in the data, but we would have all this misisng data including farmer_id. Not always particularly helpful.
+When joining this data now, plot 51 is kept in the data, but we would have all this missing data including farmer_id. Not always particularly helpful.
 
 ```{r}
 Plot_data4 <- full_join(Plot_data, Plot_data2, by = "plot_id")
 
 Plot_data4[51,]
 ```
-I have tended to find full join most useful when using it in a similar fashion to r bind, where i have similar datasets that have many of the same variables but additional observations and perhaps even additional variables for exising observations.
+I have tended to find full join most useful when using it in a similar fashion to r bind, where i have similar datasets that have many of the same variables but additional observations and perhaps even additional variables for existing observations.
 
 For instance, let's have another look at merging two instances of our farmer data. But make a slight adjustment so some of the rows are shared but there is again another variable, household size.
 
@@ -409,7 +439,7 @@ Farmer_dataC
 Farmer_dataD
 ```
 
-So in our second data set we have 2 additional farmers Sam and Dave, and then also additional household suze information for farmers 9 to 12.
+So in our second data set we have 2 additional farmers Sam and Dave, and then also additional household size information for farmers 9 to 12.
 
 So let's join these together and see what happens
 
@@ -469,4 +499,189 @@ As a result we have 40 rows. Because we had 40 plots were information was availa
 
 Finally, let's end by bring these concepts together. First by merging data down a level, and then an ambitious example of bringing data up right down from the bottom level (fertilisers) right up to the top (villages)
 
+### Example 1
+
+First let's bring some data down a level. For instance let's say we want to analyse some data at the plot level but we want to group this data by village to generate a village level average plot size.
+
+But we do not know which farmers lives in which village just by looking at this plot level data.
+
+But we do have farmer_id which can link us up with the farmer data. A data set which does include the village id as a variable.
+
+So we need to merge information from the farmer data and the plot data using this link. Here our foreign key is farmer_id as it does not uniquely identify our rows in the plot data. But it is identifying a particular unit of observation, the farmer. This foreign key (farmer_id) links up to the primary key of the farmer data (farmer_id).
+
+This is an example of a 1 to Many relationship as for each individual farmer there can be many plots.
+
+Now you may have noticed that we have 20 farmers in our data, but when we have grouped our plots by farmer, we had only 19 groups. That is because we have one farmer without any plots.
+
+This helps inform our decision on what type of join we need to use.
+
+We are primarily concerned with our plot data, so those are the rows we want to keep.We don't want additional rows with little information of use. So we do not want to use a full join because we would get a row for this additional farmer despite them having no plots in our data. This row would be useless.
+
+In this example we don't have any plots belonging to farmers not in our data, but if this were the case, again we would have rows with unhelpful information as we would not be able to identify which village they lived in because they are not in the records.
+
+So in this case, we need an inner join. Because we only want to keep the rows that have a match, because then we will have both plot size and village information.
+
+```{r}
+Plot_data <- Plot_data %>%
+  inner_join(Farmer_data, by = "farmer_id")
+```
+
+```{r, echo = FALSE}
+Plot_data %>%head(10) %>%knitr::kable()
+```
+
+So we have successfully brought down the farmer data, including both the village_id and the farmers names.
+
+We could extend this further and bring down the village level information as well.
+
+```{r}
+Plot_data <- Plot_data %>%
+  inner_join(Village_data, by = "village_id")
+```
+
+```{r, echo = FALSE}
+Plot_data %>%head(10) %>%knitr::kable()
+```
+
+Now we can use `group_by` and `summarise` to calculate that village level plot average
+
+```{r}
+Plot_data %>%
+  group_by(village_name) %>%
+  summarise(avg_plot_size = mean(size, na.rm = TRUE))
+```
+
+### Example 2
+
+Now lets start moving data the other way. In the village level data, i want to calculate the average total expenditure on fertilisers. So i have to start with fertiliser data and bring this all the way up to the village level.
+
+Firstly I of course need to match fertilisers and plots. This is actually an example of a many to many relationship because a plot can have up to two fertilisers and a fertiliser can be used on many different plots.
+
+Now as our plot data is at that plot level we actually have the names of the two fertilisers in separate columns. Therefore we cannot match them straight away, We could do it in staggered steps, first bring in the costs for fertiliser 1 and then the costs for fertiliser 2. Though we would then have to reshape the data to long so we could join those two costs columns together.
+
+It would be simpler if we actually reshaped our plot data first and then merged it with the fertiliser data.
+
+So using what we learned in the previous sessions. Let's create a long version of our plot data.
+
+```{r, echo = FALSE}
+Plot_data <- Plot_data %>%select(plot_id:fertiliser_2)
+```
+
+```{r}
+Long_plots <- Plot_data %>%
+  pivot_longer(
+    cols = fertiliser_1:fertiliser_2,
+    names_to = "Fertiliser_no",
+    values_to = "fertiliser_id"
+  )
+
+Long_plots
+```
+
+Now we can bring in the fertiliser data. Again using left join, as we want to prioritise the plot information.
+
+```{r}
+Long_plots <- Long_plots %>%
+  left_join(Fertiliser_data, by = "fertiliser_id")
+
+Long_plots
+```
+
+Okay so we now have our price information in the data. However there is one further step we need to make before we can go further up the levels of this data. Price is calculated at per ha, so to get total expenditure we need to multiply this by the size of the plot. we can do this using mutate
+
+```{r}
+Long_plots <- Long_plots %>%
+  mutate(price  = price_per_ha * size)
+```
+
+Now we can start summarising and bring the data up in sequential steps.
+
+Starting with going from that long plot data, technically at the fertiliser level, back to normal plot level.
+
+We can do this all in one pipe.
+
+Starting with long plots we group by plot_id.
+
+Then we summarise to calculate a plot level total expenditure on fertilisers.
+
+Finally we right join onto our plot data. We use a right join because we start with long plots and pipe through therefore it will always be the first (left) argument in that join. But we only want the rows from the plot data so we want to join to the right.
+
+```{r}
+Plot_data <- Long_plots %>%
+  group_by(plot_id) %>%
+  summarise(price_total = sum(price, na.rm = T)) %>%
+  right_join(Plot_data, by = "plot_id")
+
+Plot_data
+```
+
+We now simply repeat the process to bring this up to farmer level. Simply switching out our data arguments and change to use the appropriate keys that link the data sets.
+
+```{r}
+Farmer_data <- Plot_data %>%
+  group_by(farmer_id) %>%
+  summarise(price_total = sum(price_total, na.rm = T)) %>%
+  right_join(Farmer_data, by = "farmer_id")
+
+Farmer_data
+```
+
+Finally, we repeat this one more time to bring it all up to the village level.
+
+```{r}
+Village_data <- Farmer_data %>%
+  group_by(village_id) %>%
+  summarise(price_average = mean(price_total, na.rm = T)) %>%
+  right_join(Village_data, by = "village_id")
+
+Village_data
+```
+
+If we wanted to get fancy this could have all been done in the one pipe.
+
+Note that as we start with Plot_data we do not need to join on to it like we did before, and because plot data already has the farmer_id we can go straight to summarising the data at that level first before moving it upwards to village.
+
+```{r, echo = FALSE}
+Plot_data <- Plot_data %>%select(-price_total)
+Farmer_data <- Farmer_data %>%select(-price_total)
+Village_data <- Village_data %>%select(-price_average)
+```
+
+```{r}
+Plot_data %>%
+  pivot_longer(
+    cols = fertiliser_1:fertiliser_2,
+    names_to = "Fertiliser_no",
+    values_to = "fertiliser_id"
+  ) %>%
+  left_join(Fertiliser_data, by = "fertiliser_id") %>%
+  mutate(price = price_per_ha*size) %>%
+  group_by(farmer_id) %>%
+  summarise(price_total = sum(price, na.rm = TRUE)) %>%
+  right_join(Farmer_data, by = "farmer_id") %>%
+  group_by(village_id) %>%
+  summarise(price_average = mean(price_total, na.rm = TRUE)) %>%
+  right_join(Village_data, by = "village_id")
+```
+
 ## External links and resouces
+
+[R for data sciene - relational data](https://r4ds.had.co.nz/relational-data.html)
+
+[Relational Databases video](https://www.youtube.com/watch?v=C3icLzBtg8I&t=174s)
+
+[Relational Databases video 2](https://www.youtube.com/watch?v=NvrpuBAMddw&t=29s)
+
+[Data school](https://www.thedataschool.co.uk/harry-cooney/what-are-data-joins/)
+
+[Displayr](https://www.displayr.com/what-is-data-merging/ )
+
+[Data merging in Excel](https://www.trifacta.com/merge-data-in-excel/)
+
+[Dyplr Joins help page](https://dplyr.tidyverse.org/reference/mutate-joins.html)
+
+[Blog post on joins with dyplr](https://hollyemblem.medium.com/joining-data-with-dplyr-in-r-874698eb8898)
+
+[Summarise with dyplr](https://dplyr.tidyverse.org/reference/summarise.html)
+
+[Summarise with dyplr - Multiple columns at once](https://dplyr.tidyverse.org/reference/summarise_all.html)
