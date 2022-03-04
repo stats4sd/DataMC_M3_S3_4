@@ -98,7 +98,7 @@ Joins are for merging information generally about different units. Such as appen
 *   Left/Right joins will keep all rows from one of the two datasets, depending on which direction is specified in the join.Any rows from the secondary dataset that are not matched will be dropped from the output.
 *   Inner joins will keep only those rows from where a match was found.
 
-In this workbook, we will look through first how to group and summarise your data before takingan extensive look at how we can start merging some of our data together.
+In this workbook, we will look through first how to group and summarise your data before taking an extensive look at how we can start merging some of our data together.
 
 ## Data
 
@@ -110,7 +110,7 @@ At the top level we have some data about the Villages in our study
 Village_data %>%knitr::kable()
 ```
 
-Below this we have information on a number of farmers in who took part in our study
+Below this we have information on a number of farmers who took part in our study
 
 ```{r, echo = FALSE}
 Farmer_data %>%knitr::kable()
@@ -131,7 +131,7 @@ Fertiliser_data %>%knitr::kable()
 
 ## Aggregating data
 
-With any data analysis, at some point you are going to have to summarise your data in some way. Sometimes you may need to even do this prior to analysis as part of your data cleaning process. such as for the generation of new variables.This is certainly to be true if you are handling relational data.
+With any data analysis, at some point you are going to have to summarise your data in some way. Sometimes you may need to even do this prior to analysis as part of your data cleaning process. such as for the generation of new variables.This is certain to be true if you are handling relational data.
 
 More often than not, you will need to do this summary by some sort of dis/aggregation variable.
 
@@ -156,7 +156,7 @@ Plot_data
 
 Looking at the data, it will look like nothing has changed. This is because the groups are implicit, it is in essence now part of the metadata of the data. But R will recognise that this grouping exists within the dataset and perform operations accordingly.
 
-Indeed if we take a look at the structure of our data using `str`, we will see that rather than our data being a data.frame (the standard data format in R), it is now a grouped_df. From this we can see that we have created 19 groupings in our data and we can see for each group which rows belong to it.
+Indeed if we take a look at the structure of our data using `str`, which displays the structure of an R object, we will see we will see that rather than our data being a data.frame (the standard data format in R), it is now a grouped_df (grouped data frame). From this we can see that we have created 19 groupings in our data and we can see for each group which rows belong to it.
 
 So our first group (farmer 1) has 3 rows in the data, and they are rows 6,10 and 38.
 
@@ -168,7 +168,7 @@ If for any reason you want to then get rid of this grouping, perhaps at a later 
 
 Then we can just add in `ungroup` and our data will be ungrouped.
 
-```{r, echo = FALSE}
+```{r}
 Plot_data <- Plot_data %>%
   ungroup()
 ```
@@ -197,11 +197,11 @@ Sum1 <- Plot_data %>%
 Sum1
 ```
 
-When using summarise, the number of rows returned will be equal to the number of groups in your data. So we had 19 groups, so 19 rows. If our data was not grouped then we would have had only 1 row returned. Also when summarising data, the resulting data will only contain the variables used to group your data and the summary variables you have created. We drop all other variables.
+When using summarise, the number of rows returned will be equal to the number of groups in your data. So we had 19 groups, so 19 rows. If our data was not grouped then we would have had only 1 row returned. Also when summarising data, the resulting data will only contain the variables used to group your data and the summary variables you have created. All other variables will be dropped.
 
 Our resulting data has moved data from the plot level and summarised it up to the farmer level.
 
-Just like `mutate` we can start creating many different summary variables by sedating the calculations with a comma.
+Just like `mutate` we can start creating many different summary variables by separating  the calculations with a comma.
 
 In this example, we have additionally created summaries for the average size of a farmer's plots, the standard deviation of plot size and finally we have used `n()` to generate a variable counting how many rows are in each group. Or in other words, how many plots each farmer has. Note that we have NA values for sd as a this has happened where the farmer has only 1 plot, therefore a standard deviation cannot be calculated.
 
@@ -344,6 +344,8 @@ Therefore, if we were to use column binding it would be a good idea to drop the 
 
 We can use `select` and then put a `-` before the name of the variable to remove it from the data
 
+Though of course this stresses the importance that these ids MUST be identical in both data sets. The same numbers, and those numbers mean the same thing.
+
 ```{r}
 Plot_data3 <- Plot_data2 %>%
   select(-plot_id)
@@ -374,6 +376,10 @@ Plot_data2 <- Plot_data2[-sample(1:50,10),]
 ```
 
 ```{r}
+Plot_data
+```
+
+```{r}
 Plot_data2
 ```
 
@@ -397,17 +403,18 @@ Note that as both pieces of data are at the plot level, we had a  1 to 1 relatio
 
 Now notice that there are some NA values for yield. This is because there was not a match between the two data sets. We did not have yield for plots 6, 8, etc. But because we used a full join, these rows are kept and not excluded. All data remains intact and we still have 50 rows. 
 
-If we had an extra plot in our Plot_data2, that was not in our original plot. Then this plot would have also been kept in the data.
+Let’s try this again with an additional plot in Plot_data2, that does not exist in plot_data.
 
 ```{r, echo = FALSE}
 Plot_data2[41,] <- list(51, 320)
 ```
 
-See we now have added a 51st plot with a yield of 320kg/ha
+As we know it is our 51st plot, let’s take a look at the details of this plot only. We can see that it has a yield of 320 kg/ha.Note that is is row 41 not 51 because our plot_data2 was missing 10 rows.
 
 ```{r}
 Plot_data2[41,]
 ```
+
 When joining this data now, plot 51 is kept in the data, but we would have all this missing data including farmer_id. Not always particularly helpful.
 
 ```{r}
@@ -415,9 +422,9 @@ Plot_data4 <- full_join(Plot_data, Plot_data2, by = "plot_id")
 
 Plot_data4[51,]
 ```
-I have tended to find full join most useful when using it in a similar fashion to r bind, where i have similar datasets that have many of the same variables but additional observations and perhaps even additional variables for existing observations.
+I tend to find full join most useful when using it in a similar fashion to rbind, where I have similar datasets with many of the same variables but additional observations and perhaps even additional variables for existing observations.
 
-For instance, let's have another look at merging two instances of our farmer data. But make a slight adjustment so some of the rows are shared but there is again another variable, household size.
+. Let’s have another look at merging two instances of our farmer data. This time it’s slightly different: only some of the rows are shared between the two datasets and one dataset has an additional variable, household size.
 
 ```{r, echo = FALSE}
 set.seed(3)
@@ -505,7 +512,7 @@ First let's bring some data down a level. For instance let's say we want to anal
 
 But we do not know which farmers lives in which village just by looking at this plot level data.
 
-But we do have farmer_id which can link us up with the farmer data. A data set which does include the village id as a variable.
+But we do have farmer_id which can link us up with the farmer data. A data set which does include the farmer data, which includes the village id as a variable.
 
 So we need to merge information from the farmer data and the plot data using this link. Here our foreign key is farmer_id as it does not uniquely identify our rows in the plot data. But it is identifying a particular unit of observation, the farmer. This foreign key (farmer_id) links up to the primary key of the farmer data (farmer_id).
 
