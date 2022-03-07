@@ -147,560 +147,33 @@ $(document).ready(function () {
 <h2>Data</h2>
 <p>For this workbook we will be using four relational data tables, each storing data regarding different units of analysis. However each and everyone can be linked across this hierarchy.</p>
 <p>At the top level we have some data about the Villages in our study</p>
-<table>
-<thead>
-<tr class="header">
-<th align="right">village_id</th>
-<th align="left">village_name</th>
-<th align="left">region_name</th>
-<th align="right">population</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">Springfield</td>
-<td align="left">A</td>
-<td align="right">34387</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">Langley Falls</td>
-<td align="left">A</td>
-<td align="right">462736</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">New New York</td>
-<td align="left">A</td>
-<td align="right">134412</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">Pawnee</td>
-<td align="left">B</td>
-<td align="right">446522</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">Balamory</td>
-<td align="left">B</td>
-<td align="right">341729</td>
-</tr>
-</tbody>
-</table>
-<p>Below this we have information on a number of farmers in who took part in our study</p>
-<table>
-<thead>
-<tr class="header">
-<th align="right">farmer_id</th>
-<th align="right">village_id</th>
-<th align="left">name</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="right">3</td>
-<td align="left">Saadiq</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="right">3</td>
-<td align="left">Jelicha</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="left">Briana</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="right">5</td>
-<td align="left">Daeun</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="left">Ruwaida</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="right">2</td>
-<td align="left">Fawzi</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="right">2</td>
-<td align="left">Yashna</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="right">1</td>
-<td align="left">Tara</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="right">5</td>
-<td align="left">Melina</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="right">5</td>
-<td align="left">Jeelaan</td>
-</tr>
-<tr class="odd">
-<td align="right">11</td>
-<td align="right">1</td>
-<td align="left">Razeena</td>
-</tr>
-<tr class="even">
-<td align="right">12</td>
-<td align="right">1</td>
-<td align="left">Sidqi</td>
-</tr>
-<tr class="odd">
-<td align="right">13</td>
-<td align="right">5</td>
-<td align="left">Eric</td>
-</tr>
-<tr class="even">
-<td align="right">14</td>
-<td align="right">5</td>
-<td align="left">Ryann</td>
-</tr>
-<tr class="odd">
-<td align="right">15</td>
-<td align="right">2</td>
-<td align="left">Kingsley</td>
-</tr>
-<tr class="even">
-<td align="right">16</td>
-<td align="right">2</td>
-<td align="left">Rifqa</td>
-</tr>
-<tr class="odd">
-<td align="right">17</td>
-<td align="right">1</td>
-<td align="left">Denise</td>
-</tr>
-<tr class="even">
-<td align="right">18</td>
-<td align="right">4</td>
-<td align="left">Suhaib</td>
-</tr>
-<tr class="odd">
-<td align="right">19</td>
-<td align="right">1</td>
-<td align="left">Daniel</td>
-</tr>
-<tr class="even">
-<td align="right">20</td>
-<td align="right">4</td>
-<td align="left">Sara</td>
-</tr>
-</tbody>
-</table>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["village_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["village_name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["region_name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["population"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"Springfield","3":"A","4":"34387"},{"1":"2","2":"Langley Falls","3":"A","4":"462736"},{"1":"3","2":"New New York","3":"A","4":"134412"},{"1":"4","2":"Pawnee","3":"B","4":"446522"},{"1":"5","2":"Balamory","3":"B","4":"341729"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Below this we have information on a number of farmers who took part in our study</p>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["farmer_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["village_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["name"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"3","3":"Saadiq"},{"1":"2","2":"3","3":"Jelicha"},{"1":"3","2":"1","3":"Briana"},{"1":"4","2":"5","3":"Daeun"},{"1":"5","2":"5","3":"Ruwaida"},{"1":"6","2":"2","3":"Fawzi"},{"1":"7","2":"2","3":"Yashna"},{"1":"8","2":"1","3":"Tara"},{"1":"9","2":"5","3":"Melina"},{"1":"10","2":"5","3":"Jeelaan"},{"1":"11","2":"1","3":"Razeena"},{"1":"12","2":"1","3":"Sidqi"},{"1":"13","2":"5","3":"Eric"},{"1":"14","2":"5","3":"Ryann"},{"1":"15","2":"2","3":"Kingsley"},{"1":"16","2":"2","3":"Rifqa"},{"1":"17","2":"1","3":"Denise"},{"1":"18","2":"4","3":"Suhaib"},{"1":"19","2":"1","3":"Daniel"},{"1":"20","2":"4","3":"Sara"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Further down still, we have our plot level data</p>
-<table>
-<thead>
-<tr class="header">
-<th align="right">plot_id</th>
-<th align="right">farmer_id</th>
-<th align="right">size</th>
-<th align="right">fertiliser_1</th>
-<th align="right">fertiliser_2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="right">10</td>
-<td align="right">3.1</td>
-<td align="right">4</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="right">17</td>
-<td align="right">4.1</td>
-<td align="right">2</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="right">12</td>
-<td align="right">2.9</td>
-<td align="right">2</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="right">7</td>
-<td align="right">2.5</td>
-<td align="right">4</td>
-<td align="right">3</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="right">8</td>
-<td align="right">3.5</td>
-<td align="right">2</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">1.9</td>
-<td align="right">4</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="right">20</td>
-<td align="right">2.1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="right">3</td>
-<td align="right">3.9</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="right">11</td>
-<td align="right">2.3</td>
-<td align="right">4</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="right">1</td>
-<td align="right">3.3</td>
-<td align="right">4</td>
-<td align="right">3</td>
-</tr>
-<tr class="odd">
-<td align="right">11</td>
-<td align="right">15</td>
-<td align="right">4.3</td>
-<td align="right">3</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">12</td>
-<td align="right">6</td>
-<td align="right">1.3</td>
-<td align="right">4</td>
-<td align="right">2</td>
-</tr>
-<tr class="odd">
-<td align="right">13</td>
-<td align="right">9</td>
-<td align="right">1.3</td>
-<td align="right">4</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="right">14</td>
-<td align="right">5</td>
-<td align="right">1.7</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">15</td>
-<td align="right">15</td>
-<td align="right">1.3</td>
-<td align="right">2</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">16</td>
-<td align="right">18</td>
-<td align="right">2.7</td>
-<td align="right">4</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">17</td>
-<td align="right">3</td>
-<td align="right">3.1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">18</td>
-<td align="right">3</td>
-<td align="right">1.5</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">19</td>
-<td align="right">7</td>
-<td align="right">4.3</td>
-<td align="right">3</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">20</td>
-<td align="right">15</td>
-<td align="right">3.5</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">21</td>
-<td align="right">3</td>
-<td align="right">3.3</td>
-<td align="right">3</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">22</td>
-<td align="right">20</td>
-<td align="right">0.7</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">23</td>
-<td align="right">12</td>
-<td align="right">0.5</td>
-<td align="right">2</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="right">24</td>
-<td align="right">18</td>
-<td align="right">0.9</td>
-<td align="right">2</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">25</td>
-<td align="right">9</td>
-<td align="right">2.1</td>
-<td align="right">2</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="right">26</td>
-<td align="right">19</td>
-<td align="right">1.5</td>
-<td align="right">4</td>
-<td align="right">2</td>
-</tr>
-<tr class="odd">
-<td align="right">27</td>
-<td align="right">18</td>
-<td align="right">3.7</td>
-<td align="right">3</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">28</td>
-<td align="right">19</td>
-<td align="right">4.3</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">29</td>
-<td align="right">16</td>
-<td align="right">1.3</td>
-<td align="right">3</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">30</td>
-<td align="right">7</td>
-<td align="right">2.1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">31</td>
-<td align="right">16</td>
-<td align="right">2.7</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">32</td>
-<td align="right">20</td>
-<td align="right">4.5</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">33</td>
-<td align="right">17</td>
-<td align="right">1.9</td>
-<td align="right">3</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="right">34</td>
-<td align="right">20</td>
-<td align="right">1.1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">35</td>
-<td align="right">4</td>
-<td align="right">3.7</td>
-<td align="right">3</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="right">36</td>
-<td align="right">2</td>
-<td align="right">2.1</td>
-<td align="right">2</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">37</td>
-<td align="right">17</td>
-<td align="right">4.5</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">38</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-<td align="right">4</td>
-<td align="right">2</td>
-</tr>
-<tr class="odd">
-<td align="right">39</td>
-<td align="right">12</td>
-<td align="right">4.5</td>
-<td align="right">4</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">40</td>
-<td align="right">7</td>
-<td align="right">4.3</td>
-<td align="right">3</td>
-<td align="right">4</td>
-</tr>
-<tr class="odd">
-<td align="right">41</td>
-<td align="right">9</td>
-<td align="right">2.3</td>
-<td align="right">3</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="right">42</td>
-<td align="right">14</td>
-<td align="right">3.1</td>
-<td align="right">4</td>
-<td align="right">2</td>
-</tr>
-<tr class="odd">
-<td align="right">43</td>
-<td align="right">2</td>
-<td align="right">2.3</td>
-<td align="right">4</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">44</td>
-<td align="right">2</td>
-<td align="right">4.5</td>
-<td align="right">2</td>
-<td align="right">4</td>
-</tr>
-<tr class="odd">
-<td align="right">45</td>
-<td align="right">20</td>
-<td align="right">4.5</td>
-<td align="right">4</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">46</td>
-<td align="right">18</td>
-<td align="right">4.7</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">47</td>
-<td align="right">2</td>
-<td align="right">1.5</td>
-<td align="right">3</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="right">48</td>
-<td align="right">11</td>
-<td align="right">3.9</td>
-<td align="right">2</td>
-<td align="right">4</td>
-</tr>
-<tr class="odd">
-<td align="right">49</td>
-<td align="right">3</td>
-<td align="right">3.5</td>
-<td align="right">4</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="right">50</td>
-<td align="right">3</td>
-<td align="right">0.7</td>
-<td align="right">4</td>
-<td align="right">3</td>
-</tr>
-</tbody>
-</table>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"4","5":"2"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1"},{"1":"6","2":"1","3":"1.9","4":"4","5":"1"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1"},{"1":"8","2":"3","3":"3.9","4":"1","5":"1"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1"},{"1":"12","2":"6","3":"1.3","4":"4","5":"2"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1"},{"1":"15","2":"15","3":"1.3","4":"2","5":"1"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1"},{"1":"17","2":"3","3":"3.1","4":"1","5":"1"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1"},{"1":"21","2":"3","3":"3.3","4":"3","5":"1"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1"},{"1":"29","2":"16","3":"1.3","4":"3","5":"1"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1"},{"1":"32","2":"20","3":"4.5","4":"1","5":"1"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1"},{"1":"44","2":"2","3":"4.5","4":"2","5":"4"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2"},{"1":"48","2":"11","3":"3.9","4":"2","5":"4"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Lastly, we have some further information on fertilizers.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="right">fertiliser_id</th>
-<th align="left">name</th>
-<th align="right">price_per_ha</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">None</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">Compost</td>
-<td align="right">12</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">Manure</td>
-<td align="right">8</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">Chemical</td>
-<td align="right">25</td>
-</tr>
-</tbody>
-</table>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["fertiliser_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["price_per_ha"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"None","3":"0"},{"1":"2","2":"Compost","3":"12"},{"1":"3","2":"Manure","3":"8"},{"1":"4","2":"Chemical","3":"25"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 <div id="section-aggregating-data" class="section level2">
 <h2>Aggregating data</h2>
-<p>With any data analysis, at some point you are going to have to summarise your data in some way. Sometimes you may need to even do this prior to analysis as part of your data cleaning process. such as for the generation of new variables.This is certainly to be true if you are handling relational data.</p>
+<p>With any data analysis, at some point you are going to have to summarise your data in some way. Sometimes you may need to even do this prior to analysis as part of your data cleaning process. such as for the generation of new variables.This is certain to be true if you are handling relational data.</p>
 <p>More often than not, you will need to do this summary by some sort of dis/aggregation variable.</p>
 <p>In order to do that in R, you first need to know how to group your data.</p>
 <div id="section-group_by" class="section level3">
@@ -713,23 +186,13 @@ $(document).ready(function () {
   group_by(farmer_id)
 
 Plot_data</code></pre>
-<pre><code>## # A tibble: 50 x 5
-## # Groups:   farmer_id [19]
-##    plot_id farmer_id  size fertiliser_1 fertiliser_2
-##      &lt;int&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;
-##  1       1        10   3.1            4            2
-##  2       2        17   4.1            2            1
-##  3       3        12   2.9            2            3
-##  4       4         7   2.5            4            3
-##  5       5         8   3.5            2            1
-##  6       6         1   1.9            4            1
-##  7       7        20   2.1            1            1
-##  8       8         3   3.9            1            1
-##  9       9        11   2.3            4            2
-## 10      10         1   3.3            4            3
-## # ... with 40 more rows</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"4","5":"2"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1"},{"1":"6","2":"1","3":"1.9","4":"4","5":"1"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1"},{"1":"8","2":"3","3":"3.9","4":"1","5":"1"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1"},{"1":"12","2":"6","3":"1.3","4":"4","5":"2"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1"},{"1":"15","2":"15","3":"1.3","4":"2","5":"1"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1"},{"1":"17","2":"3","3":"3.1","4":"1","5":"1"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1"},{"1":"21","2":"3","3":"3.3","4":"3","5":"1"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1"},{"1":"29","2":"16","3":"1.3","4":"3","5":"1"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1"},{"1":"32","2":"20","3":"4.5","4":"1","5":"1"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1"},{"1":"44","2":"2","3":"4.5","4":"2","5":"4"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2"},{"1":"48","2":"11","3":"3.9","4":"2","5":"4"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Looking at the data, it will look like nothing has changed. This is because the groups are implicit, it is in essence now part of the metadata of the data. But R will recognise that this grouping exists within the dataset and perform operations accordingly.</p>
-<p>Indeed if we take a look at the structure of our data using <code>str</code>, we will see that rather than our data being a data.frame (the standard data format in R), it is now a grouped_df. From this we can see that we have created 19 groupings in our data and we can see for each group which rows belong to it.</p>
+<p>Indeed if we take a look at the structure of our data using <code>str</code>, which displays the structure of an R object, we will see we will see that rather than our data being a data.frame (the standard data format in R), it is now a grouped_df (grouped data frame). From this we can see that we have created 19 groupings in our data and we can see for each group which rows belong to it.</p>
 <p>So our first group (farmer 1) has 3 rows in the data, and they are rows 6,10 and 38.</p>
 <pre class="r"><code>str(Plot_data)</code></pre>
 <pre><code>## grouped_df [50 x 5] (S3: grouped_df/tbl_df/tbl/data.frame)
@@ -764,6 +227,8 @@ Plot_data</code></pre>
 ##   ..- attr(*, &quot;.drop&quot;)= logi TRUE</code></pre>
 <p>If for any reason you want to then get rid of this grouping, perhaps at a later point you want to summarise across your whole data and not groups, or by a different grouping variable entirely.</p>
 <p>Then we can just add in <code>ungroup</code> and our data will be ungrouped.</p>
+<pre class="r"><code>Plot_data &lt;- Plot_data %&gt;%
+  ungroup()</code></pre>
 <p>Later in this workbook we will also see how we can group by more than one variable.</p>
 </div>
 <div id="section-summarise-grouped-mutates" class="section level3">
@@ -779,184 +244,28 @@ Plot_data</code></pre>
   summarise(total_area = sum(size, na.rm = TRUE))
 
 Sum1</code></pre>
-<pre><code>## # A tibble: 19 x 2
-##    farmer_id total_area
-##        &lt;int&gt;      &lt;dbl&gt;
-##  1         1        5.7
-##  2         2       10.4
-##  3         3       16  
-##  4         4        3.7
-##  5         5        1.7
-##  6         6        1.3
-##  7         7       13.2
-##  8         8        3.5
-##  9         9        5.7
-## 10        10        3.1
-## 11        11        6.2
-## 12        12        7.9
-## 13        14        3.1
-## 14        15        9.1
-## 15        16        4  
-## 16        17       10.5
-## 17        18       12  
-## 18        19        5.8
-## 19        20       12.9</code></pre>
-<p>When using summarise, the number of rows returned will be equal to the number of groups in your data. So we had 19 groups, so 19 rows. If our data was not grouped then we would have had only 1 row returned. Also when summarising data, the resulting data will only contain the variables used to group your data and the summary variables you have created. We drop all other variables.</p>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["farmer_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["total_area"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"5.7"},{"1":"2","2":"10.4"},{"1":"3","2":"16.0"},{"1":"4","2":"3.7"},{"1":"5","2":"1.7"},{"1":"6","2":"1.3"},{"1":"7","2":"13.2"},{"1":"8","2":"3.5"},{"1":"9","2":"5.7"},{"1":"10","2":"3.1"},{"1":"11","2":"6.2"},{"1":"12","2":"7.9"},{"1":"14","2":"3.1"},{"1":"15","2":"9.1"},{"1":"16","2":"4.0"},{"1":"17","2":"10.5"},{"1":"18","2":"12.0"},{"1":"19","2":"5.8"},{"1":"20","2":"12.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>When using summarise, the number of rows returned will be equal to the number of groups in your data. So we had 19 groups, so 19 rows. If our data was not grouped then we would have had only 1 row returned. Also when summarising data, the resulting data will only contain the variables used to group your data and the summary variables you have created. All other variables will be dropped.</p>
 <p>Our resulting data has moved data from the plot level and summarised it up to the farmer level.</p>
-<p>Just like <code>mutate</code> we can start creating many different summary variables by sedating the calculations with a comma.</p>
+<p>Just like <code>mutate</code> we can start creating many different summary variables by separating the calculations with a comma.</p>
 <p>In this example, we have additionally created summaries for the average size of a farmer’s plots, the standard deviation of plot size and finally we have used <code>n()</code> to generate a variable counting how many rows are in each group. Or in other words, how many plots each farmer has. Note that we have NA values for sd as a this has happened where the farmer has only 1 plot, therefore a standard deviation cannot be calculated.</p>
 <pre class="r"><code>Sum2 &lt;- Plot_data %&gt;%
   group_by(farmer_id) %&gt;%
   summarise(total_area = sum(size, na.rm = TRUE),
             avg_area = mean(size, na.rm = TRUE),
             sd = sd(size, na.rm = TRUE),
-            nplots = n())</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="right">farmer_id</th>
-<th align="right">total_area</th>
-<th align="right">avg_area</th>
-<th align="right">sd</th>
-<th align="right">nplots</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="right">5.7</td>
-<td align="right">1.900000</td>
-<td align="right">1.4000000</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="right">10.4</td>
-<td align="right">2.600000</td>
-<td align="right">1.3114877</td>
-<td align="right">4</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="right">16.0</td>
-<td align="right">2.666667</td>
-<td align="right">1.2675436</td>
-<td align="right">6</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="right">3.7</td>
-<td align="right">3.700000</td>
-<td align="right">NA</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="right">1.7</td>
-<td align="right">1.700000</td>
-<td align="right">NA</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="right">1.3</td>
-<td align="right">1.300000</td>
-<td align="right">NA</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="right">13.2</td>
-<td align="right">3.300000</td>
-<td align="right">1.1661904</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="right">3.5</td>
-<td align="right">3.500000</td>
-<td align="right">NA</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="right">5.7</td>
-<td align="right">1.900000</td>
-<td align="right">0.5291503</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="right">3.1</td>
-<td align="right">3.100000</td>
-<td align="right">NA</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">11</td>
-<td align="right">6.2</td>
-<td align="right">3.100000</td>
-<td align="right">1.1313708</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="right">12</td>
-<td align="right">7.9</td>
-<td align="right">2.633333</td>
-<td align="right">2.0132892</td>
-<td align="right">3</td>
-</tr>
-<tr class="odd">
-<td align="right">14</td>
-<td align="right">3.1</td>
-<td align="right">3.100000</td>
-<td align="right">NA</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">15</td>
-<td align="right">9.1</td>
-<td align="right">3.033333</td>
-<td align="right">1.5534907</td>
-<td align="right">3</td>
-</tr>
-<tr class="odd">
-<td align="right">16</td>
-<td align="right">4.0</td>
-<td align="right">2.000000</td>
-<td align="right">0.9899495</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="right">17</td>
-<td align="right">10.5</td>
-<td align="right">3.500000</td>
-<td align="right">1.4000000</td>
-<td align="right">3</td>
-</tr>
-<tr class="odd">
-<td align="right">18</td>
-<td align="right">12.0</td>
-<td align="right">3.000000</td>
-<td align="right">1.6206994</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="right">19</td>
-<td align="right">5.8</td>
-<td align="right">2.900000</td>
-<td align="right">1.9798990</td>
-<td align="right">2</td>
-</tr>
-<tr class="odd">
-<td align="right">20</td>
-<td align="right">12.9</td>
-<td align="right">2.580000</td>
-<td align="right">1.8253767</td>
-<td align="right">5</td>
-</tr>
-</tbody>
-</table>
+            nplots = n())
+
+Sum2</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["farmer_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["total_area"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["avg_area"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["nplots"],"name":[5],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"5.7","3":"1.900000","4":"1.4000000","5":"3"},{"1":"2","2":"10.4","3":"2.600000","4":"1.3114877","5":"4"},{"1":"3","2":"16.0","3":"2.666667","4":"1.2675436","5":"6"},{"1":"4","2":"3.7","3":"3.700000","4":"NA","5":"1"},{"1":"5","2":"1.7","3":"1.700000","4":"NA","5":"1"},{"1":"6","2":"1.3","3":"1.300000","4":"NA","5":"1"},{"1":"7","2":"13.2","3":"3.300000","4":"1.1661904","5":"4"},{"1":"8","2":"3.5","3":"3.500000","4":"NA","5":"1"},{"1":"9","2":"5.7","3":"1.900000","4":"0.5291503","5":"3"},{"1":"10","2":"3.1","3":"3.100000","4":"NA","5":"1"},{"1":"11","2":"6.2","3":"3.100000","4":"1.1313708","5":"2"},{"1":"12","2":"7.9","3":"2.633333","4":"2.0132892","5":"3"},{"1":"14","2":"3.1","3":"3.100000","4":"NA","5":"1"},{"1":"15","2":"9.1","3":"3.033333","4":"1.5534907","5":"3"},{"1":"16","2":"4.0","3":"2.000000","4":"0.9899495","5":"2"},{"1":"17","2":"10.5","3":"3.500000","4":"1.4000000","5":"3"},{"1":"18","2":"12.0","3":"3.000000","4":"1.6206994","5":"4"},{"1":"19","2":"5.8","3":"2.900000","4":"1.9798990","5":"2"},{"1":"20","2":"12.9","3":"2.580000","4":"1.8253767","5":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>There are a number of other summarise functions that can be used to apply the same function to multiple columns rather than go through one by one. For more on this, please follow this <a href="https://dplyr.tidyverse.org/reference/summarise_all.html">link</a></p>
 <p>You can also use mutate to generate these same variables, while keeping your data set at the plot level.</p>
 <p>We keep everything within the function the exact same.</p>
@@ -969,287 +278,24 @@ Sum1</code></pre>
             avg_area = mean(size, na.rm = TRUE),
             sd = sd(size, na.rm = TRUE),
             nplots = n()) %&gt;%
-  arrange(farmer_id)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="right">plot_id</th>
-<th align="right">farmer_id</th>
-<th align="right">size</th>
-<th align="right">fertiliser_1</th>
-<th align="right">fertiliser_2</th>
-<th align="right">total_area</th>
-<th align="right">avg_area</th>
-<th align="right">sd</th>
-<th align="right">nplots</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">1.9</td>
-<td align="right">4</td>
-<td align="right">1</td>
-<td align="right">5.7</td>
-<td align="right">1.900000</td>
-<td align="right">1.400000</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="right">1</td>
-<td align="right">3.3</td>
-<td align="right">4</td>
-<td align="right">3</td>
-<td align="right">5.7</td>
-<td align="right">1.900000</td>
-<td align="right">1.400000</td>
-<td align="right">3</td>
-</tr>
-<tr class="odd">
-<td align="right">38</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-<td align="right">4</td>
-<td align="right">2</td>
-<td align="right">5.7</td>
-<td align="right">1.900000</td>
-<td align="right">1.400000</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="right">36</td>
-<td align="right">2</td>
-<td align="right">2.1</td>
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="right">10.4</td>
-<td align="right">2.600000</td>
-<td align="right">1.311488</td>
-<td align="right">4</td>
-</tr>
-<tr class="odd">
-<td align="right">43</td>
-<td align="right">2</td>
-<td align="right">2.3</td>
-<td align="right">4</td>
-<td align="right">1</td>
-<td align="right">10.4</td>
-<td align="right">2.600000</td>
-<td align="right">1.311488</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="right">44</td>
-<td align="right">2</td>
-<td align="right">4.5</td>
-<td align="right">2</td>
-<td align="right">4</td>
-<td align="right">10.4</td>
-<td align="right">2.600000</td>
-<td align="right">1.311488</td>
-<td align="right">4</td>
-</tr>
-<tr class="odd">
-<td align="right">47</td>
-<td align="right">2</td>
-<td align="right">1.5</td>
-<td align="right">3</td>
-<td align="right">2</td>
-<td align="right">10.4</td>
-<td align="right">2.600000</td>
-<td align="right">1.311488</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="right">3</td>
-<td align="right">3.9</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">16.0</td>
-<td align="right">2.666667</td>
-<td align="right">1.267544</td>
-<td align="right">6</td>
-</tr>
-<tr class="odd">
-<td align="right">17</td>
-<td align="right">3</td>
-<td align="right">3.1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">16.0</td>
-<td align="right">2.666667</td>
-<td align="right">1.267544</td>
-<td align="right">6</td>
-</tr>
-<tr class="even">
-<td align="right">18</td>
-<td align="right">3</td>
-<td align="right">1.5</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">16.0</td>
-<td align="right">2.666667</td>
-<td align="right">1.267544</td>
-<td align="right">6</td>
-</tr>
-</tbody>
-</table>
+  arrange(farmer_id)
+
+Sum3 </code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["total_area"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["avg_area"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["nplots"],"name":[9],"type":["int"],"align":["right"]}],"data":[{"1":"6","2":"1","3":"1.9","4":"4","5":"1","6":"5.7","7":"1.900000","8":"1.4000000","9":"3"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3","6":"5.7","7":"1.900000","8":"1.4000000","9":"3"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2","6":"5.7","7":"1.900000","8":"1.4000000","9":"3"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1","6":"10.4","7":"2.600000","8":"1.3114877","9":"4"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1","6":"10.4","7":"2.600000","8":"1.3114877","9":"4"},{"1":"44","2":"2","3":"4.5","4":"2","5":"4","6":"10.4","7":"2.600000","8":"1.3114877","9":"4"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2","6":"10.4","7":"2.600000","8":"1.3114877","9":"4"},{"1":"8","2":"3","3":"3.9","4":"1","5":"1","6":"16.0","7":"2.666667","8":"1.2675436","9":"6"},{"1":"17","2":"3","3":"3.1","4":"1","5":"1","6":"16.0","7":"2.666667","8":"1.2675436","9":"6"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1","6":"16.0","7":"2.666667","8":"1.2675436","9":"6"},{"1":"21","2":"3","3":"3.3","4":"3","5":"1","6":"16.0","7":"2.666667","8":"1.2675436","9":"6"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3","6":"16.0","7":"2.666667","8":"1.2675436","9":"6"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3","6":"16.0","7":"2.666667","8":"1.2675436","9":"6"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2","6":"3.7","7":"3.700000","8":"NA","9":"1"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1","6":"1.7","7":"1.700000","8":"NA","9":"1"},{"1":"12","2":"6","3":"1.3","4":"4","5":"2","6":"1.3","7":"1.300000","8":"NA","9":"1"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3","6":"13.2","7":"3.300000","8":"1.1661904","9":"4"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1","6":"13.2","7":"3.300000","8":"1.1661904","9":"4"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1","6":"13.2","7":"3.300000","8":"1.1661904","9":"4"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4","6":"13.2","7":"3.300000","8":"1.1661904","9":"4"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1","6":"3.5","7":"3.500000","8":"NA","9":"1"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3","6":"5.7","7":"1.900000","8":"0.5291503","9":"3"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3","6":"5.7","7":"1.900000","8":"0.5291503","9":"3"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4","6":"5.7","7":"1.900000","8":"0.5291503","9":"3"},{"1":"1","2":"10","3":"3.1","4":"4","5":"2","6":"3.1","7":"3.100000","8":"NA","9":"1"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2","6":"6.2","7":"3.100000","8":"1.1313708","9":"2"},{"1":"48","2":"11","3":"3.9","4":"2","5":"4","6":"6.2","7":"3.100000","8":"1.1313708","9":"2"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3","6":"7.9","7":"2.633333","8":"2.0132892","9":"3"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3","6":"7.9","7":"2.633333","8":"2.0132892","9":"3"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1","6":"7.9","7":"2.633333","8":"2.0132892","9":"3"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2","6":"3.1","7":"3.100000","8":"NA","9":"1"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1","6":"9.1","7":"3.033333","8":"1.5534907","9":"3"},{"1":"15","2":"15","3":"1.3","4":"2","5":"1","6":"9.1","7":"3.033333","8":"1.5534907","9":"3"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1","6":"9.1","7":"3.033333","8":"1.5534907","9":"3"},{"1":"29","2":"16","3":"1.3","4":"3","5":"1","6":"4.0","7":"2.000000","8":"0.9899495","9":"2"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1","6":"4.0","7":"2.000000","8":"0.9899495","9":"2"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1","6":"10.5","7":"3.500000","8":"1.4000000","9":"3"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4","6":"10.5","7":"3.500000","8":"1.4000000","9":"3"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1","6":"10.5","7":"3.500000","8":"1.4000000","9":"3"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1","6":"12.0","7":"3.000000","8":"1.6206994","9":"4"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1","6":"12.0","7":"3.000000","8":"1.6206994","9":"4"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1","6":"12.0","7":"3.000000","8":"1.6206994","9":"4"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1","6":"12.0","7":"3.000000","8":"1.6206994","9":"4"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2","6":"5.8","7":"2.900000","8":"1.9798990","9":"2"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1","6":"5.8","7":"2.900000","8":"1.9798990","9":"2"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1","6":"12.9","7":"2.580000","8":"1.8253767","9":"5"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1","6":"12.9","7":"2.580000","8":"1.8253767","9":"5"},{"1":"32","2":"20","3":"4.5","4":"1","5":"1","6":"12.9","7":"2.580000","8":"1.8253767","9":"5"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1","6":"12.9","7":"2.580000","8":"1.8253767","9":"5"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1","6":"12.9","7":"2.580000","8":"1.8253767","9":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>This could be useful for creating a new variable that is at one level, but is also dependent on a variable from a level higher up. For example, by keeping our data at plot level we could generate a new variable that is the proportion of the total area that each plot represents across each farmer.</p>
 <pre class="r"><code>Sum3 &lt;- Sum3 %&gt;%
-  mutate(plot_area_prop = size/total_area)</code></pre>
-<table style="width:100%;">
-<colgroup>
-<col width="8%" />
-<col width="10%" />
-<col width="5%" />
-<col width="13%" />
-<col width="13%" />
-<col width="11%" />
-<col width="9%" />
-<col width="9%" />
-<col width="7%" />
-<col width="15%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="right">plot_id</th>
-<th align="right">farmer_id</th>
-<th align="right">size</th>
-<th align="right">fertiliser_1</th>
-<th align="right">fertiliser_2</th>
-<th align="right">total_area</th>
-<th align="right">avg_area</th>
-<th align="right">sd</th>
-<th align="right">nplots</th>
-<th align="right">plot_area_prop</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">1.9</td>
-<td align="right">4</td>
-<td align="right">1</td>
-<td align="right">5.7</td>
-<td align="right">1.900000</td>
-<td align="right">1.400000</td>
-<td align="right">3</td>
-<td align="right">0.3333333</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="right">1</td>
-<td align="right">3.3</td>
-<td align="right">4</td>
-<td align="right">3</td>
-<td align="right">5.7</td>
-<td align="right">1.900000</td>
-<td align="right">1.400000</td>
-<td align="right">3</td>
-<td align="right">0.5789474</td>
-</tr>
-<tr class="odd">
-<td align="right">38</td>
-<td align="right">1</td>
-<td align="right">0.5</td>
-<td align="right">4</td>
-<td align="right">2</td>
-<td align="right">5.7</td>
-<td align="right">1.900000</td>
-<td align="right">1.400000</td>
-<td align="right">3</td>
-<td align="right">0.0877193</td>
-</tr>
-<tr class="even">
-<td align="right">36</td>
-<td align="right">2</td>
-<td align="right">2.1</td>
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="right">10.4</td>
-<td align="right">2.600000</td>
-<td align="right">1.311488</td>
-<td align="right">4</td>
-<td align="right">0.2019231</td>
-</tr>
-<tr class="odd">
-<td align="right">43</td>
-<td align="right">2</td>
-<td align="right">2.3</td>
-<td align="right">4</td>
-<td align="right">1</td>
-<td align="right">10.4</td>
-<td align="right">2.600000</td>
-<td align="right">1.311488</td>
-<td align="right">4</td>
-<td align="right">0.2211538</td>
-</tr>
-<tr class="even">
-<td align="right">44</td>
-<td align="right">2</td>
-<td align="right">4.5</td>
-<td align="right">2</td>
-<td align="right">4</td>
-<td align="right">10.4</td>
-<td align="right">2.600000</td>
-<td align="right">1.311488</td>
-<td align="right">4</td>
-<td align="right">0.4326923</td>
-</tr>
-<tr class="odd">
-<td align="right">47</td>
-<td align="right">2</td>
-<td align="right">1.5</td>
-<td align="right">3</td>
-<td align="right">2</td>
-<td align="right">10.4</td>
-<td align="right">2.600000</td>
-<td align="right">1.311488</td>
-<td align="right">4</td>
-<td align="right">0.1442308</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="right">3</td>
-<td align="right">3.9</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">16.0</td>
-<td align="right">2.666667</td>
-<td align="right">1.267544</td>
-<td align="right">6</td>
-<td align="right">0.2437500</td>
-</tr>
-<tr class="odd">
-<td align="right">17</td>
-<td align="right">3</td>
-<td align="right">3.1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">16.0</td>
-<td align="right">2.666667</td>
-<td align="right">1.267544</td>
-<td align="right">6</td>
-<td align="right">0.1937500</td>
-</tr>
-<tr class="even">
-<td align="right">18</td>
-<td align="right">3</td>
-<td align="right">1.5</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">16.0</td>
-<td align="right">2.666667</td>
-<td align="right">1.267544</td>
-<td align="right">6</td>
-<td align="right">0.0937500</td>
-</tr>
-</tbody>
-</table>
+  mutate(plot_area_prop = size/total_area)
+
+Sum3 </code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["total_area"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["avg_area"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["nplots"],"name":[9],"type":["int"],"align":["right"]},{"label":["plot_area_prop"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"6","2":"1","3":"1.9","4":"4","5":"1","6":"5.7","7":"1.900000","8":"1.4000000","9":"3","10":"0.33333333"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3","6":"5.7","7":"1.900000","8":"1.4000000","9":"3","10":"0.57894737"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2","6":"5.7","7":"1.900000","8":"1.4000000","9":"3","10":"0.08771930"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1","6":"10.4","7":"2.600000","8":"1.3114877","9":"4","10":"0.20192308"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1","6":"10.4","7":"2.600000","8":"1.3114877","9":"4","10":"0.22115385"},{"1":"44","2":"2","3":"4.5","4":"2","5":"4","6":"10.4","7":"2.600000","8":"1.3114877","9":"4","10":"0.43269231"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2","6":"10.4","7":"2.600000","8":"1.3114877","9":"4","10":"0.14423077"},{"1":"8","2":"3","3":"3.9","4":"1","5":"1","6":"16.0","7":"2.666667","8":"1.2675436","9":"6","10":"0.24375000"},{"1":"17","2":"3","3":"3.1","4":"1","5":"1","6":"16.0","7":"2.666667","8":"1.2675436","9":"6","10":"0.19375000"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1","6":"16.0","7":"2.666667","8":"1.2675436","9":"6","10":"0.09375000"},{"1":"21","2":"3","3":"3.3","4":"3","5":"1","6":"16.0","7":"2.666667","8":"1.2675436","9":"6","10":"0.20625000"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3","6":"16.0","7":"2.666667","8":"1.2675436","9":"6","10":"0.21875000"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3","6":"16.0","7":"2.666667","8":"1.2675436","9":"6","10":"0.04375000"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2","6":"3.7","7":"3.700000","8":"NA","9":"1","10":"1.00000000"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1","6":"1.7","7":"1.700000","8":"NA","9":"1","10":"1.00000000"},{"1":"12","2":"6","3":"1.3","4":"4","5":"2","6":"1.3","7":"1.300000","8":"NA","9":"1","10":"1.00000000"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3","6":"13.2","7":"3.300000","8":"1.1661904","9":"4","10":"0.18939394"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1","6":"13.2","7":"3.300000","8":"1.1661904","9":"4","10":"0.32575758"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1","6":"13.2","7":"3.300000","8":"1.1661904","9":"4","10":"0.15909091"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4","6":"13.2","7":"3.300000","8":"1.1661904","9":"4","10":"0.32575758"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1","6":"3.5","7":"3.500000","8":"NA","9":"1","10":"1.00000000"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3","6":"5.7","7":"1.900000","8":"0.5291503","9":"3","10":"0.22807018"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3","6":"5.7","7":"1.900000","8":"0.5291503","9":"3","10":"0.36842105"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4","6":"5.7","7":"1.900000","8":"0.5291503","9":"3","10":"0.40350877"},{"1":"1","2":"10","3":"3.1","4":"4","5":"2","6":"3.1","7":"3.100000","8":"NA","9":"1","10":"1.00000000"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2","6":"6.2","7":"3.100000","8":"1.1313708","9":"2","10":"0.37096774"},{"1":"48","2":"11","3":"3.9","4":"2","5":"4","6":"6.2","7":"3.100000","8":"1.1313708","9":"2","10":"0.62903226"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3","6":"7.9","7":"2.633333","8":"2.0132892","9":"3","10":"0.36708861"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3","6":"7.9","7":"2.633333","8":"2.0132892","9":"3","10":"0.06329114"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1","6":"7.9","7":"2.633333","8":"2.0132892","9":"3","10":"0.56962025"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2","6":"3.1","7":"3.100000","8":"NA","9":"1","10":"1.00000000"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1","6":"9.1","7":"3.033333","8":"1.5534907","9":"3","10":"0.47252747"},{"1":"15","2":"15","3":"1.3","4":"2","5":"1","6":"9.1","7":"3.033333","8":"1.5534907","9":"3","10":"0.14285714"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1","6":"9.1","7":"3.033333","8":"1.5534907","9":"3","10":"0.38461538"},{"1":"29","2":"16","3":"1.3","4":"3","5":"1","6":"4.0","7":"2.000000","8":"0.9899495","9":"2","10":"0.32500000"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1","6":"4.0","7":"2.000000","8":"0.9899495","9":"2","10":"0.67500000"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1","6":"10.5","7":"3.500000","8":"1.4000000","9":"3","10":"0.39047619"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4","6":"10.5","7":"3.500000","8":"1.4000000","9":"3","10":"0.18095238"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1","6":"10.5","7":"3.500000","8":"1.4000000","9":"3","10":"0.42857143"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1","6":"12.0","7":"3.000000","8":"1.6206994","9":"4","10":"0.22500000"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1","6":"12.0","7":"3.000000","8":"1.6206994","9":"4","10":"0.07500000"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1","6":"12.0","7":"3.000000","8":"1.6206994","9":"4","10":"0.30833333"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1","6":"12.0","7":"3.000000","8":"1.6206994","9":"4","10":"0.39166667"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2","6":"5.8","7":"2.900000","8":"1.9798990","9":"2","10":"0.25862069"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1","6":"5.8","7":"2.900000","8":"1.9798990","9":"2","10":"0.74137931"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1","6":"12.9","7":"2.580000","8":"1.8253767","9":"5","10":"0.16279070"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1","6":"12.9","7":"2.580000","8":"1.8253767","9":"5","10":"0.05426357"},{"1":"32","2":"20","3":"4.5","4":"1","5":"1","6":"12.9","7":"2.580000","8":"1.8253767","9":"5","10":"0.34883721"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1","6":"12.9","7":"2.580000","8":"1.8253767","9":"5","10":"0.08527132"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1","6":"12.9","7":"2.580000","8":"1.8253767","9":"5","10":"0.34883721"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 </div>
 <div id="section-binding-data" class="section level2">
@@ -1262,244 +308,83 @@ Sum1</code></pre>
 <p>Row binding would be used when you have two or more datasets containing the same variables, the difference is that they contain separate sets of observations. For example, you could have data collected in one location and data collected in another but this data has been stored apart. They contain the same variables as the data collection tool was identical but different observations. You can bind these datasets together by their rows.</p>
 <p>Let’s pretend that our farmer data was originally stored into different data sets and now we want to combine them together</p>
 <pre class="r"><code>Farmer_dataA</code></pre>
-<pre><code>##    farmer_id village_id    name
-## 1          1          3  Saadiq
-## 2          2          3 Jelicha
-## 3          3          1  Briana
-## 4          4          5   Daeun
-## 5          5          5 Ruwaida
-## 6          6          2   Fawzi
-## 7          7          2  Yashna
-## 8          8          1    Tara
-## 9          9          5  Melina
-## 10        10          5 Jeelaan
-## 11        11          1 Razeena
-## 12        12          1   Sidqi</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["farmer_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["village_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["name"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"3","3":"Saadiq","_rn_":"1"},{"1":"2","2":"3","3":"Jelicha","_rn_":"2"},{"1":"3","2":"1","3":"Briana","_rn_":"3"},{"1":"4","2":"5","3":"Daeun","_rn_":"4"},{"1":"5","2":"5","3":"Ruwaida","_rn_":"5"},{"1":"6","2":"2","3":"Fawzi","_rn_":"6"},{"1":"7","2":"2","3":"Yashna","_rn_":"7"},{"1":"8","2":"1","3":"Tara","_rn_":"8"},{"1":"9","2":"5","3":"Melina","_rn_":"9"},{"1":"10","2":"5","3":"Jeelaan","_rn_":"10"},{"1":"11","2":"1","3":"Razeena","_rn_":"11"},{"1":"12","2":"1","3":"Sidqi","_rn_":"12"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>First we have farmers 1 through 12</p>
 <pre class="r"><code>Farmer_dataB</code></pre>
-<pre><code>##    farmer_id village_id     name
-## 13        13          5     Eric
-## 14        14          5    Ryann
-## 15        15          2 Kingsley
-## 16        16          2    Rifqa
-## 17        17          1   Denise
-## 18        18          4   Suhaib
-## 19        19          1   Daniel
-## 20        20          4     Sara</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["farmer_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["village_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["name"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"13","2":"5","3":"Eric","_rn_":"13"},{"1":"14","2":"5","3":"Ryann","_rn_":"14"},{"1":"15","2":"2","3":"Kingsley","_rn_":"15"},{"1":"16","2":"2","3":"Rifqa","_rn_":"16"},{"1":"17","2":"1","3":"Denise","_rn_":"17"},{"1":"18","2":"4","3":"Suhaib","_rn_":"18"},{"1":"19","2":"1","3":"Daniel","_rn_":"19"},{"1":"20","2":"4","3":"Sara","_rn_":"20"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Then farmers 13 through 20.</p>
 <p>It is thankfully very simple to bind these two datasets as we have the same number of columns in our data, and they have the same names.</p>
 <p>We can use the base r function <code>rbind</code> to simply achieve this binding. All we need to do is add the names of the data sets we want to bind.</p>
 <pre class="r"><code>rbind(Farmer_dataA, Farmer_dataB)</code></pre>
-<pre><code>##    farmer_id village_id     name
-## 1          1          3   Saadiq
-## 2          2          3  Jelicha
-## 3          3          1   Briana
-## 4          4          5    Daeun
-## 5          5          5  Ruwaida
-## 6          6          2    Fawzi
-## 7          7          2   Yashna
-## 8          8          1     Tara
-## 9          9          5   Melina
-## 10        10          5  Jeelaan
-## 11        11          1  Razeena
-## 12        12          1    Sidqi
-## 13        13          5     Eric
-## 14        14          5    Ryann
-## 15        15          2 Kingsley
-## 16        16          2    Rifqa
-## 17        17          1   Denise
-## 18        18          4   Suhaib
-## 19        19          1   Daniel
-## 20        20          4     Sara</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["farmer_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["village_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["name"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"3","3":"Saadiq","_rn_":"1"},{"1":"2","2":"3","3":"Jelicha","_rn_":"2"},{"1":"3","2":"1","3":"Briana","_rn_":"3"},{"1":"4","2":"5","3":"Daeun","_rn_":"4"},{"1":"5","2":"5","3":"Ruwaida","_rn_":"5"},{"1":"6","2":"2","3":"Fawzi","_rn_":"6"},{"1":"7","2":"2","3":"Yashna","_rn_":"7"},{"1":"8","2":"1","3":"Tara","_rn_":"8"},{"1":"9","2":"5","3":"Melina","_rn_":"9"},{"1":"10","2":"5","3":"Jeelaan","_rn_":"10"},{"1":"11","2":"1","3":"Razeena","_rn_":"11"},{"1":"12","2":"1","3":"Sidqi","_rn_":"12"},{"1":"13","2":"5","3":"Eric","_rn_":"13"},{"1":"14","2":"5","3":"Ryann","_rn_":"14"},{"1":"15","2":"2","3":"Kingsley","_rn_":"15"},{"1":"16","2":"2","3":"Rifqa","_rn_":"16"},{"1":"17","2":"1","3":"Denise","_rn_":"17"},{"1":"18","2":"4","3":"Suhaib","_rn_":"18"},{"1":"19","2":"1","3":"Daniel","_rn_":"19"},{"1":"20","2":"4","3":"Sara","_rn_":"20"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Now with rbind there is a little issue that occurs if there are variables in one dataset that aren’t in the other. Let’s add an age variable to our first dataset but not the second and see what happens when we try to merge them</p>
-<pre><code>##    farmer_id village_id    name Age
-## 1          1          3  Saadiq  45
-## 2          2          3 Jelicha  63
-## 3          3          1  Briana  55
-## 4          4          5   Daeun  28
-## 5          5          5 Ruwaida  25
-## 6          6          2   Fawzi  40
-## 7          7          2  Yashna  37
-## 8          8          1    Tara  22
-## 9          9          5  Melina  19
-## 10        10          5 Jeelaan  58
-## 11        11          1 Razeena  29
-## 12        12          1   Sidqi  20</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["farmer_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["village_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Age"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"3","3":"Saadiq","4":"45","_rn_":"1"},{"1":"2","2":"3","3":"Jelicha","4":"63","_rn_":"2"},{"1":"3","2":"1","3":"Briana","4":"55","_rn_":"3"},{"1":"4","2":"5","3":"Daeun","4":"28","_rn_":"4"},{"1":"5","2":"5","3":"Ruwaida","4":"25","_rn_":"5"},{"1":"6","2":"2","3":"Fawzi","4":"40","_rn_":"6"},{"1":"7","2":"2","3":"Yashna","4":"37","_rn_":"7"},{"1":"8","2":"1","3":"Tara","4":"22","_rn_":"8"},{"1":"9","2":"5","3":"Melina","4":"19","_rn_":"9"},{"1":"10","2":"5","3":"Jeelaan","4":"58","_rn_":"10"},{"1":"11","2":"1","3":"Razeena","4":"29","_rn_":"11"},{"1":"12","2":"1","3":"Sidqi","4":"20","_rn_":"12"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code>rbind(Farmer_dataA, Farmer_dataB)</code></pre>
 <pre><code>## Error in rbind(deparse.level, ...): numbers of columns of arguments do not match</code></pre>
 <p>We get an error instead. This is because <code>rbind</code> requires that there are exactly the same number of columns in both data sets.</p>
 <p>To get around this issue, there is the <code>bind_rows</code> function from dyplr. This matches the columns by their names (so make sure those are the same in both datasets still), and if there are any column not present in both datasets, it will just fill this with NA in the data set where it is not present.</p>
 <pre class="r"><code>bind_rows(Farmer_dataA, Farmer_dataB)</code></pre>
-<pre><code>##    farmer_id village_id     name Age
-## 1          1          3   Saadiq  45
-## 2          2          3  Jelicha  63
-## 3          3          1   Briana  55
-## 4          4          5    Daeun  28
-## 5          5          5  Ruwaida  25
-## 6          6          2    Fawzi  40
-## 7          7          2   Yashna  37
-## 8          8          1     Tara  22
-## 9          9          5   Melina  19
-## 10        10          5  Jeelaan  58
-## 11        11          1  Razeena  29
-## 12        12          1    Sidqi  20
-## 13        13          5     Eric  NA
-## 14        14          5    Ryann  NA
-## 15        15          2 Kingsley  NA
-## 16        16          2    Rifqa  NA
-## 17        17          1   Denise  NA
-## 18        18          4   Suhaib  NA
-## 19        19          1   Daniel  NA
-## 20        20          4     Sara  NA</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["farmer_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["village_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Age"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"3","3":"Saadiq","4":"45"},{"1":"2","2":"3","3":"Jelicha","4":"63"},{"1":"3","2":"1","3":"Briana","4":"55"},{"1":"4","2":"5","3":"Daeun","4":"28"},{"1":"5","2":"5","3":"Ruwaida","4":"25"},{"1":"6","2":"2","3":"Fawzi","4":"40"},{"1":"7","2":"2","3":"Yashna","4":"37"},{"1":"8","2":"1","3":"Tara","4":"22"},{"1":"9","2":"5","3":"Melina","4":"19"},{"1":"10","2":"5","3":"Jeelaan","4":"58"},{"1":"11","2":"1","3":"Razeena","4":"29"},{"1":"12","2":"1","3":"Sidqi","4":"20"},{"1":"13","2":"5","3":"Eric","4":"NA"},{"1":"14","2":"5","3":"Ryann","4":"NA"},{"1":"15","2":"2","3":"Kingsley","4":"NA"},{"1":"16","2":"2","3":"Rifqa","4":"NA"},{"1":"17","2":"1","3":"Denise","4":"NA"},{"1":"18","2":"4","3":"Suhaib","4":"NA"},{"1":"19","2":"1","3":"Daniel","4":"NA"},{"1":"20","2":"4","3":"Sara","4":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 <div id="section-column-binding" class="section level3">
 <h3>Column binding</h3>
 <p>Column binding on the other hand would be utilised when we have the same set of observations, but the variables are different. Perhaps we have taken additional measurements at a later point and want to bring this together with the original data.</p>
 <p>For example, let’s look to our plot data and bring in data on the yield of the crops grown on each plot. Data we have collected at a later point.</p>
 <pre class="r"><code>Plot_data2</code></pre>
-<pre><code>##    plot_id yield_kg_ha
-## 1        1          20
-## 2        2         400
-## 3        3           0
-## 4        4         320
-## 5        5         240
-## 6        6         400
-## 7        7         240
-## 8        8         500
-## 9        9         140
-## 10      10          20
-## 11      11         160
-## 12      12         480
-## 13      13         140
-## 14      14         460
-## 15      15         480
-## 16      16         380
-## 17      17         260
-## 18      18         500
-## 19      19         380
-## 20      20          80
-## 21      21         180
-## 22      22         220
-## 23      23         380
-## 24      24         440
-## 25      25         460
-## 26      26         280
-## 27      27          20
-## 28      28           0
-## 29      29          80
-## 30      30         500
-## 31      31         480
-## 32      32          80
-## 33      33         140
-## 34      34         240
-## 35      35         480
-## 36      36          60
-## 37      37         180
-## 38      38         100
-## 39      39         340
-## 40      40          80
-## 41      41         380
-## 42      42           0
-## 43      43         100
-## 44      44         260
-## 45      45         240
-## 46      46         140
-## 47      47         320
-## 48      48         360
-## 49      49         300
-## 50      50         280</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["yield_kg_ha"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"20"},{"1":"2","2":"400"},{"1":"3","2":"0"},{"1":"4","2":"320"},{"1":"5","2":"240"},{"1":"6","2":"400"},{"1":"7","2":"240"},{"1":"8","2":"500"},{"1":"9","2":"140"},{"1":"10","2":"20"},{"1":"11","2":"160"},{"1":"12","2":"480"},{"1":"13","2":"140"},{"1":"14","2":"460"},{"1":"15","2":"480"},{"1":"16","2":"380"},{"1":"17","2":"260"},{"1":"18","2":"500"},{"1":"19","2":"380"},{"1":"20","2":"80"},{"1":"21","2":"180"},{"1":"22","2":"220"},{"1":"23","2":"380"},{"1":"24","2":"440"},{"1":"25","2":"460"},{"1":"26","2":"280"},{"1":"27","2":"20"},{"1":"28","2":"0"},{"1":"29","2":"80"},{"1":"30","2":"500"},{"1":"31","2":"480"},{"1":"32","2":"80"},{"1":"33","2":"140"},{"1":"34","2":"240"},{"1":"35","2":"480"},{"1":"36","2":"60"},{"1":"37","2":"180"},{"1":"38","2":"100"},{"1":"39","2":"340"},{"1":"40","2":"80"},{"1":"41","2":"380"},{"1":"42","2":"0"},{"1":"43","2":"100"},{"1":"44","2":"260"},{"1":"45","2":"240"},{"1":"46","2":"140"},{"1":"47","2":"320"},{"1":"48","2":"360"},{"1":"49","2":"300"},{"1":"50","2":"280"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>For column binding, as you may expect the base r function is <code>cbind</code> and the dplyr alternative is <code>bind_cols</code>. Unlike with row binding, there is not really any difference between how the functions operate.</p>
 <p>Both require the same number of rows in order to operate. These should also be in the same order, if they are not you could use <code>arrange</code> first to make sure that they are.</p>
 <pre class="r"><code>cbind(Plot_data, Plot_data2)</code></pre>
-<pre><code>##    plot_id farmer_id size fertiliser_1 fertiliser_2 plot_id yield_kg_ha
-## 1        1        10  3.1            4            2       1          20
-## 2        2        17  4.1            2            1       2         400
-## 3        3        12  2.9            2            3       3           0
-## 4        4         7  2.5            4            3       4         320
-## 5        5         8  3.5            2            1       5         240
-## 6        6         1  1.9            4            1       6         400
-## 7        7        20  2.1            1            1       7         240
-## 8        8         3  3.9            1            1       8         500
-## 9        9        11  2.3            4            2       9         140
-## 10      10         1  3.3            4            3      10          20
-## 11      11        15  4.3            3            1      11         160
-## 12      12         6  1.3            4            2      12         480
-## 13      13         9  1.3            4            3      13         140
-## 14      14         5  1.7            1            1      14         460
-## 15      15        15  1.3            2            1      15         480
-## 16      16        18  2.7            4            1      16         380
-## 17      17         3  3.1            1            1      17         260
-## 18      18         3  1.5            1            1      18         500
-## 19      19         7  4.3            3            1      19         380
-## 20      20        15  3.5            1            1      20          80
-## 21      21         3  3.3            3            1      21         180
-## 22      22        20  0.7            1            1      22         220
-## 23      23        12  0.5            2            3      23         380
-## 24      24        18  0.9            2            1      24         440
-## 25      25         9  2.1            2            3      25         460
-## 26      26        19  1.5            4            2      26         280
-## 27      27        18  3.7            3            1      27          20
-## 28      28        19  4.3            1            1      28           0
-## 29      29        16  1.3            3            1      29          80
-## 30      30         7  2.1            1            1      30         500
-## 31      31        16  2.7            1            1      31         480
-## 32      32        20  4.5            1            1      32          80
-## 33      33        17  1.9            3            4      33         140
-## 34      34        20  1.1            1            1      34         240
-## 35      35         4  3.7            3            2      35         480
-## 36      36         2  2.1            2            1      36          60
-## 37      37        17  4.5            1            1      37         180
-## 38      38         1  0.5            4            2      38         100
-## 39      39        12  4.5            4            1      39         340
-## 40      40         7  4.3            3            4      40          80
-## 41      41         9  2.3            3            4      41         380
-## 42      42        14  3.1            4            2      42           0
-## 43      43         2  2.3            4            1      43         100
-## 44      44         2  4.5            2            4      44         260
-## 45      45        20  4.5            4            1      45         240
-## 46      46        18  4.7            1            1      46         140
-## 47      47         2  1.5            3            2      47         320
-## 48      48        11  3.9            2            4      48         360
-## 49      49         3  3.5            4            3      49         300
-## 50      50         3  0.7            4            3      50         280</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["plot_id"],"name":[6],"type":["int"],"align":["right"]},{"label":["yield_kg_ha"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"4","5":"2","6":"1","7":"20"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1","6":"2","7":"400"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3","6":"3","7":"0"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3","6":"4","7":"320"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1","6":"5","7":"240"},{"1":"6","2":"1","3":"1.9","4":"4","5":"1","6":"6","7":"400"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1","6":"7","7":"240"},{"1":"8","2":"3","3":"3.9","4":"1","5":"1","6":"8","7":"500"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2","6":"9","7":"140"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3","6":"10","7":"20"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1","6":"11","7":"160"},{"1":"12","2":"6","3":"1.3","4":"4","5":"2","6":"12","7":"480"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3","6":"13","7":"140"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1","6":"14","7":"460"},{"1":"15","2":"15","3":"1.3","4":"2","5":"1","6":"15","7":"480"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1","6":"16","7":"380"},{"1":"17","2":"3","3":"3.1","4":"1","5":"1","6":"17","7":"260"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1","6":"18","7":"500"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1","6":"19","7":"380"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1","6":"20","7":"80"},{"1":"21","2":"3","3":"3.3","4":"3","5":"1","6":"21","7":"180"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1","6":"22","7":"220"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3","6":"23","7":"380"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1","6":"24","7":"440"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3","6":"25","7":"460"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2","6":"26","7":"280"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1","6":"27","7":"20"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1","6":"28","7":"0"},{"1":"29","2":"16","3":"1.3","4":"3","5":"1","6":"29","7":"80"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1","6":"30","7":"500"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1","6":"31","7":"480"},{"1":"32","2":"20","3":"4.5","4":"1","5":"1","6":"32","7":"80"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4","6":"33","7":"140"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1","6":"34","7":"240"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2","6":"35","7":"480"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1","6":"36","7":"60"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1","6":"37","7":"180"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2","6":"38","7":"100"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1","6":"39","7":"340"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4","6":"40","7":"80"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4","6":"41","7":"380"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2","6":"42","7":"0"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1","6":"43","7":"100"},{"1":"44","2":"2","3":"4.5","4":"2","5":"4","6":"44","7":"260"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1","6":"45","7":"240"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1","6":"46","7":"140"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2","6":"47","7":"320"},{"1":"48","2":"11","3":"3.9","4":"2","5":"4","6":"48","7":"360"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3","6":"49","7":"300"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3","6":"50","7":"280"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code>bind_cols(Plot_data, Plot_data2)</code></pre>
-<pre><code>## # A tibble: 50 x 7
-##    plot_id...1 farmer_id  size fertiliser_1 fertiliser_2 plot_id...6 yield_kg_ha
-##          &lt;int&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;int&gt;       &lt;dbl&gt;
-##  1           1        10   3.1            4            2           1          20
-##  2           2        17   4.1            2            1           2         400
-##  3           3        12   2.9            2            3           3           0
-##  4           4         7   2.5            4            3           4         320
-##  5           5         8   3.5            2            1           5         240
-##  6           6         1   1.9            4            1           6         400
-##  7           7        20   2.1            1            1           7         240
-##  8           8         3   3.9            1            1           8         500
-##  9           9        11   2.3            4            2           9         140
-## 10          10         1   3.3            4            3          10          20
-## # ... with 40 more rows</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id...1"],"name":[1],"type":["int"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["plot_id...6"],"name":[6],"type":["int"],"align":["right"]},{"label":["yield_kg_ha"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"4","5":"2","6":"1","7":"20"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1","6":"2","7":"400"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3","6":"3","7":"0"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3","6":"4","7":"320"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1","6":"5","7":"240"},{"1":"6","2":"1","3":"1.9","4":"4","5":"1","6":"6","7":"400"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1","6":"7","7":"240"},{"1":"8","2":"3","3":"3.9","4":"1","5":"1","6":"8","7":"500"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2","6":"9","7":"140"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3","6":"10","7":"20"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1","6":"11","7":"160"},{"1":"12","2":"6","3":"1.3","4":"4","5":"2","6":"12","7":"480"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3","6":"13","7":"140"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1","6":"14","7":"460"},{"1":"15","2":"15","3":"1.3","4":"2","5":"1","6":"15","7":"480"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1","6":"16","7":"380"},{"1":"17","2":"3","3":"3.1","4":"1","5":"1","6":"17","7":"260"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1","6":"18","7":"500"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1","6":"19","7":"380"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1","6":"20","7":"80"},{"1":"21","2":"3","3":"3.3","4":"3","5":"1","6":"21","7":"180"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1","6":"22","7":"220"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3","6":"23","7":"380"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1","6":"24","7":"440"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3","6":"25","7":"460"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2","6":"26","7":"280"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1","6":"27","7":"20"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1","6":"28","7":"0"},{"1":"29","2":"16","3":"1.3","4":"3","5":"1","6":"29","7":"80"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1","6":"30","7":"500"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1","6":"31","7":"480"},{"1":"32","2":"20","3":"4.5","4":"1","5":"1","6":"32","7":"80"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4","6":"33","7":"140"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1","6":"34","7":"240"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2","6":"35","7":"480"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1","6":"36","7":"60"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1","6":"37","7":"180"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2","6":"38","7":"100"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1","6":"39","7":"340"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4","6":"40","7":"80"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4","6":"41","7":"380"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2","6":"42","7":"0"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1","6":"43","7":"100"},{"1":"44","2":"2","3":"4.5","4":"2","5":"4","6":"44","7":"260"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1","6":"45","7":"240"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1","6":"46","7":"140"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2","6":"47","7":"320"},{"1":"48","2":"11","3":"3.9","4":"2","5":"4","6":"48","7":"360"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3","6":"49","7":"300"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3","6":"50","7":"280"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Now you will notice that because both datasets contained <code>plot_id</code>, our resulting data table has two id columns unhelpfully names “plot_id…1” and “plot_id…6”. This is because column binding will not merge information from columns that have the same name, rather they will just change the names.</p>
 <p>Therefore, if we were to use column binding it would be a good idea to drop the plot_id from one dataset and then perform the bind.</p>
 <p>We can use <code>select</code> and then put a <code>-</code> before the name of the variable to remove it from the data</p>
+<p>Though of course this stresses the importance that these ids MUST be identical in both data sets. The same numbers, and those numbers mean the same thing.</p>
 <pre class="r"><code>Plot_data3 &lt;- Plot_data2 %&gt;%
   select(-plot_id)</code></pre>
 <p>Now when we bind the data sets. We keep plot_id as normal</p>
 <pre class="r"><code>Plot_data &lt;- bind_cols(Plot_data, Plot_data3)
 
 Plot_data</code></pre>
-<pre><code>## # A tibble: 50 x 6
-##    plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
-##      &lt;int&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-##  1       1        10   3.1            4            2          20
-##  2       2        17   4.1            2            1         400
-##  3       3        12   2.9            2            3           0
-##  4       4         7   2.5            4            3         320
-##  5       5         8   3.5            2            1         240
-##  6       6         1   1.9            4            1         400
-##  7       7        20   2.1            1            1         240
-##  8       8         3   3.9            1            1         500
-##  9       9        11   2.3            4            2         140
-## 10      10         1   3.3            4            3          20
-## # ... with 40 more rows</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["yield_kg_ha"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"4","5":"2","6":"20"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1","6":"400"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3","6":"0"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3","6":"320"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1","6":"240"},{"1":"6","2":"1","3":"1.9","4":"4","5":"1","6":"400"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1","6":"240"},{"1":"8","2":"3","3":"3.9","4":"1","5":"1","6":"500"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2","6":"140"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3","6":"20"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1","6":"160"},{"1":"12","2":"6","3":"1.3","4":"4","5":"2","6":"480"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3","6":"140"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1","6":"460"},{"1":"15","2":"15","3":"1.3","4":"2","5":"1","6":"480"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1","6":"380"},{"1":"17","2":"3","3":"3.1","4":"1","5":"1","6":"260"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1","6":"500"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1","6":"380"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1","6":"80"},{"1":"21","2":"3","3":"3.3","4":"3","5":"1","6":"180"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1","6":"220"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3","6":"380"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1","6":"440"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3","6":"460"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2","6":"280"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1","6":"20"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1","6":"0"},{"1":"29","2":"16","3":"1.3","4":"3","5":"1","6":"80"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1","6":"500"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1","6":"480"},{"1":"32","2":"20","3":"4.5","4":"1","5":"1","6":"80"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4","6":"140"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1","6":"240"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2","6":"480"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1","6":"60"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1","6":"180"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2","6":"100"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1","6":"340"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4","6":"80"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4","6":"380"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2","6":"0"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1","6":"100"},{"1":"44","2":"2","3":"4.5","4":"2","5":"4","6":"260"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1","6":"240"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1","6":"140"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2","6":"320"},{"1":"48","2":"11","3":"3.9","4":"2","5":"4","6":"360"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3","6":"300"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3","6":"280"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>This binding may have been more smoothly achieved if we had actually done a join instead as we shall see later in the workbook.</p>
 </div>
 </div>
@@ -1508,166 +393,77 @@ Plot_data</code></pre>
 <p>Joining entails the more traditional form of data merging, we are bringing together data from multiple related data tables and these data tables do not contain the same levels of information.</p>
 <p>Recall from the session that a full join will keep the rows from both data sets, regardless of whether or not there is a match.</p>
 <p>Let’s again look at merging our two pieces of plot data but rather than having yield data for all of our plots, we have it for 40 out of 50 of them.</p>
+<pre class="r"><code>Plot_data</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["yield_kg_ha"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"4","5":"2","6":"20"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1","6":"400"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3","6":"0"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3","6":"320"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1","6":"240"},{"1":"6","2":"1","3":"1.9","4":"4","5":"1","6":"400"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1","6":"240"},{"1":"8","2":"3","3":"3.9","4":"1","5":"1","6":"500"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2","6":"140"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3","6":"20"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1","6":"160"},{"1":"12","2":"6","3":"1.3","4":"4","5":"2","6":"480"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3","6":"140"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1","6":"460"},{"1":"15","2":"15","3":"1.3","4":"2","5":"1","6":"480"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1","6":"380"},{"1":"17","2":"3","3":"3.1","4":"1","5":"1","6":"260"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1","6":"500"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1","6":"380"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1","6":"80"},{"1":"21","2":"3","3":"3.3","4":"3","5":"1","6":"180"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1","6":"220"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3","6":"380"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1","6":"440"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3","6":"460"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2","6":"280"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1","6":"20"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1","6":"0"},{"1":"29","2":"16","3":"1.3","4":"3","5":"1","6":"80"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1","6":"500"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1","6":"480"},{"1":"32","2":"20","3":"4.5","4":"1","5":"1","6":"80"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4","6":"140"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1","6":"240"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2","6":"480"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1","6":"60"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1","6":"180"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2","6":"100"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1","6":"340"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4","6":"80"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4","6":"380"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2","6":"0"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1","6":"100"},{"1":"44","2":"2","3":"4.5","4":"2","5":"4","6":"260"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1","6":"240"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1","6":"140"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2","6":"320"},{"1":"48","2":"11","3":"3.9","4":"2","5":"4","6":"360"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3","6":"300"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3","6":"280"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code>Plot_data2</code></pre>
-<pre><code>##    plot_id yield_kg_ha
-## 1        1          20
-## 2        2         400
-## 3        3           0
-## 4        4         320
-## 5        5         240
-## 7        7         240
-## 9        9         140
-## 10      10          20
-## 11      11         160
-## 13      13         140
-## 14      14         460
-## 16      16         380
-## 18      18         500
-## 19      19         380
-## 20      20          80
-## 22      22         220
-## 23      23         380
-## 24      24         440
-## 25      25         460
-## 26      26         280
-## 27      27          20
-## 28      28           0
-## 30      30         500
-## 31      31         480
-## 33      33         140
-## 34      34         240
-## 35      35         480
-## 36      36          60
-## 37      37         180
-## 38      38         100
-## 39      39         340
-## 40      40          80
-## 41      41         380
-## 42      42           0
-## 43      43         100
-## 45      45         240
-## 46      46         140
-## 47      47         320
-## 49      49         300
-## 50      50         280</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["yield_kg_ha"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"20","_rn_":"1"},{"1":"2","2":"400","_rn_":"2"},{"1":"3","2":"0","_rn_":"3"},{"1":"4","2":"320","_rn_":"4"},{"1":"5","2":"240","_rn_":"5"},{"1":"7","2":"240","_rn_":"7"},{"1":"9","2":"140","_rn_":"9"},{"1":"10","2":"20","_rn_":"10"},{"1":"11","2":"160","_rn_":"11"},{"1":"13","2":"140","_rn_":"13"},{"1":"14","2":"460","_rn_":"14"},{"1":"16","2":"380","_rn_":"16"},{"1":"18","2":"500","_rn_":"18"},{"1":"19","2":"380","_rn_":"19"},{"1":"20","2":"80","_rn_":"20"},{"1":"22","2":"220","_rn_":"22"},{"1":"23","2":"380","_rn_":"23"},{"1":"24","2":"440","_rn_":"24"},{"1":"25","2":"460","_rn_":"25"},{"1":"26","2":"280","_rn_":"26"},{"1":"27","2":"20","_rn_":"27"},{"1":"28","2":"0","_rn_":"28"},{"1":"30","2":"500","_rn_":"30"},{"1":"31","2":"480","_rn_":"31"},{"1":"33","2":"140","_rn_":"33"},{"1":"34","2":"240","_rn_":"34"},{"1":"35","2":"480","_rn_":"35"},{"1":"36","2":"60","_rn_":"36"},{"1":"37","2":"180","_rn_":"37"},{"1":"38","2":"100","_rn_":"38"},{"1":"39","2":"340","_rn_":"39"},{"1":"40","2":"80","_rn_":"40"},{"1":"41","2":"380","_rn_":"41"},{"1":"42","2":"0","_rn_":"42"},{"1":"43","2":"100","_rn_":"43"},{"1":"45","2":"240","_rn_":"45"},{"1":"46","2":"140","_rn_":"46"},{"1":"47","2":"320","_rn_":"47"},{"1":"49","2":"300","_rn_":"49"},{"1":"50","2":"280","_rn_":"50"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>From the dyplr package we would want to use the <code>full_join</code> function.</p>
 <p>We first specify the two datasets we want to merge.</p>
 <p>Then we use the <code>by =</code> argument to tell R what variables are we using to merge this data. In this case we want to use the primary key of these two data sets, plot_id. Remember that a primary key is the key that uniquely identifies each row in your data. With our plot level data sets, each row is uniquely identified by that plot identification number.</p>
 <pre class="r"><code>full_join(Plot_data, Plot_data2, by = &quot;plot_id&quot;)</code></pre>
-<pre><code>## # A tibble: 50 x 6
-##    plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
-##      &lt;int&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-##  1       1        10   3.1            4            2          20
-##  2       2        17   4.1            2            1         400
-##  3       3        12   2.9            2            3           0
-##  4       4         7   2.5            4            3         320
-##  5       5         8   3.5            2            1         240
-##  6       6         1   1.9            4            1          NA
-##  7       7        20   2.1            1            1         240
-##  8       8         3   3.9            1            1          NA
-##  9       9        11   2.3            4            2         140
-## 10      10         1   3.3            4            3          20
-## # ... with 40 more rows</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["yield_kg_ha"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"4","5":"2","6":"20"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1","6":"400"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3","6":"0"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3","6":"320"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1","6":"240"},{"1":"6","2":"1","3":"1.9","4":"4","5":"1","6":"NA"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1","6":"240"},{"1":"8","2":"3","3":"3.9","4":"1","5":"1","6":"NA"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2","6":"140"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3","6":"20"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1","6":"160"},{"1":"12","2":"6","3":"1.3","4":"4","5":"2","6":"NA"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3","6":"140"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1","6":"460"},{"1":"15","2":"15","3":"1.3","4":"2","5":"1","6":"NA"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1","6":"380"},{"1":"17","2":"3","3":"3.1","4":"1","5":"1","6":"NA"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1","6":"500"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1","6":"380"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1","6":"80"},{"1":"21","2":"3","3":"3.3","4":"3","5":"1","6":"NA"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1","6":"220"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3","6":"380"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1","6":"440"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3","6":"460"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2","6":"280"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1","6":"20"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1","6":"0"},{"1":"29","2":"16","3":"1.3","4":"3","5":"1","6":"NA"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1","6":"500"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1","6":"480"},{"1":"32","2":"20","3":"4.5","4":"1","5":"1","6":"NA"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4","6":"140"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1","6":"240"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2","6":"480"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1","6":"60"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1","6":"180"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2","6":"100"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1","6":"340"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4","6":"80"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4","6":"380"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2","6":"0"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1","6":"100"},{"1":"44","2":"2","3":"4.5","4":"2","5":"4","6":"NA"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1","6":"240"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1","6":"140"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2","6":"320"},{"1":"48","2":"11","3":"3.9","4":"2","5":"4","6":"NA"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3","6":"300"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3","6":"280"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>We can see how this was quicker and simpler than trying to achieve the same result with column binding.</p>
 <p>Note that as both pieces of data are at the plot level, we had a 1 to 1 relationship between the data sets. For every plot in table 1 there will be no more than 1 plot in table 2.</p>
 <p>Now notice that there are some NA values for yield. This is because there was not a match between the two data sets. We did not have yield for plots 6, 8, etc. But because we used a full join, these rows are kept and not excluded. All data remains intact and we still have 50 rows.</p>
-<p>If we had an extra plot in our Plot_data2, that was not in our original plot. Then this plot would have also been kept in the data.</p>
-<p>See we now have added a 51st plot with a yield of 320kg/ha</p>
+<p>Let’s try this again with an additional plot in Plot_data2, that does not exist in plot_data.</p>
+<p>As we know it is our 51st plot, let’s take a look at the details of this plot only. We can see that it has a yield of 320 kg/ha.Note that is is row 41 not 51 because our plot_data2 was missing 10 rows.</p>
 <pre class="r"><code>Plot_data2[41,]</code></pre>
-<pre><code>##      plot_id yield_kg_ha
-## 41.1      51         320</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["plot_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["yield_kg_ha"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"51","2":"320","_rn_":"41.1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>When joining this data now, plot 51 is kept in the data, but we would have all this missing data including farmer_id. Not always particularly helpful.</p>
 <pre class="r"><code>Plot_data4 &lt;- full_join(Plot_data, Plot_data2, by = &quot;plot_id&quot;)
 
 Plot_data4[51,]</code></pre>
-<pre><code>## # A tibble: 1 x 6
-##   plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
-##     &lt;dbl&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-## 1      51        NA    NA           NA           NA         320</code></pre>
-<p>I have tended to find full join most useful when using it in a similar fashion to r bind, where i have similar datasets that have many of the same variables but additional observations and perhaps even additional variables for existing observations.</p>
-<p>For instance, let’s have another look at merging two instances of our farmer data. But make a slight adjustment so some of the rows are shared but there is again another variable, household size.</p>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["yield_kg_ha"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"51","2":"NA","3":"NA","4":"NA","5":"NA","6":"320"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>I tend to find full join most useful when using it in a similar fashion to rbind, where I have similar datasets with many of the same variables but additional observations and perhaps even additional variables for existing observations.</p>
+<p>. Let’s have another look at merging two instances of our farmer data. This time it’s slightly different: only some of the rows are shared between the two datasets and one dataset has an additional variable, household size.</p>
 <pre class="r"><code>Farmer_dataC</code></pre>
-<pre><code>##    farmer_id village_id    name
-## 1          1          3  Saadiq
-## 2          2          3 Jelicha
-## 3          3          1  Briana
-## 4          4          5   Daeun
-## 5          5          5 Ruwaida
-## 6          6          2   Fawzi
-## 7          7          2  Yashna
-## 8          8          1    Tara
-## 9          9          5  Melina
-## 10        10          5 Jeelaan
-## 11        11          1 Razeena
-## 12        12          1   Sidqi</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["farmer_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["village_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["name"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"3","3":"Saadiq","_rn_":"1"},{"1":"2","2":"3","3":"Jelicha","_rn_":"2"},{"1":"3","2":"1","3":"Briana","_rn_":"3"},{"1":"4","2":"5","3":"Daeun","_rn_":"4"},{"1":"5","2":"5","3":"Ruwaida","_rn_":"5"},{"1":"6","2":"2","3":"Fawzi","_rn_":"6"},{"1":"7","2":"2","3":"Yashna","_rn_":"7"},{"1":"8","2":"1","3":"Tara","_rn_":"8"},{"1":"9","2":"5","3":"Melina","_rn_":"9"},{"1":"10","2":"5","3":"Jeelaan","_rn_":"10"},{"1":"11","2":"1","3":"Razeena","_rn_":"11"},{"1":"12","2":"1","3":"Sidqi","_rn_":"12"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <pre class="r"><code>Farmer_dataD</code></pre>
-<pre><code>##      farmer_id village_id     name hhsize
-## 9            9          5   Melina      5
-## 10          10          5  Jeelaan     10
-## 11          11          1  Razeena      7
-## 12          12          1    Sidqi      4
-## 13          13          5     Eric     10
-## 14          14          5    Ryann      8
-## 15          15          2 Kingsley      8
-## 16          16          2    Rifqa      4
-## 17          17          1   Denise     10
-## 18          18          4   Suhaib      7
-## 19          19          1   Daniel      8
-## 20          20          4     Sara      8
-## 13.1        21          2      Sam      8
-## 14.1        22          5     Dave      5</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["farmer_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["village_id"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["hhsize"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"9","2":"5","3":"Melina","4":"5","_rn_":"9"},{"1":"10","2":"5","3":"Jeelaan","4":"10","_rn_":"10"},{"1":"11","2":"1","3":"Razeena","4":"7","_rn_":"11"},{"1":"12","2":"1","3":"Sidqi","4":"4","_rn_":"12"},{"1":"13","2":"5","3":"Eric","4":"10","_rn_":"13"},{"1":"14","2":"5","3":"Ryann","4":"8","_rn_":"14"},{"1":"15","2":"2","3":"Kingsley","4":"8","_rn_":"15"},{"1":"16","2":"2","3":"Rifqa","4":"4","_rn_":"16"},{"1":"17","2":"1","3":"Denise","4":"10","_rn_":"17"},{"1":"18","2":"4","3":"Suhaib","4":"7","_rn_":"18"},{"1":"19","2":"1","3":"Daniel","4":"8","_rn_":"19"},{"1":"20","2":"4","3":"Sara","4":"8","_rn_":"20"},{"1":"21","2":"2","3":"Sam","4":"8","_rn_":"13.1"},{"1":"22","2":"5","3":"Dave","4":"5","_rn_":"14.1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>So in our second data set we have 2 additional farmers Sam and Dave, and then also additional household size information for farmers 9 to 12.</p>
 <p>So let’s join these together and see what happens</p>
 <pre class="r"><code>full_join(Farmer_dataC, Farmer_dataD, by = &quot;farmer_id&quot;)</code></pre>
-<pre><code>##    farmer_id village_id.x  name.x village_id.y   name.y hhsize
-## 1          1            3  Saadiq           NA     &lt;NA&gt;     NA
-## 2          2            3 Jelicha           NA     &lt;NA&gt;     NA
-## 3          3            1  Briana           NA     &lt;NA&gt;     NA
-## 4          4            5   Daeun           NA     &lt;NA&gt;     NA
-## 5          5            5 Ruwaida           NA     &lt;NA&gt;     NA
-## 6          6            2   Fawzi           NA     &lt;NA&gt;     NA
-## 7          7            2  Yashna           NA     &lt;NA&gt;     NA
-## 8          8            1    Tara           NA     &lt;NA&gt;     NA
-## 9          9            5  Melina            5   Melina      5
-## 10        10            5 Jeelaan            5  Jeelaan     10
-## 11        11            1 Razeena            1  Razeena      7
-## 12        12            1   Sidqi            1    Sidqi      4
-## 13        13           NA    &lt;NA&gt;            5     Eric     10
-## 14        14           NA    &lt;NA&gt;            5    Ryann      8
-## 15        15           NA    &lt;NA&gt;            2 Kingsley      8
-## 16        16           NA    &lt;NA&gt;            2    Rifqa      4
-## 17        17           NA    &lt;NA&gt;            1   Denise     10
-## 18        18           NA    &lt;NA&gt;            4   Suhaib      7
-## 19        19           NA    &lt;NA&gt;            1   Daniel      8
-## 20        20           NA    &lt;NA&gt;            4     Sara      8
-## 21        21           NA    &lt;NA&gt;            2      Sam      8
-## 22        22           NA    &lt;NA&gt;            5     Dave      5</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["farmer_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["village_id.x"],"name":[2],"type":["int"],"align":["right"]},{"label":["name.x"],"name":[3],"type":["chr"],"align":["left"]},{"label":["village_id.y"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["name.y"],"name":[5],"type":["chr"],"align":["left"]},{"label":["hhsize"],"name":[6],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"3","3":"Saadiq","4":"NA","5":"NA","6":"NA"},{"1":"2","2":"3","3":"Jelicha","4":"NA","5":"NA","6":"NA"},{"1":"3","2":"1","3":"Briana","4":"NA","5":"NA","6":"NA"},{"1":"4","2":"5","3":"Daeun","4":"NA","5":"NA","6":"NA"},{"1":"5","2":"5","3":"Ruwaida","4":"NA","5":"NA","6":"NA"},{"1":"6","2":"2","3":"Fawzi","4":"NA","5":"NA","6":"NA"},{"1":"7","2":"2","3":"Yashna","4":"NA","5":"NA","6":"NA"},{"1":"8","2":"1","3":"Tara","4":"NA","5":"NA","6":"NA"},{"1":"9","2":"5","3":"Melina","4":"5","5":"Melina","6":"5"},{"1":"10","2":"5","3":"Jeelaan","4":"5","5":"Jeelaan","6":"10"},{"1":"11","2":"1","3":"Razeena","4":"1","5":"Razeena","6":"7"},{"1":"12","2":"1","3":"Sidqi","4":"1","5":"Sidqi","6":"4"},{"1":"13","2":"NA","3":"NA","4":"5","5":"Eric","6":"10"},{"1":"14","2":"NA","3":"NA","4":"5","5":"Ryann","6":"8"},{"1":"15","2":"NA","3":"NA","4":"2","5":"Kingsley","6":"8"},{"1":"16","2":"NA","3":"NA","4":"2","5":"Rifqa","6":"4"},{"1":"17","2":"NA","3":"NA","4":"1","5":"Denise","6":"10"},{"1":"18","2":"NA","3":"NA","4":"4","5":"Suhaib","6":"7"},{"1":"19","2":"NA","3":"NA","4":"1","5":"Daniel","6":"8"},{"1":"20","2":"NA","3":"NA","4":"4","5":"Sara","6":"8"},{"1":"21","2":"NA","3":"NA","4":"2","5":"Sam","6":"8"},{"1":"22","2":"NA","3":"NA","4":"5","5":"Dave","6":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Now we have 22 rows as we would expect, one for each farmer. But something has gone wrong with our village and name variables. This is because we only told R to match on farmer_id. While this logically makes sense, it means that R will think that other column with the same name are not identical, when in our case they are. As a result we get columns like name.x and name.y.</p>
 <p>In order to avoid this we also need to include any common columns between our two data sets by listing them.</p>
 <pre class="r"><code>full_join(Farmer_dataC, Farmer_dataD, by = c(&quot;farmer_id&quot;, &quot;village_id&quot;, &quot;name&quot;))</code></pre>
-<pre><code>##    farmer_id village_id     name hhsize
-## 1          1          3   Saadiq     NA
-## 2          2          3  Jelicha     NA
-## 3          3          1   Briana     NA
-## 4          4          5    Daeun     NA
-## 5          5          5  Ruwaida     NA
-## 6          6          2    Fawzi     NA
-## 7          7          2   Yashna     NA
-## 8          8          1     Tara     NA
-## 9          9          5   Melina      5
-## 10        10          5  Jeelaan     10
-## 11        11          1  Razeena      7
-## 12        12          1    Sidqi      4
-## 13        13          5     Eric     10
-## 14        14          5    Ryann      8
-## 15        15          2 Kingsley      8
-## 16        16          2    Rifqa      4
-## 17        17          1   Denise     10
-## 18        18          4   Suhaib      7
-## 19        19          1   Daniel      8
-## 20        20          4     Sara      8
-## 21        21          2      Sam      8
-## 22        22          5     Dave      5</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["farmer_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["village_id"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["hhsize"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"3","3":"Saadiq","4":"NA"},{"1":"2","2":"3","3":"Jelicha","4":"NA"},{"1":"3","2":"1","3":"Briana","4":"NA"},{"1":"4","2":"5","3":"Daeun","4":"NA"},{"1":"5","2":"5","3":"Ruwaida","4":"NA"},{"1":"6","2":"2","3":"Fawzi","4":"NA"},{"1":"7","2":"2","3":"Yashna","4":"NA"},{"1":"8","2":"1","3":"Tara","4":"NA"},{"1":"9","2":"5","3":"Melina","4":"5"},{"1":"10","2":"5","3":"Jeelaan","4":"10"},{"1":"11","2":"1","3":"Razeena","4":"7"},{"1":"12","2":"1","3":"Sidqi","4":"4"},{"1":"13","2":"5","3":"Eric","4":"10"},{"1":"14","2":"5","3":"Ryann","4":"8"},{"1":"15","2":"2","3":"Kingsley","4":"8"},{"1":"16","2":"2","3":"Rifqa","4":"4"},{"1":"17","2":"1","3":"Denise","4":"10"},{"1":"18","2":"4","3":"Suhaib","4":"7"},{"1":"19","2":"1","3":"Daniel","4":"8"},{"1":"20","2":"4","3":"Sara","4":"8"},{"1":"21","2":"2","3":"Sam","4":"8"},{"1":"22","2":"5","3":"Dave","4":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>This seems to solve the problem and we have kept information from both data tables even where we were missing household size information.</p>
 <p>If our variables were called something different then we can control for this as well. For example, say in our previous example, in the second dataset plot_id was instead called plot_name. Then we could have written this instead. with the column name in the first data set on the left, and the other column name on the right.</p>
 <pre class="r"><code>full_join(Plot_data, Plot_data2, by = c(&quot;plot_id&quot; = &quot;plot_name&quot;))</code></pre>
@@ -1678,57 +474,30 @@ Plot_data4[51,]</code></pre>
 <p>This is regardless of whether or not there is a match.</p>
 <p>So if we were to join the two sets of plot data that we had on the previous page. We could use a left join to stop us from adding in that 51st plot for which we have very little data.</p>
 <pre class="r"><code>left_join(Plot_data, Plot_data2, by = &quot;plot_id&quot;)</code></pre>
-<pre><code>## # A tibble: 50 x 6
-##    plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
-##      &lt;dbl&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-##  1       1        10   3.1            4            2          20
-##  2       2        17   4.1            2            1         400
-##  3       3        12   2.9            2            3           0
-##  4       4         7   2.5            4            3         320
-##  5       5         8   3.5            2            1         240
-##  6       6         1   1.9            4            1          NA
-##  7       7        20   2.1            1            1         240
-##  8       8         3   3.9            1            1          NA
-##  9       9        11   2.3            4            2         140
-## 10      10         1   3.3            4            3          20
-## # ... with 40 more rows</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["yield_kg_ha"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"4","5":"2","6":"20"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1","6":"400"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3","6":"0"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3","6":"320"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1","6":"240"},{"1":"6","2":"1","3":"1.9","4":"4","5":"1","6":"NA"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1","6":"240"},{"1":"8","2":"3","3":"3.9","4":"1","5":"1","6":"NA"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2","6":"140"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3","6":"20"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1","6":"160"},{"1":"12","2":"6","3":"1.3","4":"4","5":"2","6":"NA"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3","6":"140"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1","6":"460"},{"1":"15","2":"15","3":"1.3","4":"2","5":"1","6":"NA"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1","6":"380"},{"1":"17","2":"3","3":"3.1","4":"1","5":"1","6":"NA"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1","6":"500"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1","6":"380"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1","6":"80"},{"1":"21","2":"3","3":"3.3","4":"3","5":"1","6":"NA"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1","6":"220"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3","6":"380"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1","6":"440"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3","6":"460"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2","6":"280"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1","6":"20"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1","6":"0"},{"1":"29","2":"16","3":"1.3","4":"3","5":"1","6":"NA"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1","6":"500"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1","6":"480"},{"1":"32","2":"20","3":"4.5","4":"1","5":"1","6":"NA"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4","6":"140"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1","6":"240"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2","6":"480"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1","6":"60"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1","6":"180"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2","6":"100"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1","6":"340"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4","6":"80"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4","6":"380"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2","6":"0"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1","6":"100"},{"1":"44","2":"2","3":"4.5","4":"2","5":"4","6":"NA"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1","6":"240"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1","6":"140"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2","6":"320"},{"1":"48","2":"11","3":"3.9","4":"2","5":"4","6":"NA"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3","6":"300"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3","6":"280"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>We have kept all 50 rows from the first set of plot data, including those without any yield data in the second set. All while removing that 51st plot from our data.</p>
 <p>If we were to instead keep the arguments the same but change this to a right join we would see 41 rows. The 40 plots for which we have yield information and also the other variables. Plus the other plot for which we only have yield data. Therefore removing the 10 plots where we have that original information but not yield.</p>
 <pre class="r"><code>right_join(Plot_data, Plot_data2, by = &quot;plot_id&quot;)</code></pre>
-<pre><code>## # A tibble: 41 x 6
-##    plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
-##      &lt;dbl&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-##  1       1        10   3.1            4            2          20
-##  2       2        17   4.1            2            1         400
-##  3       3        12   2.9            2            3           0
-##  4       4         7   2.5            4            3         320
-##  5       5         8   3.5            2            1         240
-##  6       7        20   2.1            1            1         240
-##  7       9        11   2.3            4            2         140
-##  8      10         1   3.3            4            3          20
-##  9      11        15   4.3            3            1         160
-## 10      13         9   1.3            4            3         140
-## # ... with 31 more rows</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["yield_kg_ha"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"4","5":"2","6":"20"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1","6":"400"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3","6":"0"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3","6":"320"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1","6":"240"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1","6":"240"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2","6":"140"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3","6":"20"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1","6":"160"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3","6":"140"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1","6":"460"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1","6":"380"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1","6":"500"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1","6":"380"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1","6":"80"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1","6":"220"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3","6":"380"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1","6":"440"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3","6":"460"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2","6":"280"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1","6":"20"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1","6":"0"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1","6":"500"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1","6":"480"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4","6":"140"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1","6":"240"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2","6":"480"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1","6":"60"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1","6":"180"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2","6":"100"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1","6":"340"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4","6":"80"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4","6":"380"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2","6":"0"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1","6":"100"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1","6":"240"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1","6":"140"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2","6":"320"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3","6":"300"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3","6":"280"},{"1":"51","2":"NA","3":"NA","4":"NA","5":"NA","6":"320"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 <div id="section-inner-join" class="section level2">
 <h2>Inner join</h2>
 <p>An inner join trims this down further still and will only keep the rows where there is a corresponding match between each data set.</p>
 <p>So in our plot example we would drop both the plots which have no yield data, and the 51st plot for which we have no other information.</p>
 <pre class="r"><code>inner_join(Plot_data, Plot_data2, by = &quot;plot_id&quot;)</code></pre>
-<pre><code>## # A tibble: 40 x 6
-##    plot_id farmer_id  size fertiliser_1 fertiliser_2 yield_kg_ha
-##      &lt;dbl&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-##  1       1        10   3.1            4            2          20
-##  2       2        17   4.1            2            1         400
-##  3       3        12   2.9            2            3           0
-##  4       4         7   2.5            4            3         320
-##  5       5         8   3.5            2            1         240
-##  6       7        20   2.1            1            1         240
-##  7       9        11   2.3            4            2         140
-##  8      10         1   3.3            4            3          20
-##  9      11        15   4.3            3            1         160
-## 10      13         9   1.3            4            3         140
-## # ... with 30 more rows</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[4],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["yield_kg_ha"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"4","5":"2","6":"20"},{"1":"2","2":"17","3":"4.1","4":"2","5":"1","6":"400"},{"1":"3","2":"12","3":"2.9","4":"2","5":"3","6":"0"},{"1":"4","2":"7","3":"2.5","4":"4","5":"3","6":"320"},{"1":"5","2":"8","3":"3.5","4":"2","5":"1","6":"240"},{"1":"7","2":"20","3":"2.1","4":"1","5":"1","6":"240"},{"1":"9","2":"11","3":"2.3","4":"4","5":"2","6":"140"},{"1":"10","2":"1","3":"3.3","4":"4","5":"3","6":"20"},{"1":"11","2":"15","3":"4.3","4":"3","5":"1","6":"160"},{"1":"13","2":"9","3":"1.3","4":"4","5":"3","6":"140"},{"1":"14","2":"5","3":"1.7","4":"1","5":"1","6":"460"},{"1":"16","2":"18","3":"2.7","4":"4","5":"1","6":"380"},{"1":"18","2":"3","3":"1.5","4":"1","5":"1","6":"500"},{"1":"19","2":"7","3":"4.3","4":"3","5":"1","6":"380"},{"1":"20","2":"15","3":"3.5","4":"1","5":"1","6":"80"},{"1":"22","2":"20","3":"0.7","4":"1","5":"1","6":"220"},{"1":"23","2":"12","3":"0.5","4":"2","5":"3","6":"380"},{"1":"24","2":"18","3":"0.9","4":"2","5":"1","6":"440"},{"1":"25","2":"9","3":"2.1","4":"2","5":"3","6":"460"},{"1":"26","2":"19","3":"1.5","4":"4","5":"2","6":"280"},{"1":"27","2":"18","3":"3.7","4":"3","5":"1","6":"20"},{"1":"28","2":"19","3":"4.3","4":"1","5":"1","6":"0"},{"1":"30","2":"7","3":"2.1","4":"1","5":"1","6":"500"},{"1":"31","2":"16","3":"2.7","4":"1","5":"1","6":"480"},{"1":"33","2":"17","3":"1.9","4":"3","5":"4","6":"140"},{"1":"34","2":"20","3":"1.1","4":"1","5":"1","6":"240"},{"1":"35","2":"4","3":"3.7","4":"3","5":"2","6":"480"},{"1":"36","2":"2","3":"2.1","4":"2","5":"1","6":"60"},{"1":"37","2":"17","3":"4.5","4":"1","5":"1","6":"180"},{"1":"38","2":"1","3":"0.5","4":"4","5":"2","6":"100"},{"1":"39","2":"12","3":"4.5","4":"4","5":"1","6":"340"},{"1":"40","2":"7","3":"4.3","4":"3","5":"4","6":"80"},{"1":"41","2":"9","3":"2.3","4":"3","5":"4","6":"380"},{"1":"42","2":"14","3":"3.1","4":"4","5":"2","6":"0"},{"1":"43","2":"2","3":"2.3","4":"4","5":"1","6":"100"},{"1":"45","2":"20","3":"4.5","4":"4","5":"1","6":"240"},{"1":"46","2":"18","3":"4.7","4":"1","5":"1","6":"140"},{"1":"47","2":"2","3":"1.5","4":"3","5":"2","6":"320"},{"1":"49","2":"3","3":"3.5","4":"4","5":"3","6":"300"},{"1":"50","2":"3","3":"0.7","4":"4","5":"3","6":"280"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>As a result we have 40 rows. Because we had 40 plots were information was available from both datasets.</p>
 </div>
 <div id="section-brining-it-all-together" class="section level2">
@@ -1738,7 +507,7 @@ Plot_data4[51,]</code></pre>
 <h3>Example 1</h3>
 <p>First let’s bring some data down a level. For instance let’s say we want to analyse some data at the plot level but we want to group this data by village to generate a village level average plot size.</p>
 <p>But we do not know which farmers lives in which village just by looking at this plot level data.</p>
-<p>But we do have farmer_id which can link us up with the farmer data. A data set which does include the village id as a variable.</p>
+<p>But we do have farmer_id which can link us up with the farmer data. A data set which does include the farmer data, which includes the village id as a variable.</p>
 <p>So we need to merge information from the farmer data and the plot data using this link. Here our foreign key is farmer_id as it does not uniquely identify our rows in the plot data. But it is identifying a particular unit of observation, the farmer. This foreign key (farmer_id) links up to the primary key of the farmer data (farmer_id).</p>
 <p>This is an example of a 1 to Many relationship as for each individual farmer there can be many plots.</p>
 <p>Now you may have noticed that we have 20 farmers in our data, but when we have grouped our plots by farmer, we had only 19 groups. That is because we have one farmer without any plots.</p>
@@ -2011,14 +780,11 @@ Plot_data4[51,]</code></pre>
 <pre class="r"><code>Plot_data %&gt;%
   group_by(village_name) %&gt;%
   summarise(avg_plot_size = mean(size, na.rm = TRUE))</code></pre>
-<pre><code>## # A tibble: 5 x 2
-##   village_name  avg_plot_size
-##   &lt;chr&gt;                 &lt;dbl&gt;
-## 1 Balamory               2.47
-## 2 Langley Falls          2.76
-## 3 New New York           2.3 
-## 4 Pawnee                 2.77
-## 5 Springfield            2.94</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["village_name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["avg_plot_size"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Balamory","2":"2.471429"},{"1":"Langley Falls","2":"2.760000"},{"1":"New New York","2":"2.300000"},{"1":"Pawnee","2":"2.766667"},{"1":"Springfield","2":"2.935294"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 <div id="section-example-2" class="section level3">
 <h3>Example 2</h3>
@@ -2035,39 +801,21 @@ Plot_data4[51,]</code></pre>
   )
 
 Long_plots</code></pre>
-<pre><code>## # A tibble: 100 x 5
-##    plot_id farmer_id  size Fertiliser_no fertiliser_id
-##      &lt;int&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;
-##  1       1        10   3.1 fertiliser_1              4
-##  2       1        10   3.1 fertiliser_2              2
-##  3       2        17   4.1 fertiliser_1              2
-##  4       2        17   4.1 fertiliser_2              1
-##  5       3        12   2.9 fertiliser_1              2
-##  6       3        12   2.9 fertiliser_2              3
-##  7       4         7   2.5 fertiliser_1              4
-##  8       4         7   2.5 fertiliser_2              3
-##  9       5         8   3.5 fertiliser_1              2
-## 10       5         8   3.5 fertiliser_2              1
-## # ... with 90 more rows</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Fertiliser_no"],"name":[4],"type":["chr"],"align":["left"]},{"label":["fertiliser_id"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"fertiliser_1","5":"4"},{"1":"1","2":"10","3":"3.1","4":"fertiliser_2","5":"2"},{"1":"2","2":"17","3":"4.1","4":"fertiliser_1","5":"2"},{"1":"2","2":"17","3":"4.1","4":"fertiliser_2","5":"1"},{"1":"3","2":"12","3":"2.9","4":"fertiliser_1","5":"2"},{"1":"3","2":"12","3":"2.9","4":"fertiliser_2","5":"3"},{"1":"4","2":"7","3":"2.5","4":"fertiliser_1","5":"4"},{"1":"4","2":"7","3":"2.5","4":"fertiliser_2","5":"3"},{"1":"5","2":"8","3":"3.5","4":"fertiliser_1","5":"2"},{"1":"5","2":"8","3":"3.5","4":"fertiliser_2","5":"1"},{"1":"6","2":"1","3":"1.9","4":"fertiliser_1","5":"4"},{"1":"6","2":"1","3":"1.9","4":"fertiliser_2","5":"1"},{"1":"7","2":"20","3":"2.1","4":"fertiliser_1","5":"1"},{"1":"7","2":"20","3":"2.1","4":"fertiliser_2","5":"1"},{"1":"8","2":"3","3":"3.9","4":"fertiliser_1","5":"1"},{"1":"8","2":"3","3":"3.9","4":"fertiliser_2","5":"1"},{"1":"9","2":"11","3":"2.3","4":"fertiliser_1","5":"4"},{"1":"9","2":"11","3":"2.3","4":"fertiliser_2","5":"2"},{"1":"10","2":"1","3":"3.3","4":"fertiliser_1","5":"4"},{"1":"10","2":"1","3":"3.3","4":"fertiliser_2","5":"3"},{"1":"11","2":"15","3":"4.3","4":"fertiliser_1","5":"3"},{"1":"11","2":"15","3":"4.3","4":"fertiliser_2","5":"1"},{"1":"12","2":"6","3":"1.3","4":"fertiliser_1","5":"4"},{"1":"12","2":"6","3":"1.3","4":"fertiliser_2","5":"2"},{"1":"13","2":"9","3":"1.3","4":"fertiliser_1","5":"4"},{"1":"13","2":"9","3":"1.3","4":"fertiliser_2","5":"3"},{"1":"14","2":"5","3":"1.7","4":"fertiliser_1","5":"1"},{"1":"14","2":"5","3":"1.7","4":"fertiliser_2","5":"1"},{"1":"15","2":"15","3":"1.3","4":"fertiliser_1","5":"2"},{"1":"15","2":"15","3":"1.3","4":"fertiliser_2","5":"1"},{"1":"16","2":"18","3":"2.7","4":"fertiliser_1","5":"4"},{"1":"16","2":"18","3":"2.7","4":"fertiliser_2","5":"1"},{"1":"17","2":"3","3":"3.1","4":"fertiliser_1","5":"1"},{"1":"17","2":"3","3":"3.1","4":"fertiliser_2","5":"1"},{"1":"18","2":"3","3":"1.5","4":"fertiliser_1","5":"1"},{"1":"18","2":"3","3":"1.5","4":"fertiliser_2","5":"1"},{"1":"19","2":"7","3":"4.3","4":"fertiliser_1","5":"3"},{"1":"19","2":"7","3":"4.3","4":"fertiliser_2","5":"1"},{"1":"20","2":"15","3":"3.5","4":"fertiliser_1","5":"1"},{"1":"20","2":"15","3":"3.5","4":"fertiliser_2","5":"1"},{"1":"21","2":"3","3":"3.3","4":"fertiliser_1","5":"3"},{"1":"21","2":"3","3":"3.3","4":"fertiliser_2","5":"1"},{"1":"22","2":"20","3":"0.7","4":"fertiliser_1","5":"1"},{"1":"22","2":"20","3":"0.7","4":"fertiliser_2","5":"1"},{"1":"23","2":"12","3":"0.5","4":"fertiliser_1","5":"2"},{"1":"23","2":"12","3":"0.5","4":"fertiliser_2","5":"3"},{"1":"24","2":"18","3":"0.9","4":"fertiliser_1","5":"2"},{"1":"24","2":"18","3":"0.9","4":"fertiliser_2","5":"1"},{"1":"25","2":"9","3":"2.1","4":"fertiliser_1","5":"2"},{"1":"25","2":"9","3":"2.1","4":"fertiliser_2","5":"3"},{"1":"26","2":"19","3":"1.5","4":"fertiliser_1","5":"4"},{"1":"26","2":"19","3":"1.5","4":"fertiliser_2","5":"2"},{"1":"27","2":"18","3":"3.7","4":"fertiliser_1","5":"3"},{"1":"27","2":"18","3":"3.7","4":"fertiliser_2","5":"1"},{"1":"28","2":"19","3":"4.3","4":"fertiliser_1","5":"1"},{"1":"28","2":"19","3":"4.3","4":"fertiliser_2","5":"1"},{"1":"29","2":"16","3":"1.3","4":"fertiliser_1","5":"3"},{"1":"29","2":"16","3":"1.3","4":"fertiliser_2","5":"1"},{"1":"30","2":"7","3":"2.1","4":"fertiliser_1","5":"1"},{"1":"30","2":"7","3":"2.1","4":"fertiliser_2","5":"1"},{"1":"31","2":"16","3":"2.7","4":"fertiliser_1","5":"1"},{"1":"31","2":"16","3":"2.7","4":"fertiliser_2","5":"1"},{"1":"32","2":"20","3":"4.5","4":"fertiliser_1","5":"1"},{"1":"32","2":"20","3":"4.5","4":"fertiliser_2","5":"1"},{"1":"33","2":"17","3":"1.9","4":"fertiliser_1","5":"3"},{"1":"33","2":"17","3":"1.9","4":"fertiliser_2","5":"4"},{"1":"34","2":"20","3":"1.1","4":"fertiliser_1","5":"1"},{"1":"34","2":"20","3":"1.1","4":"fertiliser_2","5":"1"},{"1":"35","2":"4","3":"3.7","4":"fertiliser_1","5":"3"},{"1":"35","2":"4","3":"3.7","4":"fertiliser_2","5":"2"},{"1":"36","2":"2","3":"2.1","4":"fertiliser_1","5":"2"},{"1":"36","2":"2","3":"2.1","4":"fertiliser_2","5":"1"},{"1":"37","2":"17","3":"4.5","4":"fertiliser_1","5":"1"},{"1":"37","2":"17","3":"4.5","4":"fertiliser_2","5":"1"},{"1":"38","2":"1","3":"0.5","4":"fertiliser_1","5":"4"},{"1":"38","2":"1","3":"0.5","4":"fertiliser_2","5":"2"},{"1":"39","2":"12","3":"4.5","4":"fertiliser_1","5":"4"},{"1":"39","2":"12","3":"4.5","4":"fertiliser_2","5":"1"},{"1":"40","2":"7","3":"4.3","4":"fertiliser_1","5":"3"},{"1":"40","2":"7","3":"4.3","4":"fertiliser_2","5":"4"},{"1":"41","2":"9","3":"2.3","4":"fertiliser_1","5":"3"},{"1":"41","2":"9","3":"2.3","4":"fertiliser_2","5":"4"},{"1":"42","2":"14","3":"3.1","4":"fertiliser_1","5":"4"},{"1":"42","2":"14","3":"3.1","4":"fertiliser_2","5":"2"},{"1":"43","2":"2","3":"2.3","4":"fertiliser_1","5":"4"},{"1":"43","2":"2","3":"2.3","4":"fertiliser_2","5":"1"},{"1":"44","2":"2","3":"4.5","4":"fertiliser_1","5":"2"},{"1":"44","2":"2","3":"4.5","4":"fertiliser_2","5":"4"},{"1":"45","2":"20","3":"4.5","4":"fertiliser_1","5":"4"},{"1":"45","2":"20","3":"4.5","4":"fertiliser_2","5":"1"},{"1":"46","2":"18","3":"4.7","4":"fertiliser_1","5":"1"},{"1":"46","2":"18","3":"4.7","4":"fertiliser_2","5":"1"},{"1":"47","2":"2","3":"1.5","4":"fertiliser_1","5":"3"},{"1":"47","2":"2","3":"1.5","4":"fertiliser_2","5":"2"},{"1":"48","2":"11","3":"3.9","4":"fertiliser_1","5":"2"},{"1":"48","2":"11","3":"3.9","4":"fertiliser_2","5":"4"},{"1":"49","2":"3","3":"3.5","4":"fertiliser_1","5":"4"},{"1":"49","2":"3","3":"3.5","4":"fertiliser_2","5":"3"},{"1":"50","2":"3","3":"0.7","4":"fertiliser_1","5":"4"},{"1":"50","2":"3","3":"0.7","4":"fertiliser_2","5":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Now we can bring in the fertiliser data. Again using left join, as we want to prioritise the plot information.</p>
 <pre class="r"><code>Long_plots &lt;- Long_plots %&gt;%
   left_join(Fertiliser_data, by = &quot;fertiliser_id&quot;)
 
 Long_plots</code></pre>
-<pre><code>## # A tibble: 100 x 7
-##    plot_id farmer_id  size Fertiliser_no fertiliser_id name     price_per_ha
-##      &lt;int&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
-##  1       1        10   3.1 fertiliser_1              4 Chemical           25
-##  2       1        10   3.1 fertiliser_2              2 Compost            12
-##  3       2        17   4.1 fertiliser_1              2 Compost            12
-##  4       2        17   4.1 fertiliser_2              1 None                0
-##  5       3        12   2.9 fertiliser_1              2 Compost            12
-##  6       3        12   2.9 fertiliser_2              3 Manure              8
-##  7       4         7   2.5 fertiliser_1              4 Chemical           25
-##  8       4         7   2.5 fertiliser_2              3 Manure              8
-##  9       5         8   3.5 fertiliser_1              2 Compost            12
-## 10       5         8   3.5 fertiliser_2              1 None                0
-## # ... with 90 more rows</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["farmer_id"],"name":[2],"type":["int"],"align":["right"]},{"label":["size"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Fertiliser_no"],"name":[4],"type":["chr"],"align":["left"]},{"label":["fertiliser_id"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[6],"type":["chr"],"align":["left"]},{"label":["price_per_ha"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"10","3":"3.1","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"1","2":"10","3":"3.1","4":"fertiliser_2","5":"2","6":"Compost","7":"12"},{"1":"2","2":"17","3":"4.1","4":"fertiliser_1","5":"2","6":"Compost","7":"12"},{"1":"2","2":"17","3":"4.1","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"3","2":"12","3":"2.9","4":"fertiliser_1","5":"2","6":"Compost","7":"12"},{"1":"3","2":"12","3":"2.9","4":"fertiliser_2","5":"3","6":"Manure","7":"8"},{"1":"4","2":"7","3":"2.5","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"4","2":"7","3":"2.5","4":"fertiliser_2","5":"3","6":"Manure","7":"8"},{"1":"5","2":"8","3":"3.5","4":"fertiliser_1","5":"2","6":"Compost","7":"12"},{"1":"5","2":"8","3":"3.5","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"6","2":"1","3":"1.9","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"6","2":"1","3":"1.9","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"7","2":"20","3":"2.1","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"7","2":"20","3":"2.1","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"8","2":"3","3":"3.9","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"8","2":"3","3":"3.9","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"9","2":"11","3":"2.3","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"9","2":"11","3":"2.3","4":"fertiliser_2","5":"2","6":"Compost","7":"12"},{"1":"10","2":"1","3":"3.3","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"10","2":"1","3":"3.3","4":"fertiliser_2","5":"3","6":"Manure","7":"8"},{"1":"11","2":"15","3":"4.3","4":"fertiliser_1","5":"3","6":"Manure","7":"8"},{"1":"11","2":"15","3":"4.3","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"12","2":"6","3":"1.3","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"12","2":"6","3":"1.3","4":"fertiliser_2","5":"2","6":"Compost","7":"12"},{"1":"13","2":"9","3":"1.3","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"13","2":"9","3":"1.3","4":"fertiliser_2","5":"3","6":"Manure","7":"8"},{"1":"14","2":"5","3":"1.7","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"14","2":"5","3":"1.7","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"15","2":"15","3":"1.3","4":"fertiliser_1","5":"2","6":"Compost","7":"12"},{"1":"15","2":"15","3":"1.3","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"16","2":"18","3":"2.7","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"16","2":"18","3":"2.7","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"17","2":"3","3":"3.1","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"17","2":"3","3":"3.1","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"18","2":"3","3":"1.5","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"18","2":"3","3":"1.5","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"19","2":"7","3":"4.3","4":"fertiliser_1","5":"3","6":"Manure","7":"8"},{"1":"19","2":"7","3":"4.3","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"20","2":"15","3":"3.5","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"20","2":"15","3":"3.5","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"21","2":"3","3":"3.3","4":"fertiliser_1","5":"3","6":"Manure","7":"8"},{"1":"21","2":"3","3":"3.3","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"22","2":"20","3":"0.7","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"22","2":"20","3":"0.7","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"23","2":"12","3":"0.5","4":"fertiliser_1","5":"2","6":"Compost","7":"12"},{"1":"23","2":"12","3":"0.5","4":"fertiliser_2","5":"3","6":"Manure","7":"8"},{"1":"24","2":"18","3":"0.9","4":"fertiliser_1","5":"2","6":"Compost","7":"12"},{"1":"24","2":"18","3":"0.9","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"25","2":"9","3":"2.1","4":"fertiliser_1","5":"2","6":"Compost","7":"12"},{"1":"25","2":"9","3":"2.1","4":"fertiliser_2","5":"3","6":"Manure","7":"8"},{"1":"26","2":"19","3":"1.5","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"26","2":"19","3":"1.5","4":"fertiliser_2","5":"2","6":"Compost","7":"12"},{"1":"27","2":"18","3":"3.7","4":"fertiliser_1","5":"3","6":"Manure","7":"8"},{"1":"27","2":"18","3":"3.7","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"28","2":"19","3":"4.3","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"28","2":"19","3":"4.3","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"29","2":"16","3":"1.3","4":"fertiliser_1","5":"3","6":"Manure","7":"8"},{"1":"29","2":"16","3":"1.3","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"30","2":"7","3":"2.1","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"30","2":"7","3":"2.1","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"31","2":"16","3":"2.7","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"31","2":"16","3":"2.7","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"32","2":"20","3":"4.5","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"32","2":"20","3":"4.5","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"33","2":"17","3":"1.9","4":"fertiliser_1","5":"3","6":"Manure","7":"8"},{"1":"33","2":"17","3":"1.9","4":"fertiliser_2","5":"4","6":"Chemical","7":"25"},{"1":"34","2":"20","3":"1.1","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"34","2":"20","3":"1.1","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"35","2":"4","3":"3.7","4":"fertiliser_1","5":"3","6":"Manure","7":"8"},{"1":"35","2":"4","3":"3.7","4":"fertiliser_2","5":"2","6":"Compost","7":"12"},{"1":"36","2":"2","3":"2.1","4":"fertiliser_1","5":"2","6":"Compost","7":"12"},{"1":"36","2":"2","3":"2.1","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"37","2":"17","3":"4.5","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"37","2":"17","3":"4.5","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"38","2":"1","3":"0.5","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"38","2":"1","3":"0.5","4":"fertiliser_2","5":"2","6":"Compost","7":"12"},{"1":"39","2":"12","3":"4.5","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"39","2":"12","3":"4.5","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"40","2":"7","3":"4.3","4":"fertiliser_1","5":"3","6":"Manure","7":"8"},{"1":"40","2":"7","3":"4.3","4":"fertiliser_2","5":"4","6":"Chemical","7":"25"},{"1":"41","2":"9","3":"2.3","4":"fertiliser_1","5":"3","6":"Manure","7":"8"},{"1":"41","2":"9","3":"2.3","4":"fertiliser_2","5":"4","6":"Chemical","7":"25"},{"1":"42","2":"14","3":"3.1","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"42","2":"14","3":"3.1","4":"fertiliser_2","5":"2","6":"Compost","7":"12"},{"1":"43","2":"2","3":"2.3","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"43","2":"2","3":"2.3","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"44","2":"2","3":"4.5","4":"fertiliser_1","5":"2","6":"Compost","7":"12"},{"1":"44","2":"2","3":"4.5","4":"fertiliser_2","5":"4","6":"Chemical","7":"25"},{"1":"45","2":"20","3":"4.5","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"45","2":"20","3":"4.5","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"46","2":"18","3":"4.7","4":"fertiliser_1","5":"1","6":"None","7":"0"},{"1":"46","2":"18","3":"4.7","4":"fertiliser_2","5":"1","6":"None","7":"0"},{"1":"47","2":"2","3":"1.5","4":"fertiliser_1","5":"3","6":"Manure","7":"8"},{"1":"47","2":"2","3":"1.5","4":"fertiliser_2","5":"2","6":"Compost","7":"12"},{"1":"48","2":"11","3":"3.9","4":"fertiliser_1","5":"2","6":"Compost","7":"12"},{"1":"48","2":"11","3":"3.9","4":"fertiliser_2","5":"4","6":"Chemical","7":"25"},{"1":"49","2":"3","3":"3.5","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"49","2":"3","3":"3.5","4":"fertiliser_2","5":"3","6":"Manure","7":"8"},{"1":"50","2":"3","3":"0.7","4":"fertiliser_1","5":"4","6":"Chemical","7":"25"},{"1":"50","2":"3","3":"0.7","4":"fertiliser_2","5":"3","6":"Manure","7":"8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Okay so we now have our price information in the data. However there is one further step we need to make before we can go further up the levels of this data. Price is calculated at per ha, so to get total expenditure we need to multiply this by the size of the plot. we can do this using mutate</p>
 <pre class="r"><code>Long_plots &lt;- Long_plots %&gt;%
   mutate(price  = price_per_ha * size)</code></pre>
@@ -2083,20 +831,11 @@ Long_plots</code></pre>
   right_join(Plot_data, by = &quot;plot_id&quot;)
 
 Plot_data</code></pre>
-<pre><code>## # A tibble: 50 x 6
-##    plot_id price_total farmer_id  size fertiliser_1 fertiliser_2
-##      &lt;int&gt;       &lt;dbl&gt;     &lt;int&gt; &lt;dbl&gt;        &lt;int&gt;        &lt;dbl&gt;
-##  1       1       115.         10   3.1            4            2
-##  2       2        49.2        17   4.1            2            1
-##  3       3        58          12   2.9            2            3
-##  4       4        82.5         7   2.5            4            3
-##  5       5        42           8   3.5            2            1
-##  6       6        47.5         1   1.9            4            1
-##  7       7         0          20   2.1            1            1
-##  8       8         0           3   3.9            1            1
-##  9       9        85.1        11   2.3            4            2
-## 10      10       109.          1   3.3            4            3
-## # ... with 40 more rows</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["plot_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["price_total"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["farmer_id"],"name":[3],"type":["int"],"align":["right"]},{"label":["size"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["fertiliser_1"],"name":[5],"type":["int"],"align":["right"]},{"label":["fertiliser_2"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"114.7","3":"10","4":"3.1","5":"4","6":"2"},{"1":"2","2":"49.2","3":"17","4":"4.1","5":"2","6":"1"},{"1":"3","2":"58.0","3":"12","4":"2.9","5":"2","6":"3"},{"1":"4","2":"82.5","3":"7","4":"2.5","5":"4","6":"3"},{"1":"5","2":"42.0","3":"8","4":"3.5","5":"2","6":"1"},{"1":"6","2":"47.5","3":"1","4":"1.9","5":"4","6":"1"},{"1":"7","2":"0.0","3":"20","4":"2.1","5":"1","6":"1"},{"1":"8","2":"0.0","3":"3","4":"3.9","5":"1","6":"1"},{"1":"9","2":"85.1","3":"11","4":"2.3","5":"4","6":"2"},{"1":"10","2":"108.9","3":"1","4":"3.3","5":"4","6":"3"},{"1":"11","2":"34.4","3":"15","4":"4.3","5":"3","6":"1"},{"1":"12","2":"48.1","3":"6","4":"1.3","5":"4","6":"2"},{"1":"13","2":"42.9","3":"9","4":"1.3","5":"4","6":"3"},{"1":"14","2":"0.0","3":"5","4":"1.7","5":"1","6":"1"},{"1":"15","2":"15.6","3":"15","4":"1.3","5":"2","6":"1"},{"1":"16","2":"67.5","3":"18","4":"2.7","5":"4","6":"1"},{"1":"17","2":"0.0","3":"3","4":"3.1","5":"1","6":"1"},{"1":"18","2":"0.0","3":"3","4":"1.5","5":"1","6":"1"},{"1":"19","2":"34.4","3":"7","4":"4.3","5":"3","6":"1"},{"1":"20","2":"0.0","3":"15","4":"3.5","5":"1","6":"1"},{"1":"21","2":"26.4","3":"3","4":"3.3","5":"3","6":"1"},{"1":"22","2":"0.0","3":"20","4":"0.7","5":"1","6":"1"},{"1":"23","2":"10.0","3":"12","4":"0.5","5":"2","6":"3"},{"1":"24","2":"10.8","3":"18","4":"0.9","5":"2","6":"1"},{"1":"25","2":"42.0","3":"9","4":"2.1","5":"2","6":"3"},{"1":"26","2":"55.5","3":"19","4":"1.5","5":"4","6":"2"},{"1":"27","2":"29.6","3":"18","4":"3.7","5":"3","6":"1"},{"1":"28","2":"0.0","3":"19","4":"4.3","5":"1","6":"1"},{"1":"29","2":"10.4","3":"16","4":"1.3","5":"3","6":"1"},{"1":"30","2":"0.0","3":"7","4":"2.1","5":"1","6":"1"},{"1":"31","2":"0.0","3":"16","4":"2.7","5":"1","6":"1"},{"1":"32","2":"0.0","3":"20","4":"4.5","5":"1","6":"1"},{"1":"33","2":"62.7","3":"17","4":"1.9","5":"3","6":"4"},{"1":"34","2":"0.0","3":"20","4":"1.1","5":"1","6":"1"},{"1":"35","2":"74.0","3":"4","4":"3.7","5":"3","6":"2"},{"1":"36","2":"25.2","3":"2","4":"2.1","5":"2","6":"1"},{"1":"37","2":"0.0","3":"17","4":"4.5","5":"1","6":"1"},{"1":"38","2":"18.5","3":"1","4":"0.5","5":"4","6":"2"},{"1":"39","2":"112.5","3":"12","4":"4.5","5":"4","6":"1"},{"1":"40","2":"141.9","3":"7","4":"4.3","5":"3","6":"4"},{"1":"41","2":"75.9","3":"9","4":"2.3","5":"3","6":"4"},{"1":"42","2":"114.7","3":"14","4":"3.1","5":"4","6":"2"},{"1":"43","2":"57.5","3":"2","4":"2.3","5":"4","6":"1"},{"1":"44","2":"166.5","3":"2","4":"4.5","5":"2","6":"4"},{"1":"45","2":"112.5","3":"20","4":"4.5","5":"4","6":"1"},{"1":"46","2":"0.0","3":"18","4":"4.7","5":"1","6":"1"},{"1":"47","2":"30.0","3":"2","4":"1.5","5":"3","6":"2"},{"1":"48","2":"144.3","3":"11","4":"3.9","5":"2","6":"4"},{"1":"49","2":"115.5","3":"3","4":"3.5","5":"4","6":"3"},{"1":"50","2":"23.1","3":"3","4":"0.7","5":"4","6":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>We now simply repeat the process to bring this up to farmer level. Simply switching out our data arguments and change to use the appropriate keys that link the data sets.</p>
 <pre class="r"><code>Farmer_data &lt;- Plot_data %&gt;%
   group_by(farmer_id) %&gt;%
@@ -2104,29 +843,11 @@ Plot_data</code></pre>
   right_join(Farmer_data, by = &quot;farmer_id&quot;)
 
 Farmer_data</code></pre>
-<pre><code>## # A tibble: 20 x 4
-##    farmer_id price_total village_id name    
-##        &lt;int&gt;       &lt;dbl&gt;      &lt;int&gt; &lt;chr&gt;   
-##  1         1       175.           3 Saadiq  
-##  2         2       279.           3 Jelicha 
-##  3         3       165            1 Briana  
-##  4         4        74            5 Daeun   
-##  5         5         0            5 Ruwaida 
-##  6         6        48.1          2 Fawzi   
-##  7         7       259.           2 Yashna  
-##  8         8        42            1 Tara    
-##  9         9       161.           5 Melina  
-## 10        10       115.           5 Jeelaan 
-## 11        11       229.           1 Razeena 
-## 12        12       180.           1 Sidqi   
-## 13        14       115.           5 Ryann   
-## 14        15        50            2 Kingsley
-## 15        16        10.4          2 Rifqa   
-## 16        17       112.           1 Denise  
-## 17        18       108.           4 Suhaib  
-## 18        19        55.5          1 Daniel  
-## 19        20       112.           4 Sara    
-## 20        13        NA            5 Eric</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["farmer_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["price_total"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["village_id"],"name":[3],"type":["int"],"align":["right"]},{"label":["name"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"174.9","3":"3","4":"Saadiq"},{"1":"2","2":"279.2","3":"3","4":"Jelicha"},{"1":"3","2":"165.0","3":"1","4":"Briana"},{"1":"4","2":"74.0","3":"5","4":"Daeun"},{"1":"5","2":"0.0","3":"5","4":"Ruwaida"},{"1":"6","2":"48.1","3":"2","4":"Fawzi"},{"1":"7","2":"258.8","3":"2","4":"Yashna"},{"1":"8","2":"42.0","3":"1","4":"Tara"},{"1":"9","2":"160.8","3":"5","4":"Melina"},{"1":"10","2":"114.7","3":"5","4":"Jeelaan"},{"1":"11","2":"229.4","3":"1","4":"Razeena"},{"1":"12","2":"180.5","3":"1","4":"Sidqi"},{"1":"14","2":"114.7","3":"5","4":"Ryann"},{"1":"15","2":"50.0","3":"2","4":"Kingsley"},{"1":"16","2":"10.4","3":"2","4":"Rifqa"},{"1":"17","2":"111.9","3":"1","4":"Denise"},{"1":"18","2":"107.9","3":"4","4":"Suhaib"},{"1":"19","2":"55.5","3":"1","4":"Daniel"},{"1":"20","2":"112.5","3":"4","4":"Sara"},{"1":"13","2":"NA","3":"5","4":"Eric"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Finally, we repeat this one more time to bring it all up to the village level.</p>
 <pre class="r"><code>Village_data &lt;- Farmer_data %&gt;%
   group_by(village_id) %&gt;%
@@ -2134,14 +855,11 @@ Farmer_data</code></pre>
   right_join(Village_data, by = &quot;village_id&quot;)
 
 Village_data</code></pre>
-<pre><code>## # A tibble: 5 x 5
-##   village_id price_average village_name  region_name population
-##        &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;            &lt;int&gt;
-## 1          1         131.  Springfield   A                34387
-## 2          2          91.8 Langley Falls A               462736
-## 3          3         227.  New New York  A               134412
-## 4          4         110.  Pawnee        B               446522
-## 5          5          92.8 Balamory      B               341729</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["village_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["price_average"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["village_name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["region_name"],"name":[4],"type":["chr"],"align":["left"]},{"label":["population"],"name":[5],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"130.7167","3":"Springfield","4":"A","5":"34387"},{"1":"2","2":"91.8250","3":"Langley Falls","4":"A","5":"462736"},{"1":"3","2":"227.0500","3":"New New York","4":"A","5":"134412"},{"1":"4","2":"110.2000","3":"Pawnee","4":"B","5":"446522"},{"1":"5","2":"92.8400","3":"Balamory","4":"B","5":"341729"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>If we wanted to get fancy this could have all been done in the one pipe.</p>
 <p>Note that as we start with Plot_data we do not need to join on to it like we did before, and because plot data already has the farmer_id we can go straight to summarising the data at that level first before moving it upwards to village.</p>
 <pre class="r"><code>Plot_data %&gt;%
@@ -2158,14 +876,11 @@ Village_data</code></pre>
   group_by(village_id) %&gt;%
   summarise(price_average = mean(price_total, na.rm = TRUE)) %&gt;%
   right_join(Village_data, by = &quot;village_id&quot;)</code></pre>
-<pre><code>## # A tibble: 5 x 5
-##   village_id price_average village_name  region_name population
-##        &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;            &lt;int&gt;
-## 1          1         131.  Springfield   A                34387
-## 2          2          91.8 Langley Falls A               462736
-## 3          3         227.  New New York  A               134412
-## 4          4         110.  Pawnee        B               446522
-## 5          5          92.8 Balamory      B               341729</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["village_id"],"name":[1],"type":["int"],"align":["right"]},{"label":["price_average"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["village_name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["region_name"],"name":[4],"type":["chr"],"align":["left"]},{"label":["population"],"name":[5],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"130.7167","3":"Springfield","4":"A","5":"34387"},{"1":"2","2":"91.8250","3":"Langley Falls","4":"A","5":"462736"},{"1":"3","2":"227.0500","3":"New New York","4":"A","5":"134412"},{"1":"4","2":"110.2000","3":"Pawnee","4":"B","5":"446522"},{"1":"5","2":"92.8400","3":"Balamory","4":"B","5":"341729"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 </div>
 <div id="section-external-links-and-resouces" class="section level2">
@@ -2185,7 +900,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 </script>
  <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="dependencies">
-{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["3.6.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/3.6.0"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery-3.6.0.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquerylib"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/cerulean.min.css"]},{"type":"character","attributes":{},"value":["<style>h1 {font-size: 34px;}\n       h1.title {font-size: 38px;}\n       h2 {font-size: 30px;}\n       h3 {font-size: 24px;}\n       h4 {font-size: 18px;}\n       h5 {font-size: 16px;}\n       h6 {font-size: 12px;}\n       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}\n       pre:not([class]) { background-color: white }<\/style>"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["textmate.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-format"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmarkdown/templates/tutorial/resources"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-format.js"]},{"type":"character","attributes":{},"value":["tutorial-format.css","rstudio-theme.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["3.6.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/3.6.0"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery-3.6.0.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquerylib"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["navigation"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/navigation-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tabsets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["default.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]}]}
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["3.6.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/3.6.0"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery-3.6.0.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquerylib"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/cerulean.min.css"]},{"type":"character","attributes":{},"value":["<style>h1 {font-size: 34px;}\n       h1.title {font-size: 38px;}\n       h2 {font-size: 30px;}\n       h3 {font-size: 24px;}\n       h4 {font-size: 18px;}\n       h5 {font-size: 16px;}\n       h6 {font-size: 12px;}\n       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}\n       pre:not([class]) { background-color: white }<\/style>"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["pagedtable"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/pagedtable-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/pagedtable.js"]},{"type":"character","attributes":{},"value":["css/pagedtable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["textmate.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-format"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmarkdown/templates/tutorial/resources"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-format.js"]},{"type":"character","attributes":{},"value":["tutorial-format.css","rstudio-theme.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["3.6.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/3.6.0"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery-3.6.0.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquerylib"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["navigation"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/navigation-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tabsets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["default.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.11"]}]}]}
 </script>
 <!--/html_preserve-->
 <!--html_preserve-->

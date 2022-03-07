@@ -4,7 +4,7 @@ output:
   learnr::tutorial:
     progressive: true
     allow_skip: true
-    df_print: default
+    df_print: paged
 runtime: shiny_prerendered
 description: >
   Learn about the basics of summarising your data and merging different data sets together
@@ -107,25 +107,25 @@ For this workbook we will be using four relational data tables, each storing dat
 At the top level we have some data about the Villages in our study
 
 ```{r, echo = FALSE}
-Village_data %>%knitr::kable()
+Village_data 
 ```
 
 Below this we have information on a number of farmers who took part in our study
 
 ```{r, echo = FALSE}
-Farmer_data %>%knitr::kable()
+Farmer_data 
 ```
 
 Further down still, we have our plot level data
 
 ```{r, echo = FALSE}
-Plot_data %>%knitr::kable()
+Plot_data 
 ```
 
 Lastly, we have some further information on fertilizers. 
 
 ```{r, echo = FALSE}
-Fertiliser_data %>%knitr::kable()
+Fertiliser_data 
 ```
 
 
@@ -212,10 +212,8 @@ Sum2 <- Plot_data %>%
             avg_area = mean(size, na.rm = TRUE),
             sd = sd(size, na.rm = TRUE),
             nplots = n())
-```
 
-```{r, echo = FALSE}
-Sum2 %>%knitr::kable()
+Sum2
 ```
 
 There are a number of other summarise functions that can be used to apply the same function to multiple columns rather than go through one by one. For more on this, please follow this [link](https://dplyr.tidyverse.org/reference/summarise_all.html)
@@ -238,10 +236,8 @@ Sum3 <- Plot_data %>%
             sd = sd(size, na.rm = TRUE),
             nplots = n()) %>%
   arrange(farmer_id)
-```
 
-```{r, echo = FALSE}
-Sum3 %>%head(10) %>%knitr::kable()
+Sum3 
 ```
 
 
@@ -250,10 +246,8 @@ This could be useful for creating a new variable that is at one level, but is al
 ```{r}
 Sum3 <- Sum3 %>%
   mutate(plot_area_prop = size/total_area)
-```
 
-```{r,echo = FALSE}
-Sum3 %>%head(10) %>%knitr::kable()
+Sum3 
 ```
 
 ## Binding data
@@ -531,10 +525,8 @@ So in this case, we need an inner join. Because we only want to keep the rows th
 ```{r}
 Plot_data <- Plot_data %>%
   inner_join(Farmer_data, by = "farmer_id")
-```
 
-```{r, echo = FALSE}
-Plot_data %>%head(10) %>%knitr::kable()
+Plot_data
 ```
 
 So we have successfully brought down the farmer data, including both the village_id and the farmers names.
@@ -544,10 +536,8 @@ We could extend this further and bring down the village level information as wel
 ```{r}
 Plot_data <- Plot_data %>%
   inner_join(Village_data, by = "village_id")
-```
 
-```{r, echo = FALSE}
-Plot_data %>%head(10) %>%knitr::kable()
+Plot_data
 ```
 
 Now we can use `group_by` and `summarise` to calculate that village level plot average
